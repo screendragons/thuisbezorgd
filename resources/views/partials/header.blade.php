@@ -1,11 +1,9 @@
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Codeply">
+
   <link rel="stylesheet" href="./css/bootstrap.min.css" />
   <link rel="stylesheet" href="./css/animate.min.css" />
   <link rel="stylesheet" href="./css/ionicons.min.css" />
   <link rel="stylesheet" href="./css/styles.css" />
-</head>
+  <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
 <nav id="topNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -15,29 +13,38 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="/thuisbezorgd/public">Thuisbezorgd</a>
+                <a class="navbar-brand page-scroll" href="{{ url('/home') }}">Thuisbezorgd</a>
             </div>
             <div class="navbar-collapse collapse" id="bs-navbar">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a class="#" href="#">Register</a>
-                    </li>
+                  @guest
                     <li>
                         <a class="#" href="#">Restaurants</a>
                     </li>
-                    {{-- <li>
-                        <a class="#" href="#three">Gallery</a>
+                    <li>
+                        <a class="#" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+                    @if (Route::has('register'))
+                      <li>
+                        <a class="#" href="{{ route('register') }}">{{ __('Register') }}</a>
+                      </li>
+                    @endif
+                    <li>
+                        <a class="#" href="{{ url('/profile') }}">Profile</a>
                     </li>
                     <li>
-                        <a class="#" href="#four">Features</a>
-                    </li>
- --}}                    <li>
                         <a class="#" href="#">Contact</a>
                     </li>
+                  @endguest
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="/thuisbezorgd/public/login">Login</a>
+                    </li>
+
+                    <li>
+                        <a class="page-scroll" data-toggle="modal" method="POST" href="{{ route('logout') }}">Logout</a>
+                        @csrf
                     </li>
                 </ul>
             </div>
