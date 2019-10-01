@@ -11,6 +11,7 @@
     <header id="first">
         <div class="header-content">
             <div class="inner">
+                <img src="tb.jpg" height="100" width="100">
                 <h1 class="cursive">Thuisbezorgd</h1>
                 <h4>Let's take away today</h4>
                 <hr>
