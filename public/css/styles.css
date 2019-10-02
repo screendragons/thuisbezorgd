@@ -16,7 +16,7 @@ body {
 
 body {
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
-    background-color: #282828;
+    /*background-color: #282828;*/
     color: #d3d3d3;
     webkit-tap-highlight-color: #222;
 }
@@ -34,10 +34,11 @@ hr.light {
 }
 
 a {
-    color: #9c27b0;
+    color: #fff;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
+    text-decoration: none;
 }
 
 a:hover,
@@ -88,7 +89,7 @@ p {
 }
 
 .text-primary {
-    color: #9c27b0;
+    color: #fff;
 }
 
 .modal-content {

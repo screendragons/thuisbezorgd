@@ -19,4 +19,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/restaurant', 'ContactController@index')->name('restaurant');
+
+Route::get('/profile', 'ProfileController@index')->name('profile');
+
+Route::get('/contact', 'ContactController@index')->name('contact');
+
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

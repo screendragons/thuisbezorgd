@@ -15,7 +15,10 @@
                 <h1 class="cursive">Thuisbezorgd</h1>
                 <h4>Let's take away today</h4>
                 <hr>
-                <a href="/thuisbezorgd/public/login" class="btn btn-primary btn-xl page-scroll">Login</a>
+
+                @guest
+                <a href="{{ route('login') }}" class="btn btn-primary btn-xl page-scroll">Login</a>
+                @endguest
             </div>
         </div>
     </header>
@@ -28,7 +31,7 @@
                     <p class="text-faded">
                        Ben je een keer lui om te koken? Bestel via Thuisbezorgd en je hoeft niet uit huis om je aankopen te doen
                     </p>
-                    <a href="#three" class="btn btn-default btn-xl page-scroll">Learn More</a>
+                    <a href="{{ url('/restaurant') }}" class="btn btn-default btn-xl page-scroll">Restaurants</a>
                 </div>
             </div>
         </div>
@@ -40,9 +43,9 @@
                 <div class="col-xs-6 col-sm-3 column">
                     <h4>Information</h4>
                     <ul class="list-unstyled">
-                        <li><a href="">Restaurants</a></li>
-                        <li><a href="">My takeaway</a></li>
-                        <li><a href="">Register</a></li>
+                        <li><a href="{{ url('/restaurant') }}">Restaurants</a></li>
+                        <li><a href="{{ url('/profile') }}">My takeaway</a></li>
+                        <li><a href="{{ route('register') }}">Register</a></li>
                     </ul>
                 </div>
             </div>
