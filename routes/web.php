@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/restaurant', 'ContactController@index')->name('restaurant');
+Route::get('/restaurant', 'RestaurantController@index')->name('restaurant');
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
 
