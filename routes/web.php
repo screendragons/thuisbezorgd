@@ -19,10 +19,18 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/restaurant', 'RestaurantController@index')->name('restaurant');
+Route::resource('restaurant', 'RestaurantController');
+
+Route::resource('restaurant/{restaurant_id}/consumables', 'ConsumableController');
+
+// Route::get('/restaurant', 'RestaurantController@index')->name('restaurant');
+
+// Route::post('/restaurant/{id}', 'RestaurantController@store')->name('restaurant.store');
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
 
 Route::get('/contact', 'ContactController@index')->name('contact');
+
+Route::get('/dominos', 'DominosController@index')->name('dominos');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

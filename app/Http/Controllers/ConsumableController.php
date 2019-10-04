@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Restaurant;
 
-class RestaurantController extends Controller
+class ConsumableController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        return view('restaurant');
+        return '<a href="'.route('consumables.show', ['consumable' => 1]).'">show</a>';
     }
 
     /**
@@ -35,18 +34,7 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'title' => 'required|unique:posts|max:255',
-            'KVK' => 'unique|max:25',
-            'address' => 'required|unique|max:255',
-            'zipcode' => 'required|unique|max:255',
-            'city' => 'required|unique|max:255',
-            'phone' => 'required|unique|max:255',
-            'email' => 'required|unique|max:255',
-            'photo' => 'unique|max:255'
-        ]);
-
-        return view('home');
+        //
     }
 
     /**
@@ -57,7 +45,7 @@ class RestaurantController extends Controller
      */
     public function show($id)
     {
-        return 'hallo <a href="'.route('consumables.index').'">Ga naar consumables</a>';
+        //
     }
 
     /**
