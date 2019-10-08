@@ -10,37 +10,45 @@
   <form method="POST" action="{{ route('restaurant.store') }}">
     @csrf
     <div class="form-group">
-      <label for="title">Name</label>
-      <input type="title" class="form-control" id="title" placeholder="Name of your restaurant" name="title">
+        <label for="title">Name</label>
+        <input type="text" class="form-control" id="title" placeholder="Name of your restaurant" name="name" value="{{ old('name') }}">
+        {!! $errors->first('name', '<p class="text-danger">:message</p>') !!}
     </div>
     <div class="form-group">
       <label for="kvk">KvK</label>
-      <input type="kvk" class="form-control" id="kvk" placeholder="Enter here your KvK" name="kvk">
+      <input type="text" class="form-control" id="kvk" placeholder="Enter here your KvK" name="kvk" value="{{ old('kvk') }}">
+        {!! $errors->first('kvk', '<p class="text-danger">:message</p>') !!}
     </div>
     <div class="form-group">
       <label for="address">Address</label>
-      <input type="address" class="form-control" id="address" placeholder="Address" name="address">
+      <input type="text" class="form-control" id="address" placeholder="Address" name="address" value="{{ old('address') }}">
+        {!! $errors->first('address', '<p class="text-danger">:message</p>') !!}
     </div>
     <div class="form-group">
       <label for="zipcode">Zipcode</label>
-      <input type="zipcode" class="form-control" id="zipcode" placeholder="Zipcode" name="zipcode">
+      <input type="text" class="form-control" id="zipcode" placeholder="Zipcode" name="zipcode" value="{{ old('zipcode') }}">
+        {!! $errors->first('zipcode', '<p class="text-danger">:message</p>') !!}
     </div>
     <div class="form-group">
       <label for="city">City</label>
-      <input type="city" class="form-control" id="city" placeholder="City" name="city">
+      <input type="text" class="form-control" id="city" placeholder="City" name="city" value="{{ old('city') }}">
+        {!! $errors->first('city', '<p class="text-danger">:message</p>') !!}
     </div>
     <div class="form-group">
       <label for="phone">Phone</label>
-      <input type="phone" class="form-control" id="phone" placeholder="Phone number" name="phone">
+      <input type="text" class="form-control" id="phone" placeholder="Phone number" name="phone" value="{{ old('phone') }}">
+        {!! $errors->first('phone', '<p class="text-danger">:message</p>') !!}
     </div>
     <div class="form-group">
       <label for="e-mail">E-mail</label>
-      <input type="e-mail" class="form-control" id="e-mail" placeholder="E-mail" name="e-mail">
+      <input type="email" class="form-control" id="e-mail" placeholder="E-mail" name="email" value="{{ old('email') }}">
+        {!! $errors->first('email', '<p class="text-danger">:message</p>') !!}
     </div>
-    {{-- <div class="form-group">
+    <div class="form-group">
       <label for="photo">Photo</label>
-      <input type="image" class="form-control" id="photo" placeholder="Upload a image" name="photo">
-    </div> --}}
+      <input type="file" class="form-control" id="photo" placeholder="Upload a image" name="photo">
+        {!! $errors->first('image', '<p class="text-danger">:message</p>') !!}
+    </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>

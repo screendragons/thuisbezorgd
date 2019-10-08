@@ -31,6 +31,4 @@ Route::get('/profile', 'ProfileController@index')->name('profile');
 
 Route::get('/contact', 'ContactController@index')->name('contact');
 
-Route::get('/dominos', 'DominosController@index')->name('dominos');
-
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

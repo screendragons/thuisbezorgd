@@ -36,15 +36,16 @@ class RestaurantController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'title' => 'required|unique:posts|max:255',
-            'KVK' => 'unique|max:25',
-            'address' => 'required|unique|max:255',
-            'zipcode' => 'required|unique|max:255',
-            'city' => 'required|unique|max:255',
-            'phone' => 'required|unique|max:255',
-            'email' => 'required|unique|max:255',
-            'photo' => 'unique|max:255'
+            'name' => 'required|string|max:255',
+            'kvk' => 'string|max:25|unique:restaurants',
+            'address' => 'required|string|max:255',
+            'zipcode' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'phone' => 'required|string|max:255',
+            'email' => 'required|string|unique:restaurants,email|max:255',
+            'photo' => 'string|max:255'
         ]);
+        dd('here');
 
         return view('home');
     }

@@ -25,4 +25,8 @@ class Restaurant extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+}
+class Restaurant {
+    protected $table = "restaurants";
 }
