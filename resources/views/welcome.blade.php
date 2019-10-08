@@ -43,9 +43,9 @@
                 <div class="col-xs-6 col-sm-3 column">
                     <h4>Information</h4>
                     <ul class="list-unstyled">
-                        <li><a href="{{ url('/restaurant') }}">Restaurants</a></li>
+                        <li><a href="{{ url('/restaurants') }}">Restaurants</a></li>
                         <li><a href="{{ url('/profile') }}">My takeaway</a></li>
-                        <li><a href="{{ route('register') }}">Register</a></li>
+                        {{-- <li><a href="{{ route('register') }}">Register</a></li> --}}
                     </ul>
                 </div>
             </div>

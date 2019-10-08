@@ -2,12 +2,12 @@
 {{--
 @section('content') --}}
 <div class="Restaurantpage">
-    <title>Restaurants</title>
+    <title>Create a restaurant</title>
 </div>
 
 <div class="container padding">
   <h2>Create restaurant</h2>
-  <form method="POST" action="{{ route('restaurant.store') }}">
+  <form method="POST" action="{{ route('createrestaurant.store') }}">
     @csrf
     <div class="form-group">
         <label for="title">Name</label>

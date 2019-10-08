@@ -19,15 +19,19 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('restaurant', 'RestaurantController');
+// create a restaurant
+Route::resource('createrestaurant', 'CreaterestaurantController');
 
-Route::resource('restaurant/{restaurant_id}/consumables', 'ConsumableController');
+Route::resource('restaurants/{restaurant_id}/consumables', 'ConsumableController');
+
+// restaurants page
+Route::resource('restaurants', 'RestaurantsController');
 
 // Route::get('/restaurant', 'RestaurantController@index')->name('restaurant');
 
 // Route::post('/restaurant/{id}', 'RestaurantController@store')->name('restaurant.store');
 
-Route::get('/profile', 'ProfileController@index')->name('profile');
+Route::resource('/profile', 'ProfileController');
 
 Route::get('/contact', 'ContactController@index')->name('contact');
 

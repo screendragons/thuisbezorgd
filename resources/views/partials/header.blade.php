@@ -20,7 +20,7 @@
             <ul class="nav navbar-nav">
               @guest
                 <li>
-                    <a class="restaurant" href="{{ url('/restaurant') }}">Restaurants</a>
+                    <a class="restaurants" href="{{ url('/restaurants') }}">Restaurants</a>
                 </li>
                 <li>
                     <a href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -35,7 +35,10 @@
                 </li>
                 @else
                     <li>
-                        <a class="restaurant" href="{{ url('/restaurant') }}">Restaurants</a>
+                        <a class="restaurants" href="{{ url('/restaurants') }}">Restaurants</a>
+                    </li>
+                    <li>
+                        <a class="createrestaurant" href="{{ url('/createrestaurant') }}">Create restaurant</a>
                     </li>
                     <li>
                         <a class="profile" href="{{ url('/profile') }}">Profile</a>
