@@ -5,3 +5,12 @@ img.card-img-top {
     width: 200px;
     height: 200px;
 }
+.form {
+	padding-left: 40%;
+}
+input#exampleInputPassword {
+    width: 60%;
+}
+#close{
+    color: #000;
+}

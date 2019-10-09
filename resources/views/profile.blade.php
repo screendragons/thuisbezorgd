@@ -1,48 +1,43 @@
 @extends('partials.header')
 {{--@section('content') --}}
 
-<div class="container padding">
+<div class="container padding form">
   <h2>Profile</h2>
   {{-- <form method="POST" action="{{ route('profile.store') }}"> --}}
 
      <form>
       <div class="form-group">
-        <label for="exampleInputFirstname">First name</label>
-        <p>
+        <label for="exampleInputFirstname">First name - </label>
           {{ $users->first_name }}
-        </p>
       </div>
       <div class="form-group">
-        <label for="exampleInputLastname">Last name</label>
-        <p>
+        <label for="exampleInputLastname">Last name - </label>
           {{ $users->last_name }}
-        </p>
       </div>
       <div class="form-group">
-        <label for="exampleInputAddress">Address</label>
-        <input type="text" class="form-control" id="exampleInputAddress" placeholder="Address" value="{{ $users->address }}">
+        <label for="exampleInputAddress">Address - </label>
+          {{ $users->address }}
       </div>
       <div class="form-group">
-        <label for="exampleInputZipcode">Zipcode</label>
-        <input type="text" class="form-control" id="exampleInputZipcode" placeholder="Zipcode" value="{{ $users->zipcode }}">
+        <label for="exampleInputZipcode">Zipcode - </label>
+        {{ $users->zipcode }}
       </div>
       <div class="form-group">
-        <label for="exampleInputLastname">City</label>
-        <input type="text" class="form-control" id="exampleInputCity" placeholder="City" value="{{ $users->city }}">
+        <label for="exampleInputLastname">City - </label>
+        {{ $users->city }}
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword">Password</label>
+        <label for="exampleInputPassword">Password - </label>
         <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password" value="{{ $users->password }}">
       </div>
       <div class="form-group">
-        <label for="exampleInputLastname">Phone</label>
-        <input type="text" class="form-control" id="exampleInputPhone" placeholder="Phone number" value="{{ $users->phone }}">
+        <label for="exampleInputLastname">Phone - </label>
+          {{ $users->phone }}
       </div>
       <div class="form-group">
-          <label for="exampleInputEmail">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="{{ $users->email }}">
+          <label for="exampleInputEmail">Email address - </label>
+          {{ $users->email }}
       </div>
-    <button class="btn btn-primary">Save</button>
   </form>
 </div>
 {{-- @endsection --}}

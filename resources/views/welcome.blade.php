@@ -31,7 +31,7 @@
                     <p class="text-faded">
                        Ben je een keer lui om te koken? Bestel via Thuisbezorgd en je hoeft niet uit huis om je aankopen te doen
                     </p>
-                    <a href="{{ url('/restaurant') }}" class="btn btn-default btn-xl page-scroll">Restaurants</a>
+                    <a href="{{ url('/restaurants') }}" class="btn btn-default btn-xl page-scroll">Restaurants</a>
                 </div>
             </div>
         </div>
