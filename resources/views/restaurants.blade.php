@@ -16,8 +16,8 @@
           <p class="card-text">
             {{ $restaurant->city}}
           </p>
-          <a href="#" class="btn btn-primary">
-            Visit menu
+          <a href="{{ url('/{restaurants->id}/consumables')}}" class="btn btn-primary">
+            Visit
           </a>
         </div>
       </div>

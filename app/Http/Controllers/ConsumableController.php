@@ -45,7 +45,10 @@ class ConsumableController extends Controller
      */
     public function show($id)
     {
-        //
+        $consumable = consumable::find($id);
+
+        return view('show')
+            ->with('consumables', $consumables);
     }
 
     /**

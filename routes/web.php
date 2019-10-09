@@ -26,7 +26,7 @@ Route::resource('createrestaurants', 'CreaterestaurantsController');
 // Route::resource('restaurants', 'RestaurantsController');
 Route::get('/restaurants', 'RestaurantsController@index')->name('restaurant');
 
-Route::resource('restaurants/{restaurant_id}/consumables', 'ConsumableController');
+Route::resource('restaurants/{restaurants_id}/consumables', 'ConsumableController');
 
 // Route::get('/restaurant', 'RestaurantController@index')->name('restaurant');
 
