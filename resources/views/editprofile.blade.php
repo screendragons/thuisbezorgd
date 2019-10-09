@@ -5,18 +5,15 @@
   <h2>Profile</h2>
   {{-- <form method="POST" action="{{ route('profile.store') }}"> --}}
 
-     <form>
+     <form method="POST" action="{{ route('editprofile.update',[$users->id]) }}">
+     	@csrf
       <div class="form-group">
         <label for="exampleInputFirstname">First name</label>
-        <p>
-          {{ $users->first_name }}
-        </p>
+        <input type="text" class="form-control" id="exampleInputFirst_name" placeholder="First name" value="{{ $users->first_name }}">
       </div>
       <div class="form-group">
         <label for="exampleInputLastname">Last name</label>
-        <p>
-          {{ $users->last_name }}
-        </p>
+        <input type="text" class="form-control" id="exampleInputLast_name" placeholder="Last name" value="{{ $users->last_name }}">
       </div>
       <div class="form-group">
         <label for="exampleInputAddress">Address</label>

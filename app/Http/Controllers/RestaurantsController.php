@@ -14,7 +14,8 @@ class RestaurantsController extends Controller
      */
     public function index()
     {
-        return view('restaurants');
+        $restaurant = Restaurants::get()->all();
+        return view('restaurants')->with('restaurant', $restaurant);
     }
 
     /**
@@ -46,10 +47,11 @@ class RestaurantsController extends Controller
      */
     public function show($id)
     {
-        $restaurant = Restaurant::find($id);
+        $restaurants = Restaurants::find($id);
+        // $restaurants = Restaurants::all();
 
-        return view('show')
-            ->with('restaurant', $restaurant);
+        return view('restaurants')
+            ->with('restaurants', $restaurants);
     }
 
     /**

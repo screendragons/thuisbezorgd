@@ -3,11 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class Restaurants extends Model
 {
     public function user()
     {
-        return $this->hasMany('App\User');
+        return $this->belongsTo('App\User');
     }
 }

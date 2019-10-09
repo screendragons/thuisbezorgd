@@ -23,7 +23,7 @@ class CreateRestaurantsTable extends Migration
             $table->string('city');
             $table->string('phone');
             $table->string('email');
-            $table->string('photo');
+            $table->string('photo')->default('default.jpg');
             $table->timestamps();
         });
     }
