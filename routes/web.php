@@ -24,13 +24,16 @@ Route::resource('createrestaurants', 'CreaterestaurantsController');
 
 // restaurants page
 // Route::resource('restaurants', 'RestaurantsController');
+// Route::post('/restaurant/{id}', 'RestaurantController@store')->name('restaurant.store');
 Route::get('/restaurants', 'RestaurantsController@index')->name('restaurant');
 
 Route::resource('restaurants/{restaurants_id}/consumables', 'ConsumableController');
 
-// Route::get('/restaurant', 'RestaurantController@index')->name('restaurant');
+// Create a consumable
+Route::resource('createconsumables', 'CreateconsumablesController');
 
-// Route::post('/restaurant/{id}', 'RestaurantController@store')->name('restaurant.store');
+// Consumables
+Route::resource('consumables', 'ConsumableController');
 
 Route::resource('/profile', 'ProfileController');
 

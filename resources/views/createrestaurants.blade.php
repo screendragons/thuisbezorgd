@@ -1,11 +1,11 @@
 @extends('partials.header')
 {{--
 @section('content') --}}
-<div class="Restaurantpage">
+<div class="createrestaurants">
     <title>Create a restaurant</title>
 </div>
 
-<div class="container padding form">
+<div class="container padding createrestaurants">
   <h2>Create restaurant</h2>
   {!! Form::open(['route' => 'createrestaurants.store', 'method' => 'POST', 'files' => true]) !!}
     <label for="name">Name</label>

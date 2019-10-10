@@ -5,12 +5,15 @@ img.card-img-top {
     width: 200px;
     height: 200px;
 }
-.form {
+.createrestaurants {
 	padding-left: 40%;
 }
 input#exampleInputPassword {
     width: 60%;
 }
-#close{
-    color: #000;
+.contact {
+    width: 55%;
+}
+input#message {
+    height: 20%;
 }

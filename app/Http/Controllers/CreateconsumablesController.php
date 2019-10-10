@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Createconsumables;
 use App\Consumable;
+use DB;
 
-class ConsumableController extends Controller
+class CreateconsumablesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,12 +16,7 @@ class ConsumableController extends Controller
      */
     public function index()
     {
-        //van meester
-        // return '<a href="'.route('consumables.show', ['consumable' => 1]).'">show</a>';
-
-
-        $consumables = Consumable::find($id);
-        return view('consumables');
+        return view('createconsumables');
     }
 
     /**
@@ -40,7 +37,33 @@ class ConsumableController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'price' => 'string|max:25|unique:restaurants',
+            'category' => 'required|string|max:255',
+            'photo' => 'string|max:255'
+        ]);
+        try {
+                DB::beginTransaction();
+                $consumable = new Consumable;
+
+                $consumable->title = $request->title;
+                $consumable->price = $request->price;
+                $consumable->category = $request->category;
+                $consumable->user_id = Auth()->user()->id;
+
+                $consumable->save();
+                DB::commit();
+                return redirect()->back()->with('message', 'A new consumable has been maded.');
+
+            }
+            catch(Exception $e)
+            {
+                DB::rollback();
+                dd($e->getMessage());
+            }
+
+        return view('consumables');
     }
 
     /**
@@ -51,10 +74,7 @@ class ConsumableController extends Controller
      */
     public function show($id)
     {
-        $consumable = Consumable::find($id);
-
-        return view('consumables')
-            ->with('consumable', $consumable);
+        //
     }
 
     /**

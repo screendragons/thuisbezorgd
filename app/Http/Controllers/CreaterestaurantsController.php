@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Createrestaurants;
-use DB;
 use App\Restaurants;
+use DB;
 
 class CreaterestaurantsController extends Controller
 {
