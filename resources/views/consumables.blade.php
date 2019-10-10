@@ -23,5 +23,6 @@
     </div>
   </div>
   @endforeach --}}
+  <a href="{{-- {{ route('consumables.edit', $consumables->id) }} --}}" class="btn btn-primary">Edit</a>
 </div>
 {{-- @endsection --}}

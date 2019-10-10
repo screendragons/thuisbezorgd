@@ -37,12 +37,12 @@ class CreateconsumablesController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'price' => 'string|max:25|unique:restaurants',
-            'category' => 'required|string|max:255',
-            'photo' => 'string|max:255'
-        ]);
+        // $validatedData = $request->validate([
+        //     'title' => 'required|string|max:255',
+        //     'price' => 'string|max:25|unique:restaurants',
+        //     'category' => 'required|string|max:255',
+        //     'photo' => 'string|max:255'
+        // ]);
         try {
                 DB::beginTransaction();
                 $consumable = new Consumable;
@@ -50,7 +50,7 @@ class CreateconsumablesController extends Controller
                 $consumable->title = $request->title;
                 $consumable->price = $request->price;
                 $consumable->category = $request->category;
-                $consumable->user_id = Auth()->user()->id;
+                $consumable->id = Auth()->user()->id;
 
                 $consumable->save();
                 DB::commit();

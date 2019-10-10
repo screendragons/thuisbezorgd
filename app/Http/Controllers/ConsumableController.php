@@ -14,7 +14,7 @@ class ConsumableController extends Controller
      */
     public function index()
     {
-        //van meester
+        //van Matthijs
         // return '<a href="'.route('consumables.show', ['consumable' => 1]).'">show</a>';
 
 
@@ -51,10 +51,10 @@ class ConsumableController extends Controller
      */
     public function show($id)
     {
-        $consumable = Consumable::find($id);
+        $consumables = Consumables::find($id);
 
         return view('consumables')
-            ->with('consumable', $consumable);
+            ->with('consumables', $consumables);
     }
 
     /**
@@ -65,7 +65,9 @@ class ConsumableController extends Controller
      */
     public function edit($id)
     {
-        //
+        $consumables = Consumables::find($id);
+            return view::make('editconsumable')
+                ->with('consumables', $consumables);
     }
 
     /**

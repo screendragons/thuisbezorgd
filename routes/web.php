@@ -35,6 +35,8 @@ Route::resource('createconsumables', 'CreateconsumablesController');
 // Consumables
 Route::resource('consumables', 'ConsumableController');
 
+Route::resource('editconsumables', 'EditconsumableController');
+
 Route::resource('/profile', 'ProfileController');
 
 Route::resource('editprofile', 'EditprofileController');
