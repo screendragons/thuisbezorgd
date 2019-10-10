@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\User;
-use App\Consumables;
+use App\Consumable;
 
 class Restaurants extends Model
 {
@@ -17,4 +17,7 @@ class Restaurants extends Model
     {
         return $this->belongsTo('App\Consumables');
     }
+}
+class Restaurant {
+    protected $table = "restaurants";
 }

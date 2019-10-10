@@ -19,3 +19,6 @@ class Consumable extends Model
         return $this->belongsTo('App\Restaurants');
     }
 }
+class Consumables {
+    protected $table = "consumables";
+}
