@@ -23,7 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('createrestaurants', 'CreaterestaurantsController');
 
 // restaurants page
-// Route::resource('restaurants', 'RestaurantsController');
+Route::resource('restaurants', 'RestaurantsController');
 // Route::post('/restaurant/{id}', 'RestaurantController@store')->name('restaurant.store');
 Route::get('/restaurants', 'RestaurantsController@index')->name('restaurant');
 

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Createconsumables;
-use App\Consumable;
+
+use App\Consumables;
 use DB;
 
 class CreateconsumablesController extends Controller
@@ -16,7 +16,8 @@ class CreateconsumablesController extends Controller
      */
     public function index()
     {
-        return view('createconsumables');
+
+        return view('consumables');
     }
 
     /**

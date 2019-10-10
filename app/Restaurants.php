@@ -15,9 +15,9 @@ class Restaurants extends Model
 
     public function consumables()
     {
-        return $this->belongsTo('App\Consumables');
+        return $this->hasMany('App\Consumables');
     }
 }
-class Restaurant {
-    protected $table = "restaurants";
-}
+// class Restaurant {
+//     protected $table = "restaurants";
+// }

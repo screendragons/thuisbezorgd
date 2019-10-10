@@ -7,7 +7,7 @@ use App\User;
 use App\Restaurants;
 use DB;
 
-class Consumable extends Model
+class Consumables extends Model
 {
 	public function user()
     {
@@ -18,7 +18,4 @@ class Consumable extends Model
     {
         return $this->belongsTo('App\Restaurants');
     }
-}
-class Consumables {
-    protected $table = "consumables";
 }

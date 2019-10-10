@@ -18,8 +18,10 @@ class ConsumableController extends Controller
         // return '<a href="'.route('consumables.show', ['consumable' => 1]).'">show</a>';
 
 
-        $consumables = Consumable::find($id);
-        return view('consumables');
+        $restaurant = Consumable::get()->all();
+
+        return  view('restaurants')
+            ->with('restaurant', $restaurant);
     }
 
     /**

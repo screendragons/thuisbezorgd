@@ -1,5 +1,5 @@
 @extends('partials.header')
-
+{{-- <input type="" name="" value="{{ $restaurant->id }}"> --}}
 {{-- @section('content') --}}
 <div class="container padding">
   <h2>Consumables</h2>

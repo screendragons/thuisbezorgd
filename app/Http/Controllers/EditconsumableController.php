@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Restaurants;
-use App\Consumable;
 
-class RestaurantsController extends Controller
+class EditconsumableController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +13,7 @@ class RestaurantsController extends Controller
      */
     public function index()
     {
-        $restaurant = Restaurants::get()->all();
-        return view('restaurants')->with('restaurant', $restaurant);
+        //
     }
 
     /**
@@ -48,11 +45,7 @@ class RestaurantsController extends Controller
      */
     public function show($id)
     {
-        $restaurant = Restaurants::find($id);
-        // $restaurants = Restaurants::all();
-
-        return view('showrestaurant')
-            ->with('restaurant', $restaurant);
+        //
     }
 
     /**

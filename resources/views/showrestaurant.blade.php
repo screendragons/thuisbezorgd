@@ -1,11 +1,13 @@
-@extends('partials.header')
-
+@include('partials.header')
 {{-- @section('content') --}}
 <div class="container padding">
   <h2>Restaurants</h2>
   <p>Here will show the restaurants</p>
+  @php
+    $consumables = $restaurant->consumables()->get();
 
-  @foreach($restaurant as $restaurant)
+  @endphp
+
     <div class="col-md-3 profile-section">
       <div class="card" style="width: 18rem;">
         <img src="tb.jpg" class="card-img-top" alt="...">
@@ -16,12 +18,22 @@
           <p class="card-text">
             {{ $restaurant->city}}
           </p>
-          <a href="restaurants/{{@$restaurant->id}}" class="btn btn-primary">
+          {{-- <a href="{{ url('/consumables')}}" class="btn btn-primary">
             Visit
-          </a>
+          </a> --}}
         </div>
       </div>
     </div>
-  @endforeach
+
+    <h1>papa</h1>
+
+    @foreach($consumables as $consumable)
+      <p>{{ $consumable->title }}</p>
+      <p>{{ $consumable->price }}</p>
+{{--       <p>{{ $consumable->title }}</p>
+      <p>{{ $consumable->title }}</p> --}}
+
+    @endforeach
+
 </div>
 {{-- @endsection --}}
