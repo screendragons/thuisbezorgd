@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Restaurants;
-use App\Consumable;
+use App\Consumables;
 
 class RestaurantsController extends Controller
 {

@@ -44,3 +44,11 @@ Route::resource('editprofile', 'EditprofileController');
 Route::get('/contact', 'ContactController@index')->name('contact');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+// Route::any('/search',function(){
+//     $q = Input::get ( 'q' );
+//     $user = User::where('name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->get();
+//     if(count($user) > 0)
+//         return view('restaurants')->withDetails($user)->withQuery ( $q );
+//     else return view ('restaurants')->withMessage('No Details found. Try to search again !');
+// });

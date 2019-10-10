@@ -17,7 +17,7 @@ class CreateconsumablesController extends Controller
     public function index()
     {
 
-        return view('consumables');
+        return view('createconsumables');
     }
 
     /**
@@ -46,7 +46,7 @@ class CreateconsumablesController extends Controller
         // ]);
         try {
                 DB::beginTransaction();
-                $consumable = new Consumable;
+                $consumable = new Consumables;
 
                 $consumable->title = $request->title;
                 $consumable->price = $request->price;

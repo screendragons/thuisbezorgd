@@ -27,10 +27,6 @@
         {{ $users->city }}
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword">Password - </label>
-        <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password" value="{{ $users->password }}">
-      </div>
-      <div class="form-group">
         <label for="exampleInputLastname">Phone - </label>
           {{ $users->phone }}
       </div>
@@ -38,6 +34,7 @@
           <label for="exampleInputEmail">Email address - </label>
           {{ $users->email }}
       </div>
+      <a href="{{ route('editprofile.edit', $users->id) }}" class="btn btn-primary">Edit</a>
   </form>
 </div>
 {{-- @endsection --}}

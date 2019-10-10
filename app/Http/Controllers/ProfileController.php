@@ -59,7 +59,7 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -71,7 +71,7 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**

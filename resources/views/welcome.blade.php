@@ -9,8 +9,20 @@
   <body>
 
     <header id="first">
+        <form action="/search" method="POST" role="search" class="padding">
+            {{ csrf_field() }}
+            <div class="input-group">
+                <input type="text" class="form-control" name="q"
+                    placeholder="Search users"> <span class="input-group-btn">
+                    <button type="submit" class="btn btn-default">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </span>
+            </div>
+        </form>
         <div class="header-content">
             <div class="inner">
+
                 <img src="tb.jpg" height="100" width="100">
                 <h1 class="cursive">Thuisbezorgd</h1>
                 <h4>Let's take away today</h4>

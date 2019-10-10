@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use User;
+use App\User;
 
 class EditprofileController extends Controller
 {
@@ -57,7 +57,8 @@ class EditprofileController extends Controller
      */
     public function edit($id)
     {
-        //
+         $user = User::findOrFail($id);
+        return view('editprofile')->with('user', $user);
     }
 
     /**
@@ -69,7 +70,39 @@ class EditprofileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $this->validate(request(), [
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'address' => 'required',
+            'zipcode' => 'required',
+            'city' => 'required',
+            'phone' => 'required',
+            'email' => 'required|email|unique:users',
+            // 'password' => 'required|min:6|confirmed'
+        ]);
+
+         try {
+             DB::beginTransaction();
+
+             $user = User::findOrFail($id);
+             $user->first_name = $request->first_name;
+             $user->last_name = $request->last_name;
+             $user->address = $request->address;
+             $user->zipcode = $request->zipcode;
+             $user->city = $request->city;
+             $user->password = bcrypt($request->password);
+             $user->phone = $request->phone;
+             $user->email = $request->email;
+             $user->save();
+
+             DB::commit();
+             return redirect::back();
+
+         }
+             catch(Exception $e) {
+                 DB::rollback();
+
+             }
     }
 
     /**
