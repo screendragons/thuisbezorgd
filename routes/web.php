@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 //searchbar
-Route::get('/search', 'RestaurantsController@search');
+Route::post('search', ['as' => 'search', 'uses' => 'RestaurantsController@search']);
 
 Auth::routes();
 

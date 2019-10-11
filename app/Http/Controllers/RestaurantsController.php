@@ -17,6 +17,14 @@ class RestaurantsController extends Controller
     {
         $restaurant = Restaurants::get()->all();
         return view('restaurants')->with('restaurant', $restaurant);
+
+        // $restaurant = Restaurant::where('is_open', '>', date('H:i'))
+        //   ->where('is_closed', '>', date('H:i'))
+        //   ->where(function($query) use ($request)){
+        //     ->where('title', 'LIKE', '%'.$request->q.'%')
+        //   }
+
+        //   ->get();
     }
 
     /**
@@ -33,8 +41,10 @@ class RestaurantsController extends Controller
     public function search(Request $request)
     {
         $search = $request->get('search');
-        $restaurants = DB::table('restaurants')->where('name', '%'.$search.'%');
-        return view('restaurants', ['restaurants' => $restaurants ]);
+        // $restaurants = DB::table('restaurants')->where('name', '%'.$search.'%');
+        // return view('restaurants', ['restaurants' => $restaurants ]);
+        $restaurant = Restaurants::where('name', 'LIKE', "%$search%")->get();
+           return view('search')->with('restaurant', $restaurant);
     }
 
     /**
@@ -56,7 +66,7 @@ class RestaurantsController extends Controller
      */
     public function show($user_id)
     {
-        $restaurant = Restaurants::findOrFail($user_id);
+        $restaurant = Restaurants::with('consumables')->findOrFail($user_id);
         // $restaurants = Restaurants::all();
 
         return view('showrestaurant')

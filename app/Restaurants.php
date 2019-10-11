@@ -9,16 +9,16 @@ use App\Order;
 
 class Restaurants extends Model
 {
-    public function User()
+    public function user()
     {
         return $this->belongsTo('App\User');
     }
 
-    public function Consumables()
+    public function consumables()
     {
         return $this->hasMany('App\Consumables');
     }
-    public function Order()
+    public function order()
     {
         return $this->hasMany('App\Order');
     }

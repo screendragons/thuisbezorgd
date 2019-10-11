@@ -1,5 +1,8 @@
-@include('partials.header')
-{{-- @section('content') --}}
+@extends('layouts.default')
+
+
+
+@section('content')
 <div class="container padding">
   <h2>Restaurants with menus</h2>
 
@@ -21,11 +24,11 @@
       </div>
     </div>
 
-    @php
+    {{-- @php
       $consumables = $restaurant->consumables()->get();
-    @endphp
+    @endphp --}}
 
-    @foreach($consumables as $consumable)
+    @foreach($restaurant->consumables as $consumable)
 
       <p>{{ $consumable->title }}</p>
       <p>{{ $consumable->price }}</p>
@@ -37,4 +40,4 @@
     <a href="{{ url('/createconsumables')}}" class="btn btn-primary">Create a consumable</a>
 
 </div>
-{{-- @endsection --}}
+@endsection

@@ -1,23 +1,25 @@
-@extends('partials.header')
+@extends('layouts.default')
 
-{{-- @section('content') --}}
+
+
+@section('content')
 <div class="container padding">
   <h2>Restaurants</h2>
   <p>Here will show the restaurants</p>
-  <form action="/search" method="get" class="search">
-      <div class="input-group">
-          <input type="search" name="search" class="form-control">
-          <span class="input-group-prepend">
-              <button type="submit" class="btn btn-default">
-                  Search
-              </button>
-          </span>
-      </div>
-  </form>
+  {!! Form::open(['route' => 'search']) !!}
+    <div class="input-group">
+        {!! Form::text('query', null, ['class' => 'form-control', 'placeholder' =>
+        'Naam Restaurant','autocomplete' => 'off']) !!}
+        <span class="input-group-prepend">
+            {!! Form::submit('Zoeken',  ['class' => 'btn btn-primary']) !!}
+        </span>
+    </div>
+    {!! Form::close() !!}
   @foreach($restaurant as $restaurant)
     <div class="col-md-3 profile-section">
       <div class="card" style="width: 18rem;">
-        <img src="tb.jpg" class="card-img-top" alt="...">
+        <img src="{{asset('storage/profileimages/default.jpg')}}" class="card-img-top" alt="...">
+
         <div class="card-body">
           <p class="card-title">
             {{ $restaurant->name}}
@@ -35,4 +37,5 @@
     </div>
   @endforeach
 </div>
-{{-- @endsection --}}
+@endsection
+

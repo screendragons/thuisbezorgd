@@ -12,7 +12,7 @@ class ConsumableController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, $restaurantId)
     {
         //van Matthijs
         // return '<a href="'.route('consumables.show', ['consumable' => 1]).'">show</a>';

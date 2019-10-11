@@ -17,4 +17,12 @@ class Order extends Model
 	{
 	    return $this->hasMany('App\Restaurants');
 	}
+	public function Consumables()
+	{
+	    return $this->belongsTo('App\Restaurants');
+	}
+	public function User()
+	{
+	    return $this->belongsTo('App\User');
+	}
 }

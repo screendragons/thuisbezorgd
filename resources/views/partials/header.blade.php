@@ -1,8 +1,5 @@
-<link rel="stylesheet" href="./css/bootstrap.min.css" />
-<link rel="stylesheet" href="./css/animate.min.css" />
-<link rel="stylesheet" href="./css/ionicons.min.css" />
-<link rel="stylesheet" href="./css/styles.css" />
-<link rel="stylesheet" href="./css/main.css" />
+
+
 <nav id="topNav" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">

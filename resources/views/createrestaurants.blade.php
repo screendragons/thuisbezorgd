@@ -5,6 +5,14 @@
     <title>Create a restaurant</title>
 </div>
 
+@if($errors->any())
+<ul>
+  @foreach($errors->all() as $error)
+  <li>{{ $error }}</li>
+  @endforeach
+</ul>
+@endif
+
 <div class="container padding createrestaurants">
   <h2>Create restaurant</h2>
   {!! Form::open(['route' => 'createrestaurants.store', 'method' => 'POST', 'files' => true]) !!}
