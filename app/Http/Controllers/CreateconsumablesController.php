@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Consumables;
+use App\Restaurants;
+use Auth;
+use Redirect;
 use DB;
 
 class CreateconsumablesController extends Controller
@@ -51,6 +54,7 @@ class CreateconsumablesController extends Controller
                 $consumable->title = $request->title;
                 $consumable->price = $request->price;
                 $consumable->category = $request->category;
+                $consumable->restaurants_id = $request->restaurants_id;
                 $consumable->id = Auth()->user()->id;
 
                 $consumable->save();
@@ -64,7 +68,7 @@ class CreateconsumablesController extends Controller
                 dd($e->getMessage());
             }
 
-        return view('consumables');
+        return view('createconsumables');
     }
 
     /**

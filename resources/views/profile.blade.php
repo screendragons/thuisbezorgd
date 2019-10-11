@@ -35,6 +35,7 @@
           {{ $users->email }}
       </div>
       <a href="{{ route('editprofile.edit', $users->id) }}" class="btn btn-primary">Edit</a>
+      <a href="{{ url('order') }}" class="btn btn-primary">My orders</a>
   </form>
 </div>
 {{-- @endsection --}}

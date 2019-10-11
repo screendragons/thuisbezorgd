@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Restaurants;
+use App\Restaurant;
+use App\Order;
+use App\User;
 use App\Consumables;
 
-class RestaurantsController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +17,7 @@ class RestaurantsController extends Controller
      */
     public function index()
     {
-        $restaurant = Restaurants::get()->all();
-        return view('restaurants')->with('restaurant', $restaurant);
+        return view('order');
     }
 
     /**
@@ -27,14 +28,6 @@ class RestaurantsController extends Controller
     public function create()
     {
         //
-    }
-
-
-    public function search(Request $request)
-    {
-        $search = $request->get('search');
-        $restaurants = DB::table('restaurants')->where('name', '%'.$search.'%');
-        return view('restaurants', ['restaurants' => $restaurants ]);
     }
 
     /**
@@ -54,13 +47,9 @@ class RestaurantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($user_id)
+    public function show($id)
     {
-        $restaurant = Restaurants::findOrFail($user_id);
-        // $restaurants = Restaurants::all();
-
-        return view('showrestaurant')
-            ->with('restaurant', $restaurant);
+        //
     }
 
     /**

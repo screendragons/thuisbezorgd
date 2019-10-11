@@ -37,7 +37,7 @@
           <label for="exampleInputEmail">Email address</label>
           <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="{{ $user->email }}">
       </div> --}}
-      {!! Form::open(['route' => ['editprofile.update', Auth::user()->id], 'method' => 'PUT', 'files' => true])!!}
+      {!! Form::open(['route' => ['editprofile.update', Auth::user()->$id], 'method' => 'PUT', 'files' => true])!!}
       <label for="first_name">First name</label>
       <div class="input-group mb-3">
         {!! Form::text('first_name', $user->first_name, ['class' => 'form-control', 'placeholder' =>

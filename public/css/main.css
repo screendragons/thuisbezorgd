@@ -17,3 +17,7 @@ input#exampleInputPassword {
 input#message {
     height: 20%;
 }
+.search {
+	padding-top: 20px;
+    margin-left: 40%;
+}

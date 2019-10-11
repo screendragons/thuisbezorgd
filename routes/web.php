@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//searchbar
+Route::get('/search', 'RestaurantsController@search');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -35,12 +38,19 @@ Route::resource('createconsumables', 'CreateconsumablesController');
 // Consumables
 Route::resource('consumables', 'ConsumableController');
 
+//Edit consumable
 Route::resource('editconsumables', 'EditconsumableController');
 
+//Profile
 Route::resource('/profile', 'ProfileController');
 
+//Edit profile
 Route::resource('editprofile', 'EditprofileController');
 
+//Order
+Route::resource('order', 'OrderController');
+
+// Contact
 Route::get('/contact', 'ContactController@index')->name('contact');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

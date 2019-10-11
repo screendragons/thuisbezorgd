@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 use App\Restaurants;
+use App\Order;
 
 class User extends Authenticatable
 {
@@ -42,5 +43,9 @@ class User extends Authenticatable
     public function restaurant()
     {
         return $this->hasMany('App\Restaurants');
+    }
+    public function Order()
+    {
+        return $this->hasMany('App\Order');
     }
 }
