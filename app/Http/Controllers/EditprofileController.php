@@ -84,7 +84,7 @@ class EditprofileController extends Controller
          try {
              DB::beginTransaction();
 
-             $user = User::findOrFail($id);
+             $user = Auth::user();
              $user->first_name = $request->first_name;
              $user->last_name = $request->last_name;
              $user->address = $request->address;

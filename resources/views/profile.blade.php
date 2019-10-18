@@ -1,4 +1,5 @@
 @extends('partials.header')
+@extends('layouts.default')
 {{--@section('content') --}}
 
 <div class="container padding form">

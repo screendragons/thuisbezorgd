@@ -1,5 +1,5 @@
 @extends('layouts.default')
-
+@extends('partials.header')
 
 
 @section('content')
@@ -8,7 +8,7 @@
 
     <div class="col-md-3 profile-section">
       <div class="card" style="width: 18rem;">
-        <img src="tb.jpg" class="card-img-top" alt="...">
+        <img src="{{asset('storage/profileimages/default.jpg')}}" class="card-img-top show-restaurant" alt="...">
         <div class="card-body">
           <p class="card-title">
             {{ $restaurant->name}}

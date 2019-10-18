@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <img src="tb.jpg" height="60" width="60">
+             <img src="{{asset('storage/profileimages/default.jpg')}}" class="card-img-top" alt="..." height="60" width="60">
             <a class="navbar-brand page-scroll" href="/thuisbezorgd/public">Thuisbezorgd</a>
 
         </div>

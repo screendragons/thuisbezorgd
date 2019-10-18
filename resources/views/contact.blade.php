@@ -1,5 +1,5 @@
 @extends('partials.header')
-
+@extends('layouts.default')
 {{-- @section('content') --}}
 <div class="container padding contact">
   <h2>Contact</h2>

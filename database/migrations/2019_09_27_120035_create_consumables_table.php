@@ -19,7 +19,7 @@ class CreateConsumablesTable extends Migration
             $table->string('price');
             $table->string('category');
             $table->string('photo')->default('default.jpg');
-            $table->string('restaurants_id');
+            $table->string('restaurant_id');
             $table->timestamps();
         });
     }

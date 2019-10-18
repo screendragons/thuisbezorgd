@@ -1,5 +1,5 @@
 @extends('partials.header')
-
+@extends('layouts.default')
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,8 +12,7 @@
 
         <div class="header-content">
             <div class="inner">
-
-                <img src="tb.jpg" height="100" width="100">
+                 <img src="{{asset('storage/profileimages/default.jpg')}}" class="card-img-top" alt="..." height="100" width="100">
                 <h1 class="cursive">Thuisbezorgd</h1>
                 <h4>Let's take away today</h4>
                 <hr>
