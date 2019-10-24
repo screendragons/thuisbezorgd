@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Createrestaurants;
-use App\Restaurants;
+use App\Restaurant;
 use DB;
 
 class CreaterestaurantsController extends Controller
@@ -37,41 +36,41 @@ class CreaterestaurantsController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'KVK' => 'string|max:25|unique:restaurants',
-            'address' => 'required|string|max:255',
-            'zipcode' => 'required|string|max:255',
-            'city' => 'required|string|max:255',
-            'phone' => 'required|string|max:255',
-            'email' => 'required|string|unique:restaurants,email|max:255',
-            'photo' => 'string|max:255'
-        ]);
-        try {
-                DB::beginTransaction();
-                $restaurant = new Restaurants;
+        // $validatedData = $request->validate([
+        //     'name' => 'required|string|max:255',
+        //     'KVK' => 'string|max:25|unique:restaurant',
+        //     'address' => 'required|string|max:255',
+        //     'zipcode' => 'required|string|max:255',
+        //     'city' => 'required|string|max:255',
+        //     'phone' => 'required|string|max:255',
+        //     'email' => 'required|string|unique:restaurant,email|max:255',
+        //     'photo' => 'string|max:255'
+        // ]);
+        // try {
+        //         DB::beginTransaction();
+        //         $restaurant = new Restaurant;
 
-                $restaurant->name = $request->name;
-                $restaurant->KVK = $request->KVK;
-                $restaurant->address = $request->address;
-                $restaurant->zipcode = $request->zipcode;
-                $restaurant->city = $request->city;
-                $restaurant->phone = $request->phone;
-                $restaurant->email = $request->email;
-                $restaurant->user_id = Auth()->user()->id;
+        //         $restaurant->name = $request->name;
+        //         $restaurant->KVK = $request->KVK;
+        //         $restaurant->address = $request->address;
+        //         $restaurant->zipcode = $request->zipcode;
+        //         $restaurant->city = $request->city;
+        //         $restaurant->phone = $request->phone;
+        //         $restaurant->email = $request->email;
+        //         $restaurant->user_id = Auth()->user()->id;
 
-                $restaurant->save();
-                DB::commit();
-                return redirect()->back()->with('message', 'Create restaurant has been maded.');
+        //         $restaurant->save();
+        //         DB::commit();
+        //         return redirect()->back()->with('message', 'Create restaurant has been maded.');
 
-            }
-            catch(Exception $e)
-            {
-                DB::rollback();
-                dd($e->getMessage());
-            }
+        //     }
+        //     catch(Exception $e)
+        //     {
+        //         DB::rollback();
+        //         dd($e->getMessage());
+        //     }
 
-        return view('restaurants');
+        // return view('restaurant');
     }
 
     /**
@@ -82,7 +81,7 @@ class CreaterestaurantsController extends Controller
      */
     public function show($id)
     {
-        return 'hallo <a href="'.route('consumables.index').'">Ga naar consumables</a>';
+        // return 'hallo <a href="'.route('consumables.index').'">Ga naar consumables</a>';
     }
 
     /**

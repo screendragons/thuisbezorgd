@@ -6,7 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-use App\Restaurants;
+use App\Restaurant;
 use App\Order;
 
 class User extends Authenticatable
@@ -42,9 +42,9 @@ class User extends Authenticatable
 
     public function restaurant()
     {
-        return $this->hasMany('App\Restaurants');
+        return $this->hasMany('App\Restaurant');
     }
-    public function Order()
+    public function order()
     {
         return $this->hasMany('App\Order');
     }

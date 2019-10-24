@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Consumables;
+use App\Consumable;
 
 class ConsumableController extends Controller
 {
@@ -20,7 +20,7 @@ class ConsumableController extends Controller
 
         $restaurant = Consumable::get()->all();
 
-        return  view('restaurants')
+        return  view('restaurant')
             ->with('restaurant', $restaurant);
     }
 
@@ -31,7 +31,28 @@ class ConsumableController extends Controller
      */
     public function create()
     {
-        //
+        try {
+                DB::beginTransaction();
+                $consumable = new Consumables;
+
+                $consumable->title = $request->title;
+                $consumable->price = $request->price;
+                $consumable->category = $request->category;
+                $consumable->restaurant_id = $request->restaurant_id;
+                $consumable->id = Auth()->user()->id;
+
+                $consumable->save();
+                DB::commit();
+                return redirect()->back()->with('message', 'A new consumable has been maded.');
+
+            }
+            catch(Exception $e)
+            {
+                DB::rollback();
+                dd($e->getMessage());
+            }
+
+        return view('consumables');
     }
 
     /**
@@ -53,10 +74,10 @@ class ConsumableController extends Controller
      */
     public function show($id)
     {
-        $consumables = Consumables::find($id);
+        $consumable = Consumable::find($id);
 
-        return view('consumables')
-            ->with('consumables', $consumables);
+        return view('consumable')
+            ->with('consumable', $consumable);
     }
 
     /**
@@ -67,9 +88,9 @@ class ConsumableController extends Controller
      */
     public function edit($id)
     {
-        $consumables = Consumables::find($id);
+        $consumable = Consumable::find($id);
             return view::make('editconsumable')
-                ->with('consumables', $consumables);
+                ->with('consumable', $consumable);
     }
 
     /**
@@ -81,7 +102,16 @@ class ConsumableController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $this->validate(request(), [
+            'title' => 'required',
+            'category' => 'required',
+            'price' => 'required',
+            // 'zipcode' => 'required',
+            // 'city' => 'required',
+            // 'phone' => 'required',
+            // 'email' => 'required|email|unique:users',
+            // 'password' => 'required|min:6|confirmed'
+        ]);    }
     }
 
     /**

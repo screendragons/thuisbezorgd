@@ -68,16 +68,16 @@ class EditconsumableController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $this->validate(request(), [
-            'title' => 'required',
-            'category' => 'required',
-            'price' => 'required',
+         // $this->validate(request(), [
+         //    'title' => 'required',
+         //    'category' => 'required',
+         //    'price' => 'required',
             // 'zipcode' => 'required',
             // 'city' => 'required',
             // 'phone' => 'required',
             // 'email' => 'required|email|unique:users',
             // 'password' => 'required|min:6|confirmed'
-        ]);    }
+        // ]);    }
 
     /**
      * Remove the specified resource from storage.

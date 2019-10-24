@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Consumables;
-use App\Restaurants;
+use App\Consumable;
+use App\Restaurant;
 use Auth;
 use Redirect;
 use DB;
@@ -43,32 +43,32 @@ class CreateconsumablesController extends Controller
     {
         // $validatedData = $request->validate([
         //     'title' => 'required|string|max:255',
-        //     'price' => 'string|max:25|unique:restaurants',
+        //     'price' => 'string|max:25|unique:restaurant',
         //     'category' => 'required|string|max:255',
         //     'photo' => 'string|max:255'
         // ]);
-        try {
-                DB::beginTransaction();
-                $consumable = new Consumables;
+        // try {
+        //         DB::beginTransaction();
+        //         $consumable = new Consumables;
 
-                $consumable->title = $request->title;
-                $consumable->price = $request->price;
-                $consumable->category = $request->category;
-                $consumable->restaurants_id = $request->restaurants_id;
-                $consumable->id = Auth()->user()->id;
+        //         $consumable->title = $request->title;
+        //         $consumable->price = $request->price;
+        //         $consumable->category = $request->category;
+        //         $consumable->restaurant_id = $request->restaurant_id;
+        //         $consumable->id = Auth()->user()->id;
 
-                $consumable->save();
-                DB::commit();
-                return redirect()->back()->with('message', 'A new consumable has been maded.');
+        //         $consumable->save();
+        //         DB::commit();
+        //         return redirect()->back()->with('message', 'A new consumable has been maded.');
 
-            }
-            catch(Exception $e)
-            {
-                DB::rollback();
-                dd($e->getMessage());
-            }
+        //     }
+        //     catch(Exception $e)
+        //     {
+        //         DB::rollback();
+        //         dd($e->getMessage());
+        //     }
 
-        return view('createconsumables');
+        // return view('createconsumables');
     }
 
     /**

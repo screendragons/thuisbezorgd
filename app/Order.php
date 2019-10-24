@@ -4,24 +4,24 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\User;
-use App\Restaurants;
+use App\Restaurant;
 
 class Order extends Model
 {
-	public function Order()
+	public function order()
 	{
 	    return $this->hasMany('App\User');
 	}
 
-	public function Restaurants()
+	public function restaurant()
 	{
-	    return $this->hasMany('App\Restaurants');
+	    return $this->hasMany('App\Restaurant');
 	}
-	public function Consumables()
+	public function consumable()
 	{
-	    return $this->belongsTo('App\Restaurants');
+	    return $this->belongsTo('App\Consumable');
 	}
-	public function User()
+	public function user()
 	{
 	    return $this->belongsTo('App\User');
 	}

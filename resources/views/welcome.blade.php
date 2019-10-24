@@ -32,7 +32,7 @@
                     <p class="text-faded">
                        Ben je een keer lui om te koken? Bestel via Thuisbezorgd en je hoeft niet uit huis om je aankopen te doen
                     </p>
-                    <a href="{{ url('/restaurants') }}" class="btn btn-default btn-xl page-scroll">Restaurants</a>
+                    <a href="{{ url('/restaurant') }}" class="btn btn-default btn-xl page-scroll">Restaurants</a>
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
                 <div class="col-xs-6 col-sm-3 column">
                     <h4>Information</h4>
                     <ul class="list-unstyled">
-                        <li><a href="{{ url('/restaurants') }}">Restaurants</a></li>
+                        <li><a href="{{ url('/restaurant') }}">Restaurants</a></li>
                         <li><a href="{{ url('/profile') }}">My takeaway</a></li>
                         {{-- <li><a href="{{ route('register') }}">Register</a></li> --}}
                     </ul>

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Restaurant;
 use App\Order;
 use App\User;
-use App\Consumables;
+use App\Consumable;
 
 class OrderController extends Controller
 {

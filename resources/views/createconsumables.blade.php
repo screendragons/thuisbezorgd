@@ -6,7 +6,7 @@
     <title>Create a consumable for your restaurant</title>
 </div>
 
-@if(Auth::user()->id === $restaurants_id)
+@if(Auth::user()->id === $restaurant_id)
 @endif
 <div class="container padding createrestaurants">
   <h2>Create consumable</h2>
@@ -29,8 +29,8 @@
       'Hoofdgerechten, bijgerechten, dranken','autocomplete' => 'off']); !!}
     </div>
     <br>
-    @if(Auth::user()->id === $restaurants->id)
-    <input type="hidden" name="restaurants_id" value="{{$restaurants->id}}">
+    @if(Auth::user()->id === $restaurant->id)
+    <input type="hidden" name="restaurant_id" value="{{$restaurant->id}}">
     @endif
     <button type="submit" class="btn btn-success">Create</button>
   {!! Form::close() !!}

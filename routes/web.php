@@ -15,8 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//searchbar
-Route::post('search', ['as' => 'search', 'uses' => 'RestaurantsController@search']);
+
 
 Auth::routes();
 
@@ -25,18 +24,21 @@ Route::get('/home', 'HomeController@index')->name('home');
 // create a restaurant
 Route::resource('createrestaurants', 'CreaterestaurantsController');
 
-// restaurants page
-Route::resource('restaurants', 'RestaurantsController');
-// Route::post('/restaurant/{id}', 'RestaurantController@store')->name('restaurant.store');
-Route::get('/restaurants', 'RestaurantsController@index')->name('restaurant');
+//searchbar
+Route::post('search', ['as' => 'search', 'uses' => 'RestaurantController@search']);
 
-Route::resource('restaurants/{restaurants_id}/consumables', 'ConsumableController');
+// restaurants page
+Route::resource('restaurant', 'RestaurantController');
+// Route::post('/restaurant/{id}', 'RestaurantController@store')->name('restaurant.store');
+Route::get('/restaurant', 'RestaurantController@index')->name('restaurant');
+
+Route::resource('restaurant/{restaurant_id}/consumable', 'ConsumableController');
 
 // Create a consumable
 Route::resource('createconsumables', 'CreateconsumablesController');
 
 // Consumables
-Route::resource('consumables', 'ConsumableController');
+Route::resource('consumable', 'ConsumableController');
 
 //Edit consumable
 Route::resource('editconsumables', 'EditconsumableController');

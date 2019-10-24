@@ -36,7 +36,7 @@
               <br>
               {{ $restaurant->city}}
             </p>
-            <a href="restaurants/{{@$restaurant->id}}" class="btn btn-primary">
+            <a href="restaurant/{{$restaurant->id}}" class="btn btn-primary">
               Visit
             </a>
           </div>

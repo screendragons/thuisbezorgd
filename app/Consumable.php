@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\User;
-use App\Restaurants;
+use App\Restaurant;
 use DB;
 
 class Consumables extends Model
@@ -14,8 +14,8 @@ class Consumables extends Model
         return $this->belongsTo('App\User');
     }
 
-     public function restaurants()
+     public function restaurant()
     {
-        return $this->belongsTo('App\Restaurants');
+        return $this->belongsTo('App\Restaurant');
     }
 }
