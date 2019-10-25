@@ -57,8 +57,8 @@ class EditprofileController extends Controller
      */
     public function edit($id)
     {
-         $user = User::findOrFail($id);
-        return view('editprofile')->with('user', $user);
+        //  $user = User::findOrFail($id);
+        // return view('editprofile')->with('user', $user);
     }
 
     /**

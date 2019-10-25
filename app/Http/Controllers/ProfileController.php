@@ -59,7 +59,8 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-
+         $user = User::findOrFail($id);
+        return view('profile')->with('user', $user);
     }
 
     /**
