@@ -70,39 +70,39 @@ class EditprofileController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $this->validate(request(), [
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'address' => 'required',
-            'zipcode' => 'required',
-            'city' => 'required',
-            'phone' => 'required',
-            'email' => 'required|email|unique:users',
-            // 'password' => 'required|min:6|confirmed'
-        ]);
+        //  $this->validate(request(), [
+        //     'first_name' => 'required',
+        //     'last_name' => 'required',
+        //     'address' => 'required',
+        //     'zipcode' => 'required',
+        //     'city' => 'required',
+        //     'phone' => 'required',
+        //     'email' => 'required|email|unique:users',
+        //     // 'password' => 'required|min:6|confirmed'
+        // ]);
 
-         try {
-             DB::beginTransaction();
+        //  try {
+        //      DB::beginTransaction();
 
-             $user = Auth::user();
-             $user->first_name = $request->first_name;
-             $user->last_name = $request->last_name;
-             $user->address = $request->address;
-             $user->zipcode = $request->zipcode;
-             $user->city = $request->city;
-             $user->password = bcrypt($request->password);
-             $user->phone = $request->phone;
-             $user->email = $request->email;
-             $user->save();
+        //      $user = Auth::user();
+        //      $user->first_name = $request->first_name;
+        //      $user->last_name = $request->last_name;
+        //      $user->address = $request->address;
+        //      $user->zipcode = $request->zipcode;
+        //      $user->city = $request->city;
+        //      $user->password = bcrypt($request->password);
+        //      $user->phone = $request->phone;
+        //      $user->email = $request->email;
+        //      $user->save();
 
-             DB::commit();
-             return redirect::back();
+        //      DB::commit();
+        //      return redirect::back();
 
-         }
-             catch(Exception $e) {
-                 DB::rollback();
+        //  }
+        //      catch(Exception $e) {
+        //          DB::rollback();
 
-             }
+        //      }
     }
 
     /**

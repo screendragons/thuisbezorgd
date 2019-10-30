@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Consumable;
+use DB;
+use Auth;
+use Redirect;
 
 class ConsumableController extends Controller
 {
@@ -29,11 +32,11 @@ class ConsumableController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         try {
                 DB::beginTransaction();
-                $consumable = new Consumables;
+                $consumable = new Consumable;
 
                 $consumable->title = $request->title;
                 $consumable->price = $request->price;
@@ -52,8 +55,9 @@ class ConsumableController extends Controller
                 dd($e->getMessage());
             }
 
-        return view('consumables');
+        return view('showrestaurant');
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -111,7 +115,7 @@ class ConsumableController extends Controller
             // 'phone' => 'required',
             // 'email' => 'required|email|unique:users',
             // 'password' => 'required|min:6|confirmed'
-        ]);    }
+        ]);
     }
 
     /**
