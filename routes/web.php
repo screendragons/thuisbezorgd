@@ -21,9 +21,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// create a restaurant
-Route::resource('createrestaurants', 'CreaterestaurantsController');
-
 //searchbar
 Route::post('search', ['as' => 'search', 'uses' => 'RestaurantController@search']);
 
@@ -32,22 +29,20 @@ Route::resource('restaurant', 'RestaurantController');
 // Route::post('/restaurant/{id}', 'RestaurantController@store')->name('restaurant.store');
 Route::get('/restaurant', 'RestaurantController@index')->name('restaurant');
 
-Route::resource('restaurant/{restaurant_id}/consumable', 'ConsumableController');
+Route::get('/restaurant/create','RestaurantController@create')->name('restaurant.create');
 
-// Create a consumable
-Route::resource('createconsumables', 'CreateconsumablesController');
+Route::get('/restaurant/show','RestaurantController@show')->name('restaurant.show');
+
+Route::resource('restaurant/{restaurant_id}/consumable', 'ConsumableController');
 
 // Consumables
 Route::resource('consumable', 'ConsumableController');
-
-//Edit consumable
-Route::resource('editconsumables', 'EditconsumableController');
+Route::get('/consumable/create','ConsumableController@create')->name('consumable.create');
+Route::get('/consumable/edit','ConsumableController@edit')->name('consumable.edit');
 
 //Profile
 Route::resource('/profile', 'ProfileController');
-
-//Edit profile
-Route::resource('editprofile', 'EditprofileController');
+Route::get('/profile/edit','ProfileController@edit')->name('profile.edit');
 
 //Order
 Route::resource('order', 'OrderController');

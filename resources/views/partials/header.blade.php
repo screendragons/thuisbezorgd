@@ -35,7 +35,7 @@
                         <a class="restaurants" href="{{ url('/restaurant') }}">Restaurants</a>
                     </li>
                     <li>
-                        <a class="createrestaurants" href="{{ url('/createrestaurants') }}">Create restaurant</a>
+                        <a class="createrestaurants" href="{{ url('/restaurant/create') }}">Create restaurant</a>
                     </li>
                     <li>
                         <a class="profile" href="{{ url('/profile') }}">Profile</a>

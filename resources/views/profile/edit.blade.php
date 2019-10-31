@@ -1,3 +1,4 @@
+
 @extends('partials.header')
 @extends('layouts.default')
 {{--@section('content') --}}

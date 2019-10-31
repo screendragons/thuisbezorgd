@@ -55,7 +55,7 @@ class ConsumableController extends Controller
                 dd($e->getMessage());
             }
 
-        return view('showrestaurant');
+        return view('restaurant.show');
     }
 
 
@@ -67,7 +67,34 @@ class ConsumableController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $validatedData = $request->validate([
+        //     'title' => 'required|string|max:255',
+        //     'price' => 'string|max:25|unique:restaurant',
+        //     'category' => 'required|string|max:255',
+        //     'photo' => 'string|max:255'
+        // ]);
+        // try {
+        //         DB::beginTransaction();
+        //         $consumable = new Consumables;
+
+        //         $consumable->title = $request->title;
+        //         $consumable->price = $request->price;
+        //         $consumable->category = $request->category;
+        //         $consumable->restaurant_id = $request->restaurant_id;
+        //         $consumable->id = Auth()->user()->id;
+
+        //         $consumable->save();
+        //         DB::commit();
+        //         return redirect()->back()->with('message', 'A new consumable has been maded.');
+
+        //     }
+        //     catch(Exception $e)
+        //     {
+        //         DB::rollback();
+        //         dd($e->getMessage());
+        //     }
+
+        // return view('consumable');
     }
 
     /**
@@ -93,7 +120,7 @@ class ConsumableController extends Controller
     public function edit($id)
     {
         $consumable = Consumable::find($id);
-            return view::make('editconsumable')
+            return view::make('consumable.edit')
                 ->with('consumable', $consumable);
     }
 

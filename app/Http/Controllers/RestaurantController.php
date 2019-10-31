@@ -35,7 +35,7 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        //
+        return view('restaurant.create');
     }
 
 
@@ -104,7 +104,7 @@ class RestaurantController extends Controller
         $restaurant = Restaurant::with('consumable')->findOrFail($user_id);
         // $restaurant = Restaurant::all();
 
-        return view('showrestaurant')
+        return view('restaurant.show')
             ->with('restaurant', $restaurant);
 
          // return 'hallo <a href="'.route('consumable.index').'">Ga naar consumables</a>';
