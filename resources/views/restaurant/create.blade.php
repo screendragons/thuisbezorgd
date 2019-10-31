@@ -31,7 +31,6 @@
 
     <label for="addresss">Address</label>
     <div class="input-group mb-3">
-
       {!! Form::text('address', null , ['class' => 'form-control', 'placeholder' =>
       'Street 123','autocomplete' => 'off']); !!}
     </div>
@@ -41,22 +40,25 @@
       {!! Form::text('zipcode', null, ['class' => 'form-control', 'placeholder' =>
       '1100 AA','autocomplete' => 'off']); !!}
     </div>
+
     <label for="city">City</label>
     <div class="input-group mb-3">
-
       {!! Form::text('city', null, ['class' => 'form-control', 'placeholder' =>
       'Amsterdam','autocomplete' => 'off']); !!}
     </div>
+
     <label for="phone">Phone</label>
     <div class="input-group mb-3">
       {!! Form::text('phone', null, ['class' => 'form-control', 'placeholder' =>
       '0612345678','autocomplete' => 'off']); !!}
     </div>
+
     <label for="email">Email</label>
     <div class="input-group mb-3">
       {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'example@example.com'
       ,'autocomplete' => 'off']); !!}
     </div>
+
     <br>
     <button type="submit" class="btn btn-success">Create</button>
   {!! Form::close() !!}

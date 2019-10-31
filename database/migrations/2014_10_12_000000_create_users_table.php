@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('first_name');
             $table->string('last_name');
+            $table->boolean('is_admin')->default(0);
             $table->string('address');
             $table->string('zipcode')->nullable;
             $table->string('city');

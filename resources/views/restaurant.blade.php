@@ -7,7 +7,7 @@
 
   @if($restaurant == false)
     <p>Create a restaurant</p>
-      <a href="/thuisbezorgd/public/createrestaurants" class="btn btn-primary">
+      <a href="/thuisbezorgd/public/restaurant/create" class="btn btn-primary">
         Create a restaurant
       </a>
   @else

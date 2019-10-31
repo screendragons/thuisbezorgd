@@ -73,57 +73,57 @@ class ProfileController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //  $this->validate(request(), [
-        //     'first_name' => 'required',
-        //     'last_name' => 'required',
-        //     'address' => 'required',
-        //     'zipcode' => 'required',
-        //     'city' => 'required',
-        //     'phone' => 'required',
-        //     'email' => 'required|email|unique:users',
-        //     'password' => 'required|min:6|confirmed'
-        // ]);
+         $this->validate(request(), [
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'address' => 'required',
+            'zipcode' => 'required',
+            'city' => 'required',
+            'phone' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6|confirmed'
+        ]);
 
-        //  try {
-        //      DB::beginTransaction();
+         try {
+             DB::beginTransaction();
 
-        //      $user = Auth::user();
-        //      $user->first_name = $request->first_name;
-        //      $user->last_name = $request->last_name;
-        //      $user->address = $request->address;
-        //      $user->zipcode = $request->zipcode;
-        //      $user->city = $request->city;
-        //      $user->password = bcrypt($request->password);
-        //      $user->phone = $request->phone;
-        //      $user->email = $request->email;
-        //      $user->save();
+             $user = Auth::user();
+             $user->first_name = $request->first_name;
+             $user->last_name = $request->last_name;
+             $user->address = $request->address;
+             $user->zipcode = $request->zipcode;
+             $user->city = $request->city;
+             $user->password = bcrypt($request->password);
+             $user->phone = $request->phone;
+             $user->email = $request->email;
+             $user->save();
 
-        //      DB::commit();
-        //      return Redirect()->route('profile', ['user' => $user->id])
-        //      ->with('Your profile have been updated');
+             DB::commit();
+             return Redirect()->route('profile', ['user' => $user->id])
+             ->with('Your profile have been updated');
 
-        //  }
-        //      catch(Exception $e) {
-        //          DB::rollback();
+         }
+             catch(Exception $e) {
+                 DB::rollback();
 
-        //      }
-        $user = User::where('id', $user->id)
-          ->update([
-              'first_name'=> $request->input('first_name'),
-              'last_name'=> $request->input('last_name'),
-              'address'=> $request->input('address'),
-              'zipcode'=> $request->input('zipcode'),
-              'password'=> bcrypt($request->input(['password'])),
-              'phone'=> $request->input('phone'),
-              'email'=> $request->input('email'),
-          ]);
+             }
+        // $user = User::where('id', $user->id)
+        //   ->update([
+        //       'first_name'=> $request->input('first_name'),
+        //       'last_name'=> $request->input('last_name'),
+        //       'address'=> $request->input('address'),
+        //       'zipcode'=> $request->input('zipcode'),
+        //       'password'=> bcrypt($request->input(['password'])),
+        //       'phone'=> $request->input('phone'),
+        //       'email'=> $request->input('email'),
+        //   ]);
 
-        if($user){
-            return redirect()->route('profile', ['user'=> $user->id])
-            ->with('success' , 'user updated succesfully');
-        }
-            //rxedirect
-            return back()->withInput();
+        // if($user){
+        //     return redirect()->route('profile', ['user'=> $user->id])
+        //     ->with('success' , 'user updated succesfully');
+        // }
+        //     //rxedirect
+        //     return back()->withInput();
     }
 
     /**

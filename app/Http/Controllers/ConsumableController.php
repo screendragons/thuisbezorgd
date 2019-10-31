@@ -34,9 +34,48 @@ class ConsumableController extends Controller
      */
     public function create(Request $request)
     {
+        // try {
+        //         DB::beginTransaction();
+        //         $consumable = new Consumable;
+
+        //         $consumable->title = $request->title;
+        //         $consumable->price = $request->price;
+        //         $consumable->category = $request->category;
+        //         $consumable->restaurant_id = $request->restaurant_id;
+        //         $consumable->id = Auth()->user()->id;
+
+        //         $consumable->save();
+        //         DB::commit();
+        //         return redirect()->back()->with('message', 'A new consumable has been maded.');
+
+        //     }
+        //     catch(Exception $e)
+        //     {
+        //         DB::rollback();
+        //         dd($e->getMessage());
+        //     }
+
+        // return view('restaurant.show');
+    }
+
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'price' => 'string|max:25|unique:restaurant',
+            'category' => 'required|string|max:255',
+            'photo' => 'string|max:255'
+        ]);
         try {
                 DB::beginTransaction();
-                $consumable = new Consumable;
+                $consumable = new Consumables;
 
                 $consumable->title = $request->title;
                 $consumable->price = $request->price;
@@ -56,45 +95,6 @@ class ConsumableController extends Controller
             }
 
         return view('restaurant.show');
-    }
-
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        // $validatedData = $request->validate([
-        //     'title' => 'required|string|max:255',
-        //     'price' => 'string|max:25|unique:restaurant',
-        //     'category' => 'required|string|max:255',
-        //     'photo' => 'string|max:255'
-        // ]);
-        // try {
-        //         DB::beginTransaction();
-        //         $consumable = new Consumables;
-
-        //         $consumable->title = $request->title;
-        //         $consumable->price = $request->price;
-        //         $consumable->category = $request->category;
-        //         $consumable->restaurant_id = $request->restaurant_id;
-        //         $consumable->id = Auth()->user()->id;
-
-        //         $consumable->save();
-        //         DB::commit();
-        //         return redirect()->back()->with('message', 'A new consumable has been maded.');
-
-        //     }
-        //     catch(Exception $e)
-        //     {
-        //         DB::rollback();
-        //         dd($e->getMessage());
-        //     }
-
-        // return view('consumable');
     }
 
     /**

@@ -1,5 +1,4 @@
 
-
 <nav id="topNav" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -34,9 +33,11 @@
                     <li>
                         <a class="restaurants" href="{{ url('/restaurant') }}">Restaurants</a>
                     </li>
-                    <li>
-                        <a class="createrestaurants" href="{{ url('/restaurant/create') }}">Create restaurant</a>
-                    </li>
+                    @if(Auth::user()->is_admin)
+                        <li>
+                            <a class="createrestaurants" href="{{ url('/restaurant/create') }}">Create restaurant</a>
+                        </li>
+                    @endif
                     <li>
                         <a class="profile" href="{{ url('/profile') }}">Profile</a>
                     </li>
