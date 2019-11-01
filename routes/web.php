@@ -16,33 +16,24 @@ Route::get('/', function () {
 });
 
 
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 //searchbar
-Route::post('search', ['as' => 'search', 'uses' => 'RestaurantController@search']);
+Route::get('search', ['as' => 'search', 'uses' => 'RestaurantController@search']);
 
 // restaurants page
 Route::resource('restaurant', 'RestaurantController');
 // Route::post('/restaurant/{id}', 'RestaurantController@store')->name('restaurant.store');
-Route::get('/restaurant', 'RestaurantController@index')->name('restaurant');
-
-Route::get('/restaurant/create','RestaurantController@create')->name('restaurant.create');
-
-Route::get('/restaurant/show','RestaurantController@show')->name('restaurant.show');
 
 Route::resource('restaurant/{restaurant_id}/consumable', 'ConsumableController');
 
 // Consumables
 Route::resource('consumable', 'ConsumableController');
-Route::post('/consumable/create','ConsumableController@create')->name('consumable.create');
-Route::get('/consumable/edit','ConsumableController@edit')->name('consumable.edit');
 
 //Profile
 Route::resource('/profile', 'ProfileController');
-Route::get('/profile/edit','ProfileController@edit')->name('profile.edit');
 
 //Order
 Route::resource('order', 'OrderController');

@@ -1,4 +1,3 @@
-
 <nav id="topNav" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -40,6 +39,9 @@
                     @endif
                     <li>
                         <a class="profile" href="{{ url('/profile') }}">Profile</a>
+                    </li>
+                    <li>
+                        <a class="profile" href="{{ url('/order') }}">Order</a>
                     </li>
                     <li>
                         <a class="contact" href="{{ url('/contact') }}">Contact</a>

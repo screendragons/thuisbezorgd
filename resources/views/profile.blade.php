@@ -14,6 +14,7 @@
               <input placeholder="Enter first name" id="first_name" required name="first_name" spellcheck="false" class="form-control" value="{{ $user->first_name }}"
               />
           </div>
+
           <div class="form-group">
               <label for="first_name">Last name<span class="required">*</span></label>
               <input placeholder="Enter last name" id="last_name" required name="last_name" spellcheck="false" class="form-control" value="{{ $user->last_name }}"

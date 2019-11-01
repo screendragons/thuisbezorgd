@@ -12,7 +12,7 @@
       </a>
   @else
     <p>Here will show the restaurants</p>
-    {!! Form::open(['route' => 'search']) !!}
+    {!! Form::open(['route' => 'search', 'method' => 'get']) !!}
       <div class="input-group">
           {!! Form::text('query', null, ['class' => 'form-control', 'placeholder' =>
           'Naam Restaurant','autocomplete' => 'off']) !!}

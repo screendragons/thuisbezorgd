@@ -16,7 +16,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurant = Restaurant::get()->all();
+        $restaurant = Restaurant::get();
         return view('restaurant')->with('restaurant', $restaurant);
 
         // $restaurant = Restaurant::where('is_open', '>', date('H:i'))
@@ -46,13 +46,12 @@ class RestaurantController extends Controller
 
     }
 
-
     public function search(Request $request)
     {
-        $search = $request->get('search');
+        $query = $request->get('query');
         // $restaurant = DB::table('restaurant')->where('name', '%'.$search.'%');
         // return view('restaurant', ['restaurant' => $restaurant ]);
-        $restaurant = Restaurant::where('name', 'LIKE', "%$search%")->get();
+        $restaurant = Restaurant::where('name', 'LIKE', "%".$query."%")->get();
            return view('search')->with('restaurant', $restaurant);
     }
 

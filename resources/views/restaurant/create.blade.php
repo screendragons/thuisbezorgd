@@ -14,7 +14,7 @@
 </ul>
 @endif
 
-<div class="container padding createrestaurants">
+<div class="container padding profile createrestaurants">
   <h2>Create restaurant</h2>
   {!! Form::open(['route' => 'restaurant.store', 'method' => 'POST', 'files' => true]) !!}
     <label for="name">Name</label>

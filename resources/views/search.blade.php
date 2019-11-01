@@ -4,6 +4,7 @@
 
 <div class="container" >
     @foreach($restaurant as $restaurant)
+    boop
     <div class="row d-inline-flex " style="margin: 5px; ">
 
 
@@ -18,7 +19,7 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="restaurant/{{@$restaurant->title}}">{{$restaurant->title}}</a></h5>
+                        <h5 class="card-title"><a href="restaurant/{{@$restaurant->title}}">{{$restaurant->name}}</a></h5>
            {{--              <p class="card-text">{{Str::limit($resaurant->description, 90, '...')}}.</p>
  --}}
                     </div>
