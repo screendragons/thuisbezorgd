@@ -24,17 +24,22 @@
       {!! Form::close() !!}
     @foreach($restaurant as $restaurant)
       <div class="col-md-3">
-        <div class="card" style="height: 60px; width: 60px;">
+        <div class="card" style="height: 60px;">
           <img src="{{asset('storage/profileimages/default.jpg')}}" class="card-img-top show-restaurant" alt="...">
 
           <div class="card-body">
             <p class="card-title">
               {{ $restaurant->name}}
             </h5>
-            <p class="card-text">
-              {{ $restaurant->phone}}
+            <p class="card-title">
+              Phonenumber: {{ $restaurant->phone}}
               <br>
-              {{ $restaurant->city}}
+              City: {{ $restaurant->city}}
+            </p>
+            <p class="card-title">
+              Openingstijden
+              <br>
+              {{ $restaurant->is_open}} - {{ $restaurant->is_closed}}
             </p>
             <a href="restaurant/{{$restaurant->id}}" class="btn btn-primary">
               Visit

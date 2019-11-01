@@ -37,7 +37,7 @@ Route::resource('restaurant/{restaurant_id}/consumable', 'ConsumableController')
 
 // Consumables
 Route::resource('consumable', 'ConsumableController');
-Route::get('/consumable/create','ConsumableController@create')->name('consumable.create');
+Route::post('/consumable/create','ConsumableController@create')->name('consumable.create');
 Route::get('/consumable/edit','ConsumableController@edit')->name('consumable.edit');
 
 //Profile

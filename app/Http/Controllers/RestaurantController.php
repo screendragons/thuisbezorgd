@@ -26,6 +26,12 @@ class RestaurantController extends Controller
         //   }
 
         //   ->get();
+
+
+        // Openiningstijden
+        $restaurants = Restaurant::where('is_open', '<', date('H:i:s'))
+        ->where('is_closed', '>', date('H:i'))->get();
+            return view('home', compact('restaurants'));
     }
 
     /**
@@ -35,7 +41,9 @@ class RestaurantController extends Controller
      */
     public function create()
     {
+        // dd('test');
         return view('restaurant.create');
+
     }
 
 

@@ -59,6 +59,18 @@
       ,'autocomplete' => 'off']); !!}
     </div>
 
+    <label for="is_open">Open</label>
+    <div class="input-group mb-3">
+      {!! Form::text('is_open', null, ['class' => 'form-control', 'placeholder' => '09:00'
+      ,'autocomplete' => 'off']); !!}
+    </div>
+
+    <label for="is_closed">Closed</label>
+    <div class="input-group mb-3">
+      {!! Form::text('is_closed', null, ['class' => 'form-control', 'placeholder' => '18:00'
+      ,'autocomplete' => 'off']); !!}
+    </div>
+
     <br>
     <button type="submit" class="btn btn-success">Create</button>
   {!! Form::close() !!}

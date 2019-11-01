@@ -23,6 +23,8 @@ class CreateRestaurantTable extends Migration
             $table->string('city');
             $table->string('phone');
             $table->string('email');
+            $table->time('is_open')->nullable();
+            $table->time('is_closed')->nullable();
             $table->string('photo')->default('default.jpg');
             $table->timestamps();
         });
