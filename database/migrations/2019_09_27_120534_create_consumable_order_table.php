@@ -15,8 +15,8 @@ class CreateConsumableOrderTable extends Migration
     {
         Schema::create('consumable_order', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('order_id')->insigned;
-            $table->bigInteger('consumable_id')->insigned;
+            $table->bigInteger('order_id')->unsigned();
+            $table->bigInteger('consumable_id')->unsigned();
             $table->string('quantity');
             $table->string('price');
             $table->timestamps();

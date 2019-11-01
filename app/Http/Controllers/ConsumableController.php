@@ -42,7 +42,7 @@ class ConsumableController extends Controller
                 $consumable->price = $request->price;
                 $consumable->category = $request->category;
                 $consumable->restaurant_id = $request->restaurant_id;
-                $consumable->id = Auth()->user()->id;
+                // $consumable->id = Auth()->user()->id;
 
                 $consumable->save();
                 DB::commit();

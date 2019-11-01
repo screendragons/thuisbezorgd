@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('last_name');
             $table->boolean('is_admin')->default(0);
             $table->string('address');
-            $table->string('zipcode')->nullable;
+            $table->string('zipcode')->nullable();
             $table->string('city');
             $table->string('password');
             $table->string('phone');

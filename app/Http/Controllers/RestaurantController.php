@@ -72,6 +72,8 @@ class RestaurantController extends Controller
             'city' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
             'email' => 'required|string|unique:restaurant,email|max:255',
+            'is_open' => 'required|string|max:255',
+            'is_closed' => 'required|string|max:255',
             'photo' => 'string|max:255'
         ]);
         try {
@@ -85,6 +87,8 @@ class RestaurantController extends Controller
                 $restaurant->city = $request->city;
                 $restaurant->phone = $request->phone;
                 $restaurant->email = $request->email;
+                $restaurant->is_open = $request->is_open;
+                $restaurant->is_closed = $request->is_closed;
                 $restaurant->user_id = Auth()->user()->id;
 
                 $restaurant->save();

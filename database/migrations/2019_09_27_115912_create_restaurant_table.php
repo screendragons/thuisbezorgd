@@ -15,11 +15,11 @@ class CreateRestaurantTable extends Migration
     {
         Schema::create('restaurant', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id')->insigned;
+            $table->bigInteger('user_id')->unsigned();
             $table->string('name');
             $table->string('KVK');
             $table->string('address');
-            $table->string('zipcode')->nullable;
+            $table->string('zipcode')->nullable();
             $table->string('city');
             $table->string('phone');
             $table->string('email');
