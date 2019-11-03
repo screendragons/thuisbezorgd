@@ -1,102 +1,94 @@
 @extends('partials.header')
 @extends('layouts.default')
-{{--@section('content') --}}
+
+@section('content')
 
 <div class="container padding form profile">
   <div class="row col-md-9 col-lg-9 col-sm-9 pull-left">
     <h2>Profile</h2>
-      <div class="row  col-md-12 col-lg-12 col-sm-12" >
-        <form method="post" action="{{ route('profile.update',[$user->id]) }}">
-          {{ csrf_field() }}
-          <input type="hidden" name="_method" value="put">
-          <div class="form-group">
-              <label for="first_name">First name<span class="required">*</span></label>
-              <input placeholder="Enter first name" id="first_name" required name="first_name" spellcheck="false" class="form-control" value="{{ $user->first_name }}"
-              />
-          </div>
+    <div class="row  col-md-12 col-lg-12 col-sm-12" >
+      <form method="post" action="{{ route('profile.update',[$user->id]) }}">
+        {{ csrf_field() }}
+        <input type="hidden" name="_method" value="put">
+        <div class="form-group">
+          <label for="first_name">
+            First name
+            <span class="required">*</span>
+          </label>
+          <input placeholder="Enter first name" id="first_name" required name="first_name" spellcheck="false" class="form-control" value="{{ $user->first_name }}"
+          />
+        </div>
 
-          <div class="form-group">
-              <label for="first_name">Last name<span class="required">*</span></label>
-              <input placeholder="Enter last name" id="last_name" required name="last_name" spellcheck="false" class="form-control" value="{{ $user->last_name }}"
-              />
-          </div>
+        <div class="form-group">
+          <label for="first_name">
+            Last name
+            <span class="required">*</span>
+          </label>
+          <input placeholder="Enter last name" id="last_name" required name="last_name" spellcheck="false" class="form-control" value="{{ $user->last_name }}"
+          />
+        </div>
 
-          <div class="form-group">
-              <label for="address">Address<span class="required">*</span></label>
-              <input   placeholder="Enter address"
-              id="address"
-              required
-              name="address"
-              spellcheck="false"
-              class="form-control"
-              value="{{ $user->address }}"
-              />
-          </div>
+        <div class="form-group">
+          <label for="address">
+            Address
+            <span class="required">*</span>
+          </label>
+          <input placeholder="Enter address" id="address" requiredname="address"spellcheck="false" class="form-control" value="{{ $user->address }}"
+          />
+        </div>
 
-          <div class="form-group">
-              <label for="zipcode">Zipcode<span class="required">*</span></label>
-              <input   placeholder="Enter zipcode"
-              id="zipcode"
-              required
-              name="zipcode"
-              spellcheck="false"
-              class="form-control"
-              value="{{ $user->zipcode }}"
-              />
-          </div>
+        <div class="form-group">
+          <label for="zipcode">
+            Zipcode<span class="required">*</span>
+          </label>
+          <input placeholder="Enter zipcode" id="zipcode" required name="zipcode"spellcheck="false" class="form-control" value="{{ $user->zipcode }}"
+          />
+        </div>
 
-          <div class="form-group">
-              <label for="zipcode">City<span class="required">*</span></label>
-              <input   placeholder="Enter city"
-              id="city"
-              required
-              name="city"
-              spellcheck="false"
-              class="form-control"
-              value="{{ $user->city }}"
-              />
-          </div>
+        <div class="form-group">
+          <label for="zipcode">
+            City
+            <span class="required">*</span>
+          </label>
+          <input placeholder="Enter city" id="city" required name="city" spellcheck="false" class="form-control" value="{{ $user->city }}"
+          />
+        </div>
 
-          <div class="form-group">
-              <label for="user-password">Password<span class="required">*</span></label>
-              <input type="password"  placeholder="Enter password"
-              id="user-password"
-              required
-              name="password"
-              spellcheck="false"
-              class="form-control"
-              value=""
-              />
-          </div>
+        {{-- <div class="form-group">
+          <label for="user-password">Password<span class="required">*</span></label>
+          <input type="password"  placeholder="Enter password"
+          id="user-password"
+          required
+          name="password"
+          spellcheck="false"
+          class="form-control"
+          value=""
+          />
+        </div> --}}
 
-          <div class="form-group">
-              <label for="zipcode">phone<span class="required">*</span></label>
-              <input   placeholder="Enter email"
-              id="phone"
-              required
-              name="phone"
-              spellcheck="false"
-              class="form-control"
-              value="{{ $user->phone }}"
-              />
-          </div>
+        <div class="form-group">
+          <label for="phone">
+            Phone
+            <span class="required">*</span>
+          </label>
+          <input placeholder="Phone" id="phone" required name="phone" spellcheck="false" class="form-control" value="{{ $user->phone }}"
+          />
+        </div>
 
-          <div class="form-group">
-            <label for="user-email">Email<span class="required">*</span></label>
-            <input   placeholder="Enter email"
-            id="user-email"
-            required
-            name="email"
-            spellcheck="false"
-            class="form-control"
-            value="{{ $user->email }}"
-            />
-          </div>
+        <div class="form-group">
+          <label for="user-email">
+            Email
+            <span class="required">*</span>
+          </label>
+          <input placeholder="Enter email" id="user-email" required name="email" spellcheck="false" class="form-control" value="{{ $user->email }}"
+          />
+        </div>
 
-          <div class="form-group">
-            <input type="submit" class="btn btn-primary"                       value="Submit"/>
-          </div>
-        </form>
+        <div class="form-group">
+          <input type="submit" class="btn btn-primary" value="Submit"/>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
 {{--   </div>
@@ -152,4 +144,4 @@
     <a href="{{ url('order') }}" class="btn btn-primary">My orders</a>
   {!! Form::close() !!}
 </div> --}}
-{{-- @endsection --}}
+@endsection

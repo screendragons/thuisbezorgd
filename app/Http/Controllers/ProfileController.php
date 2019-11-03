@@ -107,22 +107,23 @@ class ProfileController extends Controller
                  DB::rollback();
 
              }
+
         // $user = User::where('id', $user->id)
-        //   ->update([
-        //       'first_name'=> $request->input('first_name'),
-        //       'last_name'=> $request->input('last_name'),
-        //       'address'=> $request->input('address'),
-        //       'zipcode'=> $request->input('zipcode'),
-        //       'password'=> bcrypt($request->input(['password'])),
-        //       'phone'=> $request->input('phone'),
-        //       'email'=> $request->input('email'),
-        //   ]);
+        //     ->update([
+        //         'first_name'=> $request->input('first_name'),
+        //         'last_name'=> $request->input('last_name'),
+        //         'address'=> $request->input('address'),
+        //         'zipcode'=> $request->input('zipcode'),
+        //         'password'=> bcrypt($request->input(['password'])),
+        //         'phone'=> $request->input('phone'),
+        //         'email'=> $request->input('email'),
+        //     ]);
 
         // if($user){
         //     return redirect()->route('profile', ['user'=> $user->id])
         //     ->with('success' , 'user updated succesfully');
         // }
-        //     //rxedirect
+        //     //redirect
         //     return back()->withInput();
     }
 
