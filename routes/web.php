@@ -33,7 +33,7 @@ Route::resource('restaurant/{restaurant_id}/consumable', 'ConsumableController')
 Route::resource('consumable', 'ConsumableController');
 
 //Profile
-Route::resource('/profile', 'ProfileController');
+Route::resource('profile', 'ProfileController');
 
 //Order
 Route::resource('order', 'OrderController');
