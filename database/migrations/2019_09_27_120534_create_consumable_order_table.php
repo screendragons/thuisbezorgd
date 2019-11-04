@@ -17,7 +17,7 @@ class CreateConsumableOrderTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('order_id')->unsigned();
             $table->bigInteger('consumable_id')->unsigned();
-            $table->string('quantity');
+            $table->integer('quantity')->unsigned();
             $table->string('price');
             $table->timestamps();
         });

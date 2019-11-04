@@ -7,6 +7,7 @@ use App\Consumable;
 use DB;
 use Auth;
 use Redirect;
+use Session;
 
 class ConsumableController extends Controller
 {
@@ -154,5 +155,11 @@ class ConsumableController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function order(Request $request, $id)
+    {
+        $consumable = Consumable::find($id);
+        $oldCart = Session::has('order') ? Session::get('order') : null;
     }
 }

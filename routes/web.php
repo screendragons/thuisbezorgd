@@ -32,11 +32,15 @@ Route::resource('restaurant/{restaurant_id}/consumable', 'ConsumableController')
 // Consumables
 Route::resource('consumable', 'ConsumableController');
 
+Route::resource('/consumable/{id}', 'ConsumableController@order');
+
 //Profile
 Route::resource('profile', 'ProfileController');
 
 //Order
 Route::resource('order', 'OrderController');
+
+// Route::resource('/order/{id}', 'OrderController@order');
 
 // Contact
 Route::get('/contact', 'ContactController@index')->name('contact');

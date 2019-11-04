@@ -86,4 +86,9 @@ class OrderController extends Controller
     {
         //
     }
+
+    public function order(Request $request, $id)
+    {
+        $consumable = Consumable::find($id);
+    }
 }
