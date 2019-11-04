@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Consumable;
+use App\Order;
 use DB;
 use Auth;
 use Redirect;
@@ -157,9 +158,16 @@ class ConsumableController extends Controller
         //
     }
 
+    // tutorial
     public function order(Request $request, $id)
     {
         $consumable = Consumable::find($id);
-        $oldCart = Session::has('order') ? Session::get('order') : null;
+        $oldOrder = Session::has('order') ? Session::get('order') : null;
+        $order = new Order($oldOrder);
+        $order->add($consumable, $consumable->id);
+
+        $request->session()->put('order', $order);
+        dd($request->session()->get('order'));
+        return redirect()->route('order.index');
     }
 }

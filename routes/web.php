@@ -32,7 +32,8 @@ Route::resource('restaurant/{restaurant_id}/consumable', 'ConsumableController')
 // Consumables
 Route::resource('consumable', 'ConsumableController');
 
-Route::resource('/consumable/{id}', 'ConsumableController@order');
+// tutorial
+Route::get('/consumable/{id}', [ 'as' => 'consumable.order', 'uses' => 'ConsumableController@order']);
 
 //Profile
 Route::resource('profile', 'ProfileController');

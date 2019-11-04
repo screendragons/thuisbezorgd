@@ -72,7 +72,7 @@
           Category: {{ $consumable->category }}
         </p>
 {{--         <div class="card-body"> --}}
-          <a href="#" class="btn btn-primary">Add to cart</a>
+          <a href="{{ route('consumable.order', ['id' => $consumable->id])}}" class="btn btn-primary">Add to cart</a>
         {{-- </div> --}}
         <br>
         <br>

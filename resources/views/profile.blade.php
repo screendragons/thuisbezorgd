@@ -87,6 +87,12 @@
         <div class="form-group">
           <input type="submit" class="btn btn-primary" value="Submit"/>
         </div>
+        {{-- <div class="form-group">
+          <a href="{{ route('profile.edit', ['id' => $user->id]) }}" class="btn btn-primary">
+            Edit
+          </a>
+        </div> --}}
+
       </form>
     </div>
   </div>

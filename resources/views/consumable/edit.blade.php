@@ -1,6 +1,13 @@
+@extends('partials.header')
+@extends('layouts.default')
+
+<div class="createconsumables">
+    <title>Edit a consumable</title>
+</div>
+
 <div class="container padding createrestaurants">
-  <h2>Create consumable</h2>
-  {!! Form::open(['route' => 'createconsumables.store', 'method' => 'POST', 'files' => true]) !!}
+  <h2>Edit a consumable</h2>
+  {!! Form::open(['route' => 'consumable.store', 'method' => 'POST', 'files' => true]) !!}
     <label for="title">Title</label>
     <div class="input-group mb-3">
       {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' =>

@@ -30,20 +30,19 @@ class Order extends Model
 	}
 
 	protected $table = 'order';
-}
 
-class Order
-{
+
+	// tutorial
 	public $consumable;
 	public $totalQuantity = 0;
 	public $totalPrice = 0;
 
-	public function construct($oldCart)
+	public function construct($oldOrder)
 	{
-		if($oldCart) {
-			$this->consumable = $oldCart->consumable;
-			$this->totalQuantity = $oldCart->totalQuantity;
-			$this->totalPrice = $oldCart->totalPrice;
+		if($oldOrder) {
+			$this->consumable = $oldOrder->consumable;
+			$this->totalQuantity = $oldOrder->totalQuantity;
+			$this->totalPrice = $oldOrder->totalPrice;
 		}
 	}
 

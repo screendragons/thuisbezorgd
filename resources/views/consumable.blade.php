@@ -1,10 +1,11 @@
 @extends('partials.header')
+@extends('layouts.default')
 {{-- <input type="" name="" value="{{ $restaurant->id }}"> --}}
-{{-- @section('content') --}}
+@section('content')
 <div class="container padding">
   <h2>Consumables</h2>
   <p>Here will show the consumables</p>
-  <a href="{{ url('/createconsumables')}}" class="btn btn-primary">Create a consumable</a>
+  <a href="{{ route('consumable.create')}}" class="btn btn-primary">Create a consumable</a>
 
   {{-- @foreach($consumables as $consumables)
   <div class="col-md-3">
@@ -23,6 +24,6 @@
     </div>
   </div>
   @endforeach --}}
-  <a href="{{-- {{ route('consumables.edit', $consumables->id) }} --}}" class="btn btn-primary">Edit</a>
+ {{--  <a href="{{ route('consumable.edit', $consumable->id) }}" class="btn btn-primary">Edit</a> --}}
 </div>
-{{-- @endsection --}}
+@endsection

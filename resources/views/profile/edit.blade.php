@@ -1,4 +1,3 @@
-
 @extends('partials.header')
 @extends('layouts.default')
 {{--@section('content') --}}
@@ -39,7 +38,7 @@
           <label for="exampleInputEmail">Email address</label>
           <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="{{ $user->email }}">
       </div> --}}
-      {!! Form::open(['route' => ['editprofile.update', Auth::id()], 'method' => 'PUT', 'files' => true])!!}
+      {!! Form::open(['route' => ['profile.update', Auth::id()], 'method' => 'PUT', 'files' => true])!!}
 
         <label for="first_name">First name</label>
         <div class="input-group mb-3">
@@ -74,10 +73,10 @@
             Auth::user()->city,'autocomplete' => 'off']); !!}
         </div>
 
-        <label for="first_name">Password</label>
+       {{--  <label for="first_name">Password</label>
         <div class="input-group mb-3">
             <input type="password" name="password" class="form-control">
-        </div>
+        </div> --}}
 
         <label for="first_name">Phone</label>
         <div class="input-group mb-3">
