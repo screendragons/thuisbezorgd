@@ -7,7 +7,7 @@
 
 <div class="container padding createrestaurants">
   <h2>Edit a consumable</h2>
-  {!! Form::open(['route' => 'consumable.store', 'method' => 'POST', 'files' => true]) !!}
+  {!! Form::open(['route' => 'consumable.edit', 'method' => 'POST', 'files' => true]) !!}
     <label for="title">Title</label>
     <div class="input-group mb-3">
       {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' =>

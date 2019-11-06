@@ -77,7 +77,7 @@ class ConsumableController extends Controller
         ]);
         try {
                 DB::beginTransaction();
-                $consumable = new Consumables;
+                $consumable = new Consumable;
 
                 $consumable->title = $request->title;
                 $consumable->price = $request->price;
@@ -87,7 +87,7 @@ class ConsumableController extends Controller
 
                 $consumable->save();
                 DB::commit();
-                return redirect()->back()->with('message', 'A new consumable has been maded.');
+                return redirect()->back()->with('message ', 'A new consumable has been maded.');
 
             }
             catch(Exception $e)
@@ -135,16 +135,20 @@ class ConsumableController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $this->validate(request(), [
-            'title' => 'required',
-            'category' => 'required',
-            'price' => 'required',
-            // 'zipcode' => 'required',
-            // 'city' => 'required',
-            // 'phone' => 'required',
-            // 'email' => 'required|email|unique:users',
-            // 'password' => 'required|min:6|confirmed'
-        ]);
+        // $consumable = Consumable::find($id);
+        // $consumable->update([
+        //     'title'=> $request->input('title'),
+        //     'category'=> $request->input('category'),
+        //     'price'=> $request->input('price'),
+        // ]);
+
+        // if($consumable){
+        //     return redirect()->route('restaurant.show', ['consumable'=> $consumable->id])
+        //     ->with('success' , 'consumable updated succesfully');
+        // }
+
+        // //redirect
+        // return back()->withInput();
     }
 
     /**

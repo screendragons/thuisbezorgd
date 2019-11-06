@@ -32,10 +32,12 @@
       </div>
     </div>
 
-    @if(Auth::user()->is_admin)
+    @if(Auth::user() == true)
       <div class="col-md-3 container">
         <h3>Create a consumable</h3>
         {!! Form::open(['route' => 'consumable.create', 'method' => 'POST', 'files' => true]) !!}
+          @csrf
+          @method('PUT')
           <label for="title">Title</label>
           <div class="input-group mb-3">
             {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' =>
@@ -74,7 +76,8 @@
           Category: {{ $consumable->category }}
         </p>
         {{-- <div class="card-body"> --}}
-          <a href="{{ route('order.index', ['id' => $consumable->id])}}" class="btn btn-primary">   Add to cart
+          <a href="{{ route('order.index', ['id' => $consumable->id])}}" class="btn btn-primary">
+            Add to cart
           </a>
         {{-- </div> --}}
         <br>

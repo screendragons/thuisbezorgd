@@ -21,15 +21,14 @@
                 </h4>
                 <hr>
 
-                @guest
+                @if(Auth::user() == false)
                     <a href="{{ route('login') }}" class="btn btn-primary btn-xl page-scroll">
                         Login
                     </a>
-                @endguest
-                <br>
-                <br>
-                <a href="{{ url('/restaurant') }}" class="btn btn-primary btn-xl page-scroll">      Restaurants
-                </a>
+                @else
+                    <a href="{{ url('/restaurant') }}" class="btn btn-primary btn-xl page-scroll">      Restaurants
+                    </a>
+                @endif
             </div>
         </div>
     </header>
