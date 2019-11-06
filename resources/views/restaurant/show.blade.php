@@ -35,7 +35,7 @@
     @if(Auth::user() == true)
       <div class="col-md-3 container">
         <h3>Create a consumable</h3>
-        {!! Form::open(['route' => 'consumable.create', 'method' => 'POST', 'files' => true]) !!}
+        {!! Form::open(['route' => 'consumable.store', 'method' => 'POST', 'files' => true]) !!}
           @csrf
           @method('PUT')
           <label for="title">Title</label>

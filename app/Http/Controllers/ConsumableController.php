@@ -58,6 +58,8 @@ class ConsumableController extends Controller
             }
 
         return redirect()->back();
+        // return view('consumable.create');
+
     }
 
 
@@ -85,9 +87,12 @@ class ConsumableController extends Controller
                 $consumable->restaurant_id = $request->restaurant_id;
                 $consumable->id = Auth()->user()->id;
 
+
+
                 $consumable->save();
+                dd($consumable);
                 DB::commit();
-                return redirect()->back()->with('message ', 'A new consumable has been maded.');
+
 
             }
             catch(Exception $e)
@@ -96,7 +101,8 @@ class ConsumableController extends Controller
                 dd($e->getMessage());
             }
 
-        return view('restaurant.show');
+        return view('restaurant.show')
+            ->with('consumable', $consumable);
     }
 
     /**
@@ -109,7 +115,7 @@ class ConsumableController extends Controller
     {
         $consumable = Consumable::find($id);
 
-        return view('consumable')
+        return view('restaurant.show')
             ->with('consumable', $consumable);
     }
 
@@ -163,15 +169,15 @@ class ConsumableController extends Controller
     }
 
     // tutorial
-    public function order(Request $request, $id)
-    {
-        $consumable = Consumable::find($id);
-        $oldOrder = Session::has('order') ? Session::get('order') : null;
-        $order = new Order($oldOrder);
-        $order->add($consumable, $consumable->id);
+    // public function order(Request $request, $id)
+    // {
+    //     $consumable = Consumable::find($id);
+    //     $oldOrder = Session::has('order') ? Session::get('order') : null;
+    //     $order = new Order($oldOrder);
+    //     $order->add($consumable, $consumable->id);
 
-        $request->session()->put('order', $order);
-        dd($request->session()->get('order'));
-        return redirect()->route('order.index');
-    }
+    //     $request->session()->put('order', $order);
+    //     dd($request->session()->get('order'));
+    //     return redirect()->route('order.index');
+    // }
 }
