@@ -93,6 +93,7 @@ class ConsumableController extends Controller
                 dd($consumable);
                 DB::commit();
 
+                return redirect()->back()->with('message ', 'A new consumable has been maded.');
 
             }
             catch(Exception $e)
