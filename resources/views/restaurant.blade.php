@@ -5,9 +5,9 @@
 <div class="container padding">
   <h2>Restaurants</h2>
 
-  @if($restaurant == false)
+  @if(count($restaurant) == false)
     <p>Create a restaurant</p>
-      <a href="/thuisbezorgd/public/restaurant/create" class="btn btn-primary">
+      <a href="{{route('restaurant.create')}}" class="btn btn-primary">
         Create a restaurant
       </a>
   @else
