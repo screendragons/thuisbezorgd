@@ -108,39 +108,42 @@ class ProfileController extends Controller
         //          DB::rollback();
 
         //      }
-
-
+        // dd($request->input('first_name'));
         // second try
-        // $user = User::where('id', $user->id)
-        //     ->update([
-        //         'first_name'=> $request->input('first_name'),
-        //         'last_name'=> $request->input('last_name'),
-        //         'address'=> $request->input('address'),
-        //         'zipcode'=> $request->input('zipcode'),
-        //         'password'=> bcrypt($request->input(['password'])),
-        //         'phone'=> $request->input('phone'),
-        //         'email'=> $request->input('email'),
-        //     ]);
+        $user->update([
+            'first_name'=> $request->input('first_name'),
+            'last_name'=> $request->input('last_name'),
+            'address'=> $request->input('address'),
+            'zipcode'=> $request->input('zipcode'),
+            'phone'=> $request->input('phone'),
+            'email'=> $request->input('email'),
+        ]);
 
-        // if($user){
-        //     return redirect()->route('profile', ['user'=> $user->id])
-        //     ->with('success' , 'user updated succesfully');
-        // }
-        //     //redirect
-        //     return back()->withInput();
+        if($user){
+            return redirect()->route('profile.index', ['user'=> $user->id])
+            ->with('success' , 'user updated succesfully');
+        }
+            //redirect
+            return back()->withInput();
 
 
         // third try
-        $user = User::where('id', $user->id);
-        $user->first_name = request('first_name');
-        $user->last_name = request('last_name');
-        $user->address = request('address');
-        $user->zipcode = request('zipcode');
-        $user->phone = request('phone');
-        $user->email = request('email');
-        $user->save();
+        // $user = User::where('id', $user->id);
+        // dd($user);
+        // $user = User::find($user->id);
 
-        return redirect()->route('profile.index');
+        // $user = User::find($user_id);
+        // dd($user);
+        // $user->first_name = request('first_name');
+        // $user->last_name = request('last_name');
+        // $user->address = request('address');
+        // $user->zipcode = request('zipcode');
+        // $user->city = request('city');
+        // $user->phone = request('phone');
+        // $user->email = request('email');
+        // $user->save();
+
+        // return redirect()->route('profile.index');
 
     }
 

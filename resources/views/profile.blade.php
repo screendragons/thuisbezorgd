@@ -7,8 +7,9 @@
   <div class="row col-md-9 col-lg-9 col-sm-9 pull-left">
     <h2>Profile</h2>
     <div class="row  col-md-12 col-lg-12 col-sm-12" >
-      <form method="post" action="{{ route('profile.update',[$user->id]) }}">
-        {{ csrf_field() }}
+      <form method="post" action="{{ route('profile.update', ['profile' => $user->id]) }}">
+        @csrf
+        @method('PATCH')
         <input type="hidden" name="_method" value="put">
         <div class="form-group">
           <label for="first_name">
@@ -20,7 +21,7 @@
         </div>
 
         <div class="form-group">
-          <label for="first_name">
+          <label for="last_name">
             Last name
             <span class="required">*</span>
           </label>
@@ -46,7 +47,7 @@
         </div>
 
         <div class="form-group">
-          <label for="zipcode">
+          <label for="city">
             City
             <span class="required">*</span>
           </label>
@@ -76,11 +77,11 @@
         </div>
 
         <div class="form-group">
-          <label for="user-email">
-            Email
+          <label for="email">
+            E-mail
             <span class="required">*</span>
           </label>
-          <input placeholder="Enter email" id="user-email" required name="email" spellcheck="false" class="form-control" value="{{ $user->email }}"
+          <input placeholder="Enter email" id="email" required name="email" spellcheck="false" class="form-control" value="{{ $user->email }}"
           />
         </div>
 

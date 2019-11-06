@@ -29,15 +29,15 @@
 
           <div class="card-body">
             <p class="card-title">
-              {{ $restaurant->name}}
-            </h5>
-            <p class="card-title">
-              Phonenumber: {{ $restaurant->phone}}
-              <br>
-              City: {{ $restaurant->city}}
+              <b>{{ $restaurant->name}}</b>
             </p>
             <p class="card-title">
-              Openingstijden
+              <b>Phonenumber</b> {{ $restaurant->phone}}
+              <br>
+              <b>City</b> {{ $restaurant->city}}
+            </p>
+            <p class="card-title">
+              <b>Workinghours</b>
               <br>
               {{ $restaurant->is_open}} - {{ $restaurant->is_closed}}
             </p>

@@ -4,14 +4,16 @@
 
 @section('content')
   <div class="container padding">
-    <h2>Restaurants with menus</h2>
+    <h2>
+      Restaurants with menus
+    </h2>
 
     <div class="col-md-3 profile-section">
       <div class="card" style="width: 21rem;">
         <img src="{{asset('storage/profileimages/default.jpg')}}" class="card-img-top show-restaurant" alt="...">
         <div class="card-body">
           <p class="card-title">
-            <b>{{ $restaurant->name}}</b>
+            <b><a href="restaurant/{{$restaurant->id}}">{{$restaurant->name}}</a></b>
           </p>
           <p class="card-title">
             <b>Phonenumber</b> {{ $restaurant->phone}}
@@ -71,35 +73,29 @@
           <br>
           Category: {{ $consumable->category }}
         </p>
-{{--         <div class="card-body"> --}}
-          <a href="{{ route('consumable.order', ['id' => $consumable->id])}}" class="btn btn-primary">Add to cart</a>
+        {{-- <div class="card-body"> --}}
+          <a href="{{ route('order.index', ['id' => $consumable->id])}}" class="btn btn-primary">   Add to cart
+          </a>
         {{-- </div> --}}
         <br>
         <br>
       </div>
     </div>
     @endforeach
-
-      {{-- <a href="{{ url('/createconsumables')}}" class="btn btn-primary">Create a consumable</a> --}}
-
-      {{-- @php
-      $consumable = $restaurant->consumable()->get();
-      @endphp --}}
-
   </div>
 
-  @foreach($restaurant->consumable as $res)
-  {{-- {{dd($restaurant)}} --}}
+  {{-- @foreach($restaurant->consumable as $res)
+  {{dd($restaurant)}}
   <div class="row" style="margin: 5px; ">
     <div class="card mb-3" style=" max-width: 540px; ">
         <div class="row no-gutters">
             <div class="col-md-4">
-             {{--  <img src="{{asset('storage/profileimages/defaultfood.jpg')}}" width="150px" style="margin-top: 25px; margin-left: 25px;" alt=""> --}}
-               {{--  <h1>{{ $consumable->title }}</h1> --}}
+              <img src="{{asset('storage/profileimages/defaultfood.jpg')}}" width="150px" style="margin-top: 25px; margin-left: 25px;" alt="">
+                <h1>{{ $consumable->title }}</h1>
             </div>
         </div>
     </div>
   </div>
-  @endforeach
+  @endforeach --}}
 
 @endsection

@@ -1,6 +1,9 @@
 .padding {
     padding-top: 60px;
 }
+.padding-search {
+    padding-top: 80px;
+}
 .show-restaurant {
     width: 200px;
     height: 200px;

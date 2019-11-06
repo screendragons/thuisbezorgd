@@ -12,32 +12,27 @@
 
         <div class="header-content">
             <div class="inner">
-                 <img src="{{asset('storage/profileimages/default.jpg')}}" class="card-img-top" alt="..." height="100" width="100">
-                <h1 class="cursive">Thuisbezorgd</h1>
-                <h4>Let's take away today</h4>
+                <img src="{{asset('storage/profileimages/default.jpg')}}" class="card-img-top" alt="..." height="100" width="100">
+                <h1 class="cursive">
+                    Thuisbezorgd
+                </h1>
+                <h4>
+                    Let's take away today
+                </h4>
                 <hr>
 
                 @guest
-                <a href="{{ route('login') }}" class="btn btn-primary btn-xl page-scroll">Login</a>
+                    <a href="{{ route('login') }}" class="btn btn-primary btn-xl page-scroll">
+                        Login
+                    </a>
                 @endguest
+                <br>
+                <br>
+                <a href="{{ url('/restaurant') }}" class="btn btn-primary btn-xl page-scroll">      Restaurants
+                </a>
             </div>
         </div>
     </header>
-    <section class="bg-primary" id="one">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 text-center">
-                    <h2 class="margin-top-0 text-primary">A place for the best food</h2>
-                    <br>
-                    <p class="text-faded">
-                       Ben je een keer lui om te koken? Bestel via Thuisbezorgd en je hoeft niet uit huis om je aankopen te doen
-                    </p>
-                    <a href="{{ url('/restaurant') }}" class="btn btn-default btn-xl page-scroll">Restaurants</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <footer id="footer">
         <div class="container-fluid">
             <div class="row">
