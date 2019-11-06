@@ -71,7 +71,7 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
         // first try
         //  $this->validate(request(), [
@@ -110,6 +110,7 @@ class ProfileController extends Controller
         //      }
         // dd($request->input('first_name'));
         // second try
+        $user = User::find($id);
         $user->update([
             'first_name'=> $request->input('first_name'),
             'last_name'=> $request->input('last_name'),

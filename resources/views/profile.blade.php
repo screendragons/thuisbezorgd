@@ -9,8 +9,7 @@
     <div class="row  col-md-12 col-lg-12 col-sm-12" >
       <form method="post" action="{{ route('profile.update', ['profile' => $user->id]) }}">
         @csrf
-        @method('PATCH')
-        <input type="hidden" name="_method" value="put">
+        @method('PUT')
         <div class="form-group">
           <label for="first_name">
             First name
@@ -34,7 +33,7 @@
             Address
             <span class="required">*</span>
           </label>
-          <input placeholder="Enter address" id="address" requiredname="address"spellcheck="false" class="form-control" value="{{ $user->address }}"
+          <input placeholder="Enter address" id="address" required name="address"spellcheck="false" class="form-control" value="{{ $user->address }}"
           />
         </div>
 
