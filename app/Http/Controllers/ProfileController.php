@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Order;
 use Auth;
 use Redirect;
 
@@ -18,6 +19,15 @@ class ProfileController extends Controller
     {
         $user = User::find(Auth::id());
             return view('profile')->with('user', $user);
+
+        // tutorial
+        $order = Auth::user()->order;
+        $order->transform(function($order, $id)
+        {
+            $order->cart = unserialize($order->cart);
+            return $order;
+        });
+        return view('profile.index', ['order' => $order]);
     }
 
     /**

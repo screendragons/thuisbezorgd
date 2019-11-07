@@ -46,8 +46,7 @@
 
           <label for="price">Price</label>
           <div class="input-group mb-3">
-            {!! Form::text('price', null, ['class' => 'form-control', 'placeholder' =>
-            'Price','autocomplete' => 'off']); !!}
+            {!! Form::text('price', null, ['class' => 'form-control', 'placeholder' =>'Price','autocomplete' => 'off']); !!}
           </div>
 
           <label for="category">Category</label>
@@ -87,7 +86,7 @@
             Delete
           </a>
 
-         <form id="remove-form-{{$consumable['id']}}" action="{{route('consumable.destroy', $consumable->id)}}" method="POST" style="display: none;">
+         <form id="remove-form-{{$consumable['id']}}" action="{{route('restaurant.destroy', $consumable->id)}}" method="POST" style="display: none;">
            @csrf
            @method('DELETE')
           </form>

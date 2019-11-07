@@ -19,6 +19,9 @@ class OrderController extends Controller
     {
         $order = Order::get();
         return view('order')->with('order', $order);
+
+        $consumable = Consumable::get();
+        return view('order')->with('consumable', $consumable);
     }
 
     /**

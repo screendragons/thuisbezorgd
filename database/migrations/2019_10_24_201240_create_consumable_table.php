@@ -15,7 +15,7 @@ class CreateConsumableTable extends Migration
     {
         Schema::create('consumable', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('restaurant_id')->unsigned();
+            $table->string('restaurant_id');
             $table->string('title');
             $table->string('price')->nullable();
             $table->string('category');

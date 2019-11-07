@@ -21,8 +21,6 @@ class ConsumableController extends Controller
     {
         //van Matthijs
         // return '<a href="'.route('consumables.show', ['consumable' => 1]).'">show</a>';
-
-
         $restaurant = Consumable::get()->all();
 
         return  view('restaurant')
@@ -36,29 +34,29 @@ class ConsumableController extends Controller
      */
     public function create(Request $request)
     {
-        try
-        {
-            DB::beginTransaction();
-            $consumable = new Consumable;
+        // try
+        // {
+        //     DB::beginTransaction();
+        //     $consumable = new Consumable;
 
-            $consumable->title = $request->title;
-            $consumable->price = $request->price;
-            $consumable->category = $request->category;
-            $consumable->restaurant_id = $request->restaurant_id;
-            // $consumable->id = Auth()->user()->id;
+        //     $consumable->title = $request->title;
+        //     $consumable->price = $request->price;
+        //     $consumable->category = $request->category;
+        //     $consumable->restaurant_id = $request->restaurant_id;
+        //     // $consumable->id = Auth()->user()->id;
 
-            $consumable->save();
-            DB::commit();
-            return redirect()->back()->with('message', 'A new consumable has been maded.');
+        //     $consumable->save();
+        //     DB::commit();
+        //     return redirect()->back()->with('message', 'A new consumable has been maded.');
 
-        }
-        catch(Exception $e)
-        {
-            DB::rollback();
-            dd($e->getMessage());
-        }
+        // }
+        // catch(Exception $e)
+        // {
+        //     DB::rollback();
+        //     dd($e->getMessage());
+        // }
 
-        return redirect()->back();
+        // return redirect()->back();
         // return view('consumable.create');
 
     }
@@ -72,12 +70,12 @@ class ConsumableController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'price' => 'string|max:25|unique:restaurant',
-            'category' => 'required|string|max:255',
-            'photo' => 'string|max:255'
-        ]);
+        // $validatedData = $request->validate([
+        //     'title' => 'required|string|max:255',
+        //     'price' => 'string|max:25|unique:restaurant',
+        //     'category' => 'required|string|max:255',
+        //     'photo' => 'string|max:255'
+        // ]);
         try {
                 DB::beginTransaction();
                 $consumable = new Consumable;
@@ -91,7 +89,7 @@ class ConsumableController extends Controller
 
 
                 $consumable->save();
-                dd($consumable);
+                // dd($consumable);
                 DB::commit();
 
                 return redirect()->back()->with('message ', 'A new consumable has been maded.');
@@ -171,15 +169,15 @@ class ConsumableController extends Controller
     }
 
     // tutorial
-    // public function order(Request $request, $id)
-    // {
-    //     $consumable = Consumable::find($id);
-    //     $oldOrder = Session::has('order') ? Session::get('order') : null;
-    //     $order = new Order($oldOrder);
-    //     $order->add($consumable, $consumable->id);
+    public function order(Request $request, $id)
+    {
+        // $consumable = Consumable::find($id);
+        // $oldCart = Session::has('order') ? Session::get('cart') : null;
+        // $order = new Order($oldOrder);
+        // $order->add($consumable, $consumable->id);
 
-    //     $request->session()->put('order', $order);
-    //     dd($request->session()->get('order'));
-    //     return redirect()->route('order.index');
-    // }
+        // $request->session()->put('cart', $cart);
+        // dd($request->session()->get('cart'));
+        // return redirect()->route('order.index');
+    }
 }

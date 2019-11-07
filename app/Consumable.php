@@ -14,10 +14,10 @@ class Consumable extends Model
         return $this->belongsTo('App\User');
     }
 
-     public function restaurant()
+    public function restaurant()
     {
         return $this->belongsTo('App\Restaurant');
     }
 
-    protected $table = 'Consumable';
+    protected $table = 'consumable';
 }
