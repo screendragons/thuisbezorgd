@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Restaurant;
-use App\Order;
-use App\User;
+use App\Cart;
 use App\Consumable;
+use App\Order;
+use App\Restaurant;
+use App\User;
+
 
 class OrderController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listin g of the resource.
      *
      * @return \Illuminate\Http\Response
      */
