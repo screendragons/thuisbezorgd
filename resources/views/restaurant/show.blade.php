@@ -37,7 +37,7 @@
         <h3>Create a consumable</h3>
         {!! Form::open(['route' => 'consumable.store', 'method' => 'POST', 'files' => true]) !!}
           @csrf
-          @method('PUT')
+         {{--  @method('PUT') --}}
           <label for="title">Title</label>
           <div class="input-group mb-3">
             {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' =>
@@ -82,6 +82,16 @@
         {{-- </div> --}}
         <br>
         <br>
+        <div>
+          <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$consumable['id']}}').submit();">
+            Delete
+          </a>
+
+         <form id="remove-form-{{$consumable['id']}}" action="{{route('consumable.destroy', $consumable->id)}}" method="POST" style="display: none;">
+           @csrf
+           @method('DELETE')
+          </form>
+        </div>
       </div>
     </div>
     @endforeach

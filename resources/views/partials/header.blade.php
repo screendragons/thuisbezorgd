@@ -32,7 +32,7 @@
                     <li>
                         <a class="restaurants" href="{{ url('/restaurant') }}">Restaurants</a>
                     </li>
-                    @if(Auth::user()->is_admin)
+                    @if(Auth::user() == true)
                         <li>
                             <a class="createrestaurants" href="{{ url('/restaurant/create') }}">Create restaurant</a>
                         </li>

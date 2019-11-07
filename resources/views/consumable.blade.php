@@ -6,7 +6,7 @@
   <h2>Consumables</h2>
   <p>Here will show the consumables</p>
   <a href="{{ route('consumable.create')}}" class="btn btn-primary">Create a consumable</a>
-
+  @method('HEAD')
   {{-- @foreach($consumables as $consumables)
   <div class="col-md-3">
     <div class="card" style="width: 18rem;">

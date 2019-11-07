@@ -36,26 +36,27 @@ class ConsumableController extends Controller
      */
     public function create(Request $request)
     {
-        try {
-                DB::beginTransaction();
-                $consumable = new Consumable;
+        try
+        {
+            DB::beginTransaction();
+            $consumable = new Consumable;
 
-                $consumable->title = $request->title;
-                $consumable->price = $request->price;
-                $consumable->category = $request->category;
-                $consumable->restaurant_id = $request->restaurant_id;
-                // $consumable->id = Auth()->user()->id;
+            $consumable->title = $request->title;
+            $consumable->price = $request->price;
+            $consumable->category = $request->category;
+            $consumable->restaurant_id = $request->restaurant_id;
+            // $consumable->id = Auth()->user()->id;
 
-                $consumable->save();
-                DB::commit();
-                return redirect()->back()->with('message', 'A new consumable has been maded.');
+            $consumable->save();
+            DB::commit();
+            return redirect()->back()->with('message', 'A new consumable has been maded.');
 
-            }
-            catch(Exception $e)
-            {
-                DB::rollback();
-                dd($e->getMessage());
-            }
+        }
+        catch(Exception $e)
+        {
+            DB::rollback();
+            dd($e->getMessage());
+        }
 
         return redirect()->back();
         // return view('consumable.create');

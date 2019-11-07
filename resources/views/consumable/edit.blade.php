@@ -27,5 +27,16 @@
     </div>
     <br>
     <button type="submit" class="btn btn-success">Update</button>
+
+    {{-- <div>
+      <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$consumable['id']}}').submit();">
+        Delete
+      </a>
+
+     <form id="remove-form-{{$consumable['id']}}" action="{{route('consumable.destroy', $consumable->id)}}" method="POST" style="display: none;">
+       @csrf
+       @method('DELETE')
+      </form>
+    </div> --}}
   {!! Form::close() !!}
 </div>
