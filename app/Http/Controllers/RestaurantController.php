@@ -27,11 +27,10 @@ class RestaurantController extends Controller
 
         //   ->get();
 
-
         // Openiningstijden
-        $restaurants = Restaurant::where('is_open', '<', date('H:i:s'))
+        $restaurants = Restaurant::where('is_open', '<', date('H:i'))
         ->where('is_closed', '>', date('H:i'))->get();
-            return view('home', compact('restaurants'));
+            return view('restaurant', compact('restaurants'));
     }
 
     /**
@@ -129,7 +128,8 @@ class RestaurantController extends Controller
      */
     public function edit($id)
     {
-        //
+        $restaurant = Restaurant::findOrFail($id);
+        return view('restaurant.edit')->with('restaurant', $restaurant);
     }
 
     /**
@@ -141,7 +141,20 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $consumable = Consumable::find($id);
+        $consumable->update([
+            'title'=> $request->input('title'),
+            'price'=> $request->input('price'),
+            'category'=> $request->input('category'),
+        ]);
+
+        if($consumable){
+            return redirect()->route('restaurant.show', ['consumable'=> $consumable->id])
+            ->with('success' , 'consumable updated succesfully');
+        }
+            //redirect
+            // return back()->withInput();
+
     }
 
     /**
