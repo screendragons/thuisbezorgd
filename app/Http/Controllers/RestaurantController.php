@@ -16,8 +16,8 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurant = Restaurant::get();
-        return view('restaurant')->with('restaurant', $restaurant);
+        // $restaurant = Restaurant::get();
+        // return view('restaurant')->with('restaurant', $restaurant);
 
         // $restaurant = Restaurant::where('is_open', '>', date('H:i'))
         //   ->where('is_closed', '>', date('H:i'))
@@ -28,9 +28,10 @@ class RestaurantController extends Controller
         //   ->get();
 
         // Openiningstijden
-        $restaurants = Restaurant::where('is_open', '<', date('H:i'))
-        ->where('is_closed', '>', date('H:i'))->get();
-            return view('restaurant', compact('restaurants'));
+        $restaurants = Restaurant::where('is_open', '<', date('H:i:s'))
+        ->where('is_closed', '>', date('H:i:s'))->get();
+
+        return view('restaurant', compact('restaurants'));
     }
 
     /**
@@ -166,12 +167,6 @@ class RestaurantController extends Controller
     public function destroy($id)
     {
         // delete consumable from restaurant.show
-        $consumable = Consumable::where('id',$id)->first();
 
-        if ($consumable != null) {
-           $consumable->delete();
-           return view('restaurant.show');
-        }
-        return redirect()->route('restaurant.show')->with(['message'=> 'Wrong ID!!']);
     }
 }

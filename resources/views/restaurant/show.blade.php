@@ -37,7 +37,7 @@
     @if(Auth::user() == true)
       <div class="col-md-3 container">
         <h3>Create a consumable</h3>
-        {!! Form::open(['route' => 'consumable.store', 'method' => 'POST', 'files' => true]) !!}
+        {!! Form::open(['route' => ['consumable.store', $restaurant->id], 'method' => 'POST', 'files' => true]) !!}
           @csrf
          {{--  @method('PUT') --}}
           <label for="title">Title</label>
@@ -67,13 +67,13 @@
 
     @foreach($restaurant->consumable as $consumable)
     <div class="col-md-3 container">
-      <form method="post" action="{{ route('consumable.update', ['consumable' => $consumable->id]) }}">
+      <form method="post" action="{{ route('consumable.update', ['restaurant_id' => $restaurant->id, 'consumable' => $consumable->id]) }}">
         @csrf
         @method('PUT')
-        <h3>Product</h3>
+        <h3>Edit restaurant</h3>
         <div class="form-group">
           <label for="title">
-            Title
+            Name
             <span class="required">*</span>
           </label>
           <input placeholder="Enter title" id="title" required name="title" spellcheck="false" class="form-control" value="{{ $consumable->title }}"
@@ -113,7 +113,7 @@
           Delete
         </a>
 
-       <form id="remove-form-{{$consumable['id']}}" action="{{route('restaurant.destroy', $consumable->id)}}" method="POST" style="display: none;">
+       <form id="remove-form-{{$consumable['id']}}" action="{{route('consumable.destroy', ['restaurant_id' => $restaurant->id, 'consumable' => $consumable->id])}}" method="POST" style="display: none;">
          @csrf
          @method('DELETE')
         </form>

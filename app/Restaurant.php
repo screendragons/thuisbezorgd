@@ -25,4 +25,14 @@ class Restaurant extends Model
     }
 
     protected $table = 'restaurant';
+
+    protected $appends = ['is_open'];
+    // public function getOpen
+    // {
+    //     if(date() > $this->open && date() < $this->close){
+    //         return true;
+    //     }
+
+    //     return false;
+    // }
 }

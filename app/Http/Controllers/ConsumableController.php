@@ -84,9 +84,7 @@ class ConsumableController extends Controller
                 $consumable->price = $request->price;
                 $consumable->category = $request->category;
                 $consumable->restaurant_id = $request->restaurant_id;
-                $consumable->id = Auth()->user()->id;
-
-
+                // $consumable->id = Auth()->user()->id;
 
                 $consumable->save();
                 // dd($consumable);
@@ -165,7 +163,13 @@ class ConsumableController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $consumable = Consumable::where('id',$id)->first();
+
+        if ($consumable != null) {
+           $consumable->delete();
+           return redirect()->back();
+        }
+        return redirect()->back()->with(['message'=> 'Wrong ID!!']);
     }
 
     // tutorial

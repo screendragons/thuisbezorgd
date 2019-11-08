@@ -24,13 +24,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('search', ['as' => 'search', 'uses' => 'RestaurantController@search']);
 
 // restaurants page
-Route::resource('restaurant', 'RestaurantController');
+Route::resource('restaurant', 'RestaurantController')->middleware('admin');
 // Route::post('/restaurant/{id}', 'RestaurantController@store')->name('restaurant.store');
 
 Route::resource('restaurant/{restaurant_id}/consumable', 'ConsumableController');
 
 // Consumables
-Route::resource('consumable', 'ConsumableController');
+// Route::resource('consumable', 'ConsumableController');
 
 // Route::get('consumable', 'ConsumableController');
 
