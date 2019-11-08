@@ -25,7 +25,7 @@
           </tr>
         </thead>
         <tbody>
-          @foreach($user as $user)
+          @foreach($users as $user)
             <tr>
               <td>{{ $user->id }}</td>
               <td>{{ $user->first_name }}</td>
@@ -35,12 +35,12 @@
               <td>{{ $user->phone }}</td>
               <td>{{ $user->email }}</td>
               <td>
-                <a href="{{ route('admin.edit', ['id' => $user->id]) }} "class="btn btn-primary">Edit</a>
+                <a href="{{-- {{ route('admin.edit', ['id' => $user->id]) }}  --}}"class="btn btn-primary">Edit</a>
               </td>
               <td>
                <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$user['id']}}').submit();">Delete</a>
 
-                <form id="remove-form-{{$user['id']}}" action="{{route('admin.destroy', $user->id)}}" method="POST" style="display: none;">
+                <form id="remove-form-{{$user['id']}}" action="{{-- {{route('admin.destroy', $user->id)}} --}}" method="POST" style="display: none;">
                   @csrf
                   @method('DELETE')
                 </form>

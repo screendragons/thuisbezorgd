@@ -14,9 +14,10 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $users = User::get();
+        $users = User::get()->all();
 
-        return view('admin')->with('users', $users);
+        return view('admin.admin')
+            ->with('users', $users);
     }
 
     /**
