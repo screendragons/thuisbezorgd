@@ -5,7 +5,7 @@
 <div class="container padding">
   <h2>Restaurants</h2>
 
-  @if(count($restaurants) == false)
+  @if(count($restaurant) < 1)
     <p>Create a restaurant</p>
       <a href="{{route('restaurant.create')}}" class="btn btn-primary">
         Create a restaurant
@@ -22,7 +22,7 @@
       </div>
       <br>
       {!! Form::close() !!}
-    @foreach($restaurants as $restaurant)
+    @foreach($restaurant as $restaurant)
       <div class="col-md-3">
         <div class="card" style="height: 60px;">
           <img src="{{asset('storage/profileimages/default.jpg')}}" class="card-img-top show-restaurant" alt="...">

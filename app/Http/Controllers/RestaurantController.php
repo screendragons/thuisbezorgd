@@ -16,8 +16,8 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        // $restaurant = Restaurant::get();
-        // return view('restaurant')->with('restaurant', $restaurant);
+        $restaurant = Restaurant::get();
+        return view('restaurant')->with('restaurant', $restaurant);
 
         // $restaurant = Restaurant::where('is_open', '>', date('H:i'))
         //   ->where('is_closed', '>', date('H:i'))
@@ -28,10 +28,10 @@ class RestaurantController extends Controller
         //   ->get();
 
         // Openiningstijden
-        $restaurants = Restaurant::where('is_open', '<', date('H:i:s'))
+        $restaurant = Restaurant::where('is_open', '<', date('H:i:s'))
         ->where('is_closed', '>', date('H:i:s'))->get();
 
-        return view('restaurant', compact('restaurants'));
+        return view('restaurant', compact('restaurant'));
     }
 
     /**
@@ -142,20 +142,25 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $consumable = Consumable::find($id);
-        $consumable->update([
-            'title'=> $request->input('title'),
-            'price'=> $request->input('price'),
-            'category'=> $request->input('category'),
+        $restaurant = Restaurant::find($id);
+        $restaurant->update([
+            'name'=> $request->input('name'),
+            'KVK'=> $request->input('KVK'),
+            'address'=> $request->input('address'),
+            'zipcode'=> $request->input('zipcode'),
+            'city'=> $request->input('city'),
+            'phone'=> $request->input('phone'),
+            'email'=> $request->input('email'),
+            'is_open'=> $request->input('is_open'),
+            'is_closed'=> $request->input('is_closed')
         ]);
 
-        if($consumable){
-            return redirect()->route('restaurant.show', ['consumable'=> $consumable->id])
+        if($restaurant){
+            return redirect()->route('restaurant.show', ['restaurant'=> $restaurant->id])
             ->with('success' , 'consumable updated succesfully');
         }
             //redirect
             // return back()->withInput();
-
     }
 
     /**

@@ -8,4 +8,6 @@ Route::get('admin', ['middleware' => 'admin', function () {
     //
 }]);
 
-Route::get('admin', 'AdminController@index')->name('admin');
+Route::get('admin', 'AdminController@index')->name('admin')->middleware('admin');;
+
+Route::resource('admin', 'AdminController');

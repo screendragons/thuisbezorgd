@@ -40,11 +40,9 @@
                     <li>
                         <a class="profile" href="{{ url('/profile') }}">Profile</a>
                     </li>
-                        @if(Auth::user()->is_admin == true)
-                            <li>
-                                <a class="admin" href="{{ url('/admin') }}">Admin</a>
-                            </li>
-                        @endif
+                    <li>
+                        <a class="admin" href="{{ url('/admin') }}">Admin</a>
+                    </li>
                     <li>
                         <a class="profile" href="{{ url('/order') }}">Order</a>
                     </li>

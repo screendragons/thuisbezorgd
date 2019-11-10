@@ -35,4 +35,15 @@ class Restaurant extends Model
 
     //     return false;
     // }
+
+    use Notifiable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name', 'KVK', 'address', 'zipcode', 'city',  'phone', 'email', 'is_open', 'is_closed'
+    ];
 }

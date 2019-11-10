@@ -24,7 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('search', ['as' => 'search', 'uses' => 'RestaurantController@search']);
 
 // restaurants page
-Route::resource('restaurant', 'RestaurantController')->middleware('admin');
+Route::resource('restaurant', 'RestaurantController');
 // Route::post('/restaurant/{id}', 'RestaurantController@store')->name('restaurant.store');
 
 Route::resource('restaurant/{restaurant_id}/consumable', 'ConsumableController');
@@ -49,3 +49,5 @@ Route::resource('order', 'OrderController');
 Route::get('/contact', 'ContactController@index')->name('contact');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+// ->middleware('admin')
