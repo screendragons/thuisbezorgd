@@ -26,7 +26,7 @@
             {{ $restaurant->is_open}} - {{ $restaurant->is_closed}}
           </p>
           <button type="submit" class="btn btn-primary">
-            <a href="{{ route('restaurant.edit', ['id' => $restaurant->id])}}">
+            <a href="{{URL::to('restaurant')}}/{{$restaurant->id}}/edit">
               Edit
             </a>
           </button>
@@ -66,11 +66,11 @@
     @endif
 
     @foreach($restaurant->consumable as $consumable)
-    <div class="col-md-3 container">
+    <div class="col-md-3 container edit-consumable">
       <form method="post" action="{{ route('consumable.update', ['restaurant_id' => $restaurant->id, 'consumable' => $consumable->id]) }}">
         @csrf
         @method('PUT')
-        <h3>Edit restaurant</h3>
+        <h3>Edit consumable</h3>
         <div class="form-group">
           <label for="title">
             Name
@@ -102,10 +102,10 @@
         </div>
       </form>
       {{-- <div class="card-body"> --}}
-        <a href="{{ route('order.index', ['id' => $consumable->id])}}" class="btn btn-primary">
+        {{-- <a href="{{ route('order.index', ['id' => $consumable->id])}}" class="btn btn-primary">
           Add to cart
         </a>
-      {{-- </div> --}}
+ --}}      {{-- </div> --}}
       <br>
       <br>
       <div>

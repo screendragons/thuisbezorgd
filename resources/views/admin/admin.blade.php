@@ -1,16 +1,13 @@
-@extends('layouts.app')
-
-@section('title', 'admin')
+@extends('partials.header')
+@extends('layouts.default')
 
 @section('content')
-  @include('partials.header')
+  <div class="container padding">
     <ul class="navbar-nav bg-gradient-primary sidebar {{-- sidebar-dark accordion --}}" id="accordionSidebar">
     </ul>
     <div class="container-fluid">
       <!-- Content Row -->
       <div class="row">
-
-        <!-- Earnings (Monthly) Card Example -->
       </div>
     </div>
 
@@ -18,10 +15,12 @@
         <thead>
           <tr>
             <th>id</th>
-            <th>User</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Phone</th>
             <th>E-mail</th>
-            <th>Uploads</th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -49,4 +48,5 @@
           @endforeach
         </tbody>
     </table>
+  </div>
 @endsection

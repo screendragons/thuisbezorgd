@@ -153,6 +153,20 @@ class ConsumableController extends Controller
 
         // //redirect
         // return back()->withInput();
+
+        $consumable = Consumable::find($id);
+        $consumable->update([
+            'title'=> $request->input('title'),
+            'price'=> $request->input('price'),
+            'category'=> $request->input('category'),
+        ]);
+
+        if($consumable){
+            return redirect()->route('restaurant.show', ['consumable'=> $consumable->id])
+            ->with('success' , 'consumable updated succesfully');
+        }
+            //redirect
+            // return back()->withInput();
     }
 
     /**
