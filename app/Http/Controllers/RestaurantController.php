@@ -33,6 +33,7 @@ class RestaurantController extends Controller
         return view('restaurant')->with('restaurant', $restaurant);
 
         // return view('restaurant', compact('restaurant'));
+        return view('restaurant', compact('restaurant'));
     }
 
     /**

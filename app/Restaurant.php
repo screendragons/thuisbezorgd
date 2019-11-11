@@ -36,6 +36,7 @@ class Restaurant extends Model
     //     return false;
     // }
 
+
     // use Notifiable;
 
     /**

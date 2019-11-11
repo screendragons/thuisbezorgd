@@ -88,6 +88,10 @@
         <img src="{{asset('storage/profileimages/default.jpg')}}" class="card-img-top show-restaurant" alt="...">
         <br>
         <br>
+      <form method="post" action="{{ route('consumable.update', ['restaurant_id' => $restaurant->id, 'consumable' => $consumable->id]) }}">
+        @csrf
+        @method('PUT')
+        <h3>Edit consumable</h3>
         <div class="form-group">
           <label for="title">
             Name
@@ -120,6 +124,8 @@
           Add to cart
         </a>
  --}}      {{-- </div> --}}
+      <br>
+      <br>
       <div>
         <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$consumable['id']}}').submit();">
           Delete
