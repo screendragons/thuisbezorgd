@@ -30,8 +30,9 @@ class RestaurantController extends Controller
         // Openiningstijden
         $restaurant = Restaurant::where('is_open', '<', date('H:i:s'))
         ->where('is_closed', '>', date('H:i:s'))->get();
+        return view('restaurant')->with('restaurant', $restaurant);
 
-        return view('restaurant', compact('restaurant'));
+        // return view('restaurant', compact('restaurant'));
     }
 
     /**
@@ -172,6 +173,13 @@ class RestaurantController extends Controller
     public function destroy($id)
     {
         // delete consumable from restaurant.show
+        $restaurant = Restaurant::where('id',$id)->first();
+
+        if ($restaurant != null) {
+           $restaurant->delete();
+           return redirect()->back();
+        }
+        return redirect()->back()->with(['message'=> 'Wrong ID!!']);
 
     }
 }

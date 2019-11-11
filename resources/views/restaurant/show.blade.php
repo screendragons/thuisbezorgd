@@ -13,7 +13,7 @@
         <img src="{{asset('storage/profileimages/default.jpg')}}" class="card-img-top show-restaurant" alt="...">
         <div class="card-body">
           <p class="card-title">
-            <b><a href="restaurant/{{$restaurant->id}}">{{$restaurant->name}}</a></b>
+            <b>{{$restaurant->name}}</b>
           </p>
           <p class="card-title">
             <b>Phonenumber</b> {{ $restaurant->phone}}
@@ -30,6 +30,19 @@
               Edit
             </a>
           </button>
+          <br>
+          <br>
+          {{-- delete --}}
+          <div>
+            <a class="btn btn-danger" {{-- onclick="event.preventDefault(); document.getElementById('remove-form-{{$restaurant['id']}}').submit();" --}}>
+              Delete
+            </a>
+
+            {{-- <form id="remove-form-{{$restaurant['id']}}" action="{{route('restaurant.destroy', ['restaurant_id' => $restaurant->id, 'consumable' => $consumable->id])}}" method="POST" style="display: none;">
+             @csrf
+             @method('DELETE')
+            </form> --}}
+          </div>
         </div>
       </div>
     </div>
@@ -67,47 +80,46 @@
 
     @foreach($restaurant->consumable as $consumable)
     <div class="col-md-3 container edit-consumable">
-      <form method="post" action="{{ route('consumable.update', ['restaurant_id' => $restaurant->id, 'consumable' => $consumable->id]) }}">
+      {{-- <form method="post" action="{{ url('consumable.update', ['restaurant_id' => $restaurant->id, 'consumable' => $consumable->id]) }}"> --}}
+      <form>
         @csrf
         @method('PUT')
-        <h3>Edit consumable</h3>
+        <h3>Consumable</h3>
+        <img src="{{asset('storage/profileimages/default.jpg')}}" class="card-img-top show-restaurant" alt="...">
+        <br>
+        <br>
         <div class="form-group">
           <label for="title">
             Name
-            <span class="required">*</span>
           </label>
-          <input placeholder="Enter title" id="title" required name="title" spellcheck="false" class="form-control" value="{{ $consumable->title }}"
-          />
+          <div>{{ $consumable->title }}</div>
         </div>
 
         <div class="form-group">
           <label for="price">
             Price
-            <span class="required">*</span>
           </label>
-          <input placeholder="Enter price" id="price" required name="price" spellcheck="false" class="form-control" value="{{ $consumable->price }}"
-          />
+          <div>{{ $consumable->price }}</div>
         </div>
 
         <div class="form-group">
-          <label for="catergory">
+          <label for="category">
             Category
-            <span class="required">*</span>
           </label>
-          <input placeholder="Enter category" id="category" required name="category" spellcheck="false" class="form-control" value="{{ $consumable->category }}"
-          />
+          <div>{{ $consumable->category }}</div>
         </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary">Edit</button>
-        </div>
+          <button type="submit" class="btn btn-primary">
+            <a href="{{URL::to('consumable')}}/{{$consumable->id}}/edit">
+              Edit
+            </a>
+          </button>
       </form>
+
       {{-- <div class="card-body"> --}}
         {{-- <a href="{{ route('order.index', ['id' => $consumable->id])}}" class="btn btn-primary">
           Add to cart
         </a>
  --}}      {{-- </div> --}}
-      <br>
-      <br>
       <div>
         <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$consumable['id']}}').submit();">
           Delete

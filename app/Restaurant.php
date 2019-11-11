@@ -36,7 +36,7 @@ class Restaurant extends Model
     //     return false;
     // }
 
-    use Notifiable;
+    // use Notifiable;
 
     /**
      * The attributes that are mass assignable.
