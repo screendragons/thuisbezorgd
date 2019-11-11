@@ -15,8 +15,7 @@
             First name
             <span class="required">*</span>
           </label>
-          <input placeholder="Enter first name" id="first_name" required name="first_name" spellcheck="false" class="form-control" value="{{ $user->first_name }}"
-          />
+          <input placeholder="Enter first name" id="first_name" required name="first_name" spellcheck="false" class="form-control" value="{{ $user->first_name }}"/>
         </div>
 
         <div class="form-group">
@@ -24,8 +23,7 @@
             Last name
             <span class="required">*</span>
           </label>
-          <input placeholder="Enter last name" id="last_name" required name="last_name" spellcheck="false" class="form-control" value="{{ $user->last_name }}"
-          />
+          <input placeholder="Enter last name" id="last_name" required name="last_name" spellcheck="false" class="form-control" value="{{ $user->last_name }}"/>
         </div>
 
         <div class="form-group">
@@ -33,16 +31,14 @@
             Address
             <span class="required">*</span>
           </label>
-          <input placeholder="Enter address" id="address" required name="address"spellcheck="false" class="form-control" value="{{ $user->address }}"
-          />
+          <input placeholder="Enter address" id="address" required name="address"spellcheck="false" class="form-control" value="{{ $user->address }}"/>
         </div>
 
         <div class="form-group">
           <label for="zipcode">
             Zipcode<span class="required">*</span>
           </label>
-          <input placeholder="Enter zipcode" id="zipcode" required name="zipcode"spellcheck="false" class="form-control" value="{{ $user->zipcode }}"
-          />
+          <input placeholder="Enter zipcode" id="zipcode" required name="zipcode"spellcheck="false" class="form-control" value="{{ $user->zipcode }}"/>
         </div>
 
         <div class="form-group">
@@ -50,8 +46,7 @@
             City
             <span class="required">*</span>
           </label>
-          <input placeholder="Enter city" id="city" required name="city" spellcheck="false" class="form-control" value="{{ $user->city }}"
-          />
+          <input placeholder="Enter city" id="city" required name="city" spellcheck="false" class="form-control" value="{{ $user->city }}"/>
         </div>
 
         {{-- <div class="form-group">
@@ -71,8 +66,7 @@
             Phone
             <span class="required">*</span>
           </label>
-          <input placeholder="Phone" id="phone" required name="phone" spellcheck="false" class="form-control" value="{{ $user->phone }}"
-          />
+          <input placeholder="Phone" id="phone" required name="phone" spellcheck="false" class="form-control" value="{{ $user->phone }}"/>
         </div>
 
         <div class="form-group">
@@ -80,8 +74,7 @@
             E-mail
             <span class="required">*</span>
           </label>
-          <input placeholder="Enter email" id="email" required name="email" spellcheck="false" class="form-control" value="{{ $user->email }}"
-          />
+          <input placeholder="Enter email" id="email" required name="email" spellcheck="false" class="form-control" value="{{ $user->email }}"/>
         </div>
 
         <div class="form-group">

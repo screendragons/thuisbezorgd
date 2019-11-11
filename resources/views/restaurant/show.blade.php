@@ -8,6 +8,7 @@
       Restaurants with menus
     </h2>
 
+    {{-- restaurant --}}
     <div class="col-md-3">
       <div class="card" style="width: 21rem;">
         <img src="{{asset('storage/profileimages/default.jpg')}}" class="card-img-top show-restaurant" alt="...">
@@ -47,6 +48,7 @@
       </div>
     </div>
 
+    {{-- create a consumable --}}
     @if(Auth::user() == true)
       <div class="col-md-3 container">
         <h3>Create a consumable</h3>
@@ -78,6 +80,7 @@
       </div>
     @endif
 
+    {{-- Here will show the consumables --}}
     @foreach($restaurant->consumable as $consumable)
     <div class="col-md-3 container edit-consumable">
       {{-- <form method="post" action="{{ url('consumable.update', ['restaurant_id' => $restaurant->id, 'consumable' => $consumable->id]) }}"> --}}
