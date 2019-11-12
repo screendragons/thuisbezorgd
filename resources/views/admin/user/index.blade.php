@@ -36,14 +36,14 @@
             <td>
               <a href="{{ route('admin.edit', ['id' => $user->id]) }}"class="btn btn-primary">Edit</a>
             </td>
-            <td>
+            {{-- <td>
              <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$user['id']}}').submit();">Delete</a>
 
               <form id="remove-form-{{$user['id']}}" action="{{route('admin.destroy', $user->id)}}" method="POST" style="display: none;">
               @csrf
                 @method('DELETE')
               </form>
-            </td>
+            </td> --}}
           </tr>
         @endforeach
       </tbody>

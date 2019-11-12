@@ -9,6 +9,11 @@ use App\Consumable;
 
 class Order extends Model
 {
+	public function user()
+	{
+	    return $this->belongsTo('App\User');
+	}
+
 	public function order()
 	{
 	    return $this->hasMany('App\User');
@@ -24,10 +29,7 @@ class Order extends Model
 	    return $this->belongsTo('App\Consumable');
 	}
 
-	public function user()
-	{
-	    return $this->belongsTo('App\User');
-	}
+
 
 	protected $table = 'order';
 

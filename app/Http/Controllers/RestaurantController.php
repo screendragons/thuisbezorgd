@@ -181,5 +181,11 @@ class RestaurantController extends Controller
         $restaurant->delete();
 
         return redirect("/");
+
+        // @foreach('consumable' as $consumable)
+        //     $consumable = Consumable::where('restaurant_id', 'id')->get();
+
+        //     $consumable->delete();
+        // @endforeach
     }
 }

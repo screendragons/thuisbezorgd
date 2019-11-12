@@ -87,65 +87,67 @@
       </div>
     @endif
 
-    {{-- Here will show the consumables --}}
-    @foreach($restaurant->consumable as $consumable)
-    <div class="col-md-3 container edit-consumable">
-      {{-- <form method="post" action="{{ url('consumable.update', ['restaurant_id' => $restaurant->id, 'consumable' => $consumable->id]) }}"> --}}
-      <form>
-        @csrf
-        @method('PUT')
-        <h3>Consumable</h3>
-        <img src="{{asset('storage/profileimages/default.jpg')}}" class="card-img-top show-restaurant" alt="...">
-        <br>
-        <br>
-      <form method="post" action="{{ route('consumable.update', ['restaurant_id' => $restaurant->id, 'consumable' => $consumable->id]) }}">
-        @csrf
-        @method('PUT')
-        <h3>Edit consumable</h3>
-        <div class="form-group">
-          <label for="title">
-            Name
-          </label>
-          {{ $consumable->title }}
-        </div>
+    @if(Auth::user() == true)
+      {{-- Here will show the consumables --}}
+      @foreach($restaurant->consumable as $consumable)
+        <div class="col-md-3 container edit-consumable">
+          {{-- <form method="post" action="{{ url('consumable.update', ['restaurant_id' => $restaurant->id, 'consumable' => $consumable->id]) }}"> --}}
+          <form>
+            @csrf
+            @method('PUT')
+            <h3>Consumable</h3>
+            <img src="{{asset('storage/profileimages/default.jpg')}}" class="card-img-top show-restaurant" alt="...">
+            <br>
+            <br>
+          <form method="post" action="{{ route('consumable.update', ['restaurant_id' => $restaurant->id, 'consumable' => $consumable->id]) }}">
+            @csrf
+            @method('PUT')
+            <h3>Edit consumable</h3>
+            <div class="form-group">
+              <label for="title">
+                Name
+              </label>
+              {{ $consumable->title }}
+            </div>
 
-        <div class="form-group">
-          <label for="price">
-            Price
-          </label>
-          {{ $consumable->price }}
-        </div>
+            <div class="form-group">
+              <label for="price">
+                Price
+              </label>
+              {{ $consumable->price }}
+            </div>
 
-        <div class="form-group">
-          <label for="category">
-            Category
-          </label>
-          {{ $consumable->category }}
-        </div>
-          <button type="submit" class="btn btn-primary">
-            <a href="{{URL::to('consumable')}}/{{$consumable->id}}/edit">
-              Edit
+            <div class="form-group">
+              <label for="category">
+                Category
+              </label>
+              {{ $consumable->category }}
+            </div>
+              <button type="submit" class="btn btn-primary">
+                <a href="{{URL::to('consumable')}}/{{$restaurant->id}}/{{$consumable->id}}/edit">
+                  Edit
+                </a>
+              </button>
+          </form>
+
+          {{-- <div class="card-body"> --}}
+            {{-- <a href="{{ route('order.index', ['id' => $consumable->id])}}" class="btn btn-primary">
+              Add to cart
             </a>
-          </button>
-      </form>
+     --}}      {{-- </div> --}}
+          <div>
+            <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$consumable['id']}}').submit();">
+              Delete
+            </a>
 
-      {{-- <div class="card-body"> --}}
-        {{-- <a href="{{ route('order.index', ['id' => $consumable->id])}}" class="btn btn-primary">
-          Add to cart
-        </a>
- --}}      {{-- </div> --}}
-      <div>
-        <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$consumable['id']}}').submit();">
-          Delete
-        </a>
-
-       <form id="remove-form-{{$consumable['id']}}" action="{{route('consumable.destroy', ['restaurant_id' => $restaurant->id, 'consumable' => $consumable->id])}}" method="POST" style="display: none;">
-         @csrf
-         @method('DELETE')
-        </form>
-      </div>
-    </div>
-    @endforeach
+           <form id="remove-form-{{$consumable['id']}}" action="{{route('consumable.destroy', ['restaurant_id' => $restaurant->id, 'consumable' => $consumable->id])}}" method="POST" style="display: none;">
+             @csrf
+             @method('DELETE')
+            </form>
+          </div>
+        </div>
+      @endforeach
+    @endif
   </div>
 
   {{-- @foreach($restaurant->consumable as $res)

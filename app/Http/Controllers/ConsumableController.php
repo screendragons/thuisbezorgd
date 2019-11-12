@@ -184,12 +184,13 @@ class ConsumableController extends Controller
         //    return redirect()->back();
         // }
         // return redirect()->back()->with(['message'=> 'Wrong ID!!']);
-
+        // dd('hello');
         $consumable = Consumable::findOrFail($id);
 
         $consumable->delete();
 
-        return redirect("/");
+        // return redirect("/");
+        return view("/");
     }
 
     // tutorial

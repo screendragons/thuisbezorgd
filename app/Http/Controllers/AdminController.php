@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Restaurant;
 
 class AdminController extends Controller
 {
@@ -18,7 +19,28 @@ class AdminController extends Controller
 
         return view('admin.admin')
             ->with('users', $users);
+
+
+        $users = User::get()->all();
+
+        return view('admin.user.index')
+            ->with('users', $users);
     }
+
+    public function editRestaurant($id)
+        {
+            $restaurant = Restaurant::findOrFail($id);
+
+            return view('admin.restaurant.edit')
+                ->with('restaurant', $restaurant);
+        }
+
+    public function getAllRestaurants()
+        {
+            $restaurants = Restaurant::get()->all();
+            return view('admin.restaurant.index')
+                ->with('restaurant', $restaurant);
+        }
 
     /**
      * Show the form for creating a new resource.
