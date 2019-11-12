@@ -35,14 +35,21 @@
           <br>
           {{-- delete --}}
           <div>
-            <a class="btn btn-danger" {{-- onclick="event.preventDefault(); document.getElementById('remove-form-{{$restaurant['id']}}').submit();" --}}>
+           {{--  <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$restaurant['id']}}').submit();">
               Delete
-            </a>
+            </a> --}}
 
-            {{-- <form id="remove-form-{{$restaurant['id']}}" action="{{route('restaurant.destroy', ['restaurant_id' => $restaurant->id, 'consumable' => $consumable->id])}}" method="POST" style="display: none;">
-             @csrf
-             @method('DELETE')
+            {{-- <form id="remove-form-{{$restaurant['id']}}" action="{{route('restaurant.destroy', ['restaurant_id' => $restaurant->id])}}" method="POST">
+             @csrf --}}
+         {{--     @method('DELETE') --}}
+            {{-- <button type="submit" class="btn btn-primary hey">Hey</button>
             </form> --}}
+            {!! Form::open(['route' => ['restaurant.destroy', $restaurant->id]]) !!}
+              <button  style="margin-left:  5px;" type="submit" class="float-md-right btn btn-danger">
+                Delete
+              </button>
+            @method('DELETE')
+            {!! Form::close() !!}
           </div>
         </div>
       </div>
@@ -99,21 +106,21 @@
           <label for="title">
             Name
           </label>
-          <div>{{ $consumable->title }}</div>
+          {{ $consumable->title }}
         </div>
 
         <div class="form-group">
           <label for="price">
             Price
           </label>
-          <div>{{ $consumable->price }}</div>
+          {{ $consumable->price }}
         </div>
 
         <div class="form-group">
           <label for="category">
             Category
           </label>
-          <div>{{ $consumable->category }}</div>
+          {{ $consumable->category }}
         </div>
           <button type="submit" class="btn btn-primary">
             <a href="{{URL::to('consumable')}}/{{$consumable->id}}/edit">
@@ -127,8 +134,6 @@
           Add to cart
         </a>
  --}}      {{-- </div> --}}
-      <br>
-      <br>
       <div>
         <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$consumable['id']}}').submit();">
           Delete

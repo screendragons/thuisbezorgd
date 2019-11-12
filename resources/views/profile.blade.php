@@ -86,6 +86,11 @@
           </a>
         </div> --}}
 
+        {{-- {!! Form::open(['route' => ['profile.destroy', $user->id]]) !!}
+        <button  style="margin-left:  5px;" type="submit" class="float-md-right btn btn-danger">Verwijderen</button>
+            @method('DELETE')
+        {!! Form::close() !!} --}}
+
       </form>
     </div>
   </div>

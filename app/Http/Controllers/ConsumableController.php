@@ -126,8 +126,8 @@ class ConsumableController extends Controller
     public function edit($id)
     {
         $consumable = Consumable::find($id);
-            return view::make('consumable.edit')
-                ->with('consumable', $consumable);
+        return view::make('consumable.edit')
+            ->with('consumable', $consumable);
     }
 
     /**
@@ -177,13 +177,19 @@ class ConsumableController extends Controller
      */
     public function destroy($id)
     {
-        $consumable = Consumable::where('id',$id)->first();
+        // $consumable = Consumable::where('id',$id)->first();
 
-        if ($consumable != null) {
-           $consumable->delete();
-           return redirect()->back();
-        }
-        return redirect()->back()->with(['message'=> 'Wrong ID!!']);
+        // if ($consumable != null) {
+        //    $consumable->delete();
+        //    return redirect()->back();
+        // }
+        // return redirect()->back()->with(['message'=> 'Wrong ID!!']);
+
+        $consumable = Consumable::findOrFail($id);
+
+        $consumable->delete();
+
+        return redirect("/");
     }
 
     // tutorial

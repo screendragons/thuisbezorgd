@@ -173,14 +173,13 @@ class RestaurantController extends Controller
      */
     public function destroy($id)
     {
-        // delete consumable from restaurant.show
-        $restaurant = Restaurant::where('id',$id)->first();
+        // delete restaurant
+        // $consumable = Consumable::findOrFail($id);
+        $restaurant = Restaurant::findOrFail($id);
 
-        if ($restaurant != null) {
-           $restaurant->delete();
-           return redirect()->back();
-        }
-        return redirect()->back()->with(['message'=> 'Wrong ID!!']);
+        // $consumable->delete();
+        $restaurant->delete();
 
+        return redirect("/");
     }
 }

@@ -166,6 +166,11 @@ class ProfileController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        // $consumable->delete();
+        $user->delete();
+
+        return redirect("/");
     }
 }
