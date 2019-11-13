@@ -19,12 +19,22 @@ class AdminController extends Controller
 
         return view('admin.admin')
             ->with('users', $users);
+    }
 
-
+    public function indexUser()
+    {
         $users = User::get()->all();
 
         return view('admin.user.index')
             ->with('users', $users);
+    }
+
+    public function indexRestaurant()
+    {
+        $restaurants = Restaurant::get()->all();
+
+        return view('admin.restaurant.index')
+            ->with('restaurants', $restaurants);
     }
 
     // public function editRestaurant($id)
@@ -35,11 +45,11 @@ class AdminController extends Controller
     //             ->with('restaurant', $restaurant);
     //     }
 
-    // public function getAllRestaurants()
+    // public function getAllRestaurant()
     //     {
     //         $restaurants = Restaurant::get()->all();
     //         return view('admin.restaurant.index')
-    //             ->with('restaurant', $restaurant);
+    //             ->with('restaurants', $restaurants);
     //     }
 
     /**
@@ -49,7 +59,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('restaurant.create');
     }
 
     /**
@@ -80,9 +90,11 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editUser($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('admin.user.edit')
+            ->with('user', $user);
     }
 
     /**

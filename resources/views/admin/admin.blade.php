@@ -34,7 +34,7 @@
             <td>{{ $user->phone }}</td>
             <td>{{ $user->email }}</td>
             <td>
-              <a href="{{ route('admin.edit', ['id' => $user->id]) }}"class="btn btn-primary">Edit</a>
+              <a href="{{URL::to('admin/user')}}/{{$user->id}}/edit" title="edit"><button class="btn btn-primary">Edit</button></a>
             </td>
             <td>
              <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$user['id']}}').submit();">Delete</a>
@@ -51,10 +51,10 @@
   </div>
 
   <div class="sidenav padding">
-    <a href="{{ url('/admin/user/index') }}">Gebruiker</a>
-    <a href="{{ url('/admin/restaurant/index') }}">Restaurant</a>
-    <a href="#services">Services</a>
+    <a href="{{ route('admin.user.index') }}">Users</a>
+    <a href="{{ route('admin.restaurant.index') }}">Restaurant</a>
+    {{-- <a href="#services">Services</a>
     <a href="#clients">Clients</a>
-    <a href="#contact">Contact</a>
+    <a href="#contact">Contact</a> --}}
   </div>
 @endsection

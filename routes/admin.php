@@ -13,10 +13,15 @@ Route::get('admin', 'AdminController@index')->name('admin')->middleware('admin')
 Route::resource('admin', 'AdminController');
 
 // restaurants
-// Route::get('restaurant', 'AdminController@getAllRestaurants')->middleware('admin');
+// Route::get('restaurant', 'AdminController@getAllRestaurant')->middleware('admin');
 
 // Route::get('restaurant/{id}/edit', 'AdminController@editRestaurant')->middleware('admin');
 
-Route::get('restaurant/index', 'AdminController@index')->middleware('admin');
+Route::get('restaurant/index', 'AdminController@indexRestaurant')->middleware('admin')->name('admin.restaurant.index');
 
 // ->middleware('admin')
+
+// user
+Route::get('admin/user/{id}/edit', 'AdminController@editUser')->name('admin.user.edit')->middleware('admin');
+
+Route::get('user/index', 'AdminController@indexUser')->middleware('admin')->name('admin.user.index');

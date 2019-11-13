@@ -16,6 +16,7 @@
         <tr>
           <th>id</th>
           <th>user_id</th>
+          <th>Name</th>
           <th>KVK</th>
           <th>Address</th>
           <th>Zipcode</th>
@@ -23,7 +24,7 @@
           <th>Phone</th>
           <th>E-mail</th>
           <th>Is open</th>
-          <th>Is closed/th>
+          <th>Is closed</th>
         </tr>
       </thead>
       <tbody>
@@ -31,6 +32,7 @@
           <tr>
             <td>{{ $restaurant->id }}</td>
             <td>{{ $restaurant->user_id }}</td>
+            <td>{{ $restaurant->name }}</td>
             <td>{{ $restaurant->KVK }}</td>
             <td>{{ $restaurant->address }}</td>
             <td>{{ $restaurant->zipcode }}</td>
