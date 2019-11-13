@@ -51,6 +51,8 @@ class AdminController extends Controller
     public function create()
     {
         return view('restaurant.create');
+
+        // return view('register');
     }
 
     /**
@@ -183,8 +185,12 @@ class AdminController extends Controller
         $user = User::findOrFail($id);
 
         $user->delete();
+        return view("admin.admin");
 
-        // return redirect("/");
+
+        $restaurant = Restaurant::findOrFail($id);
+
+        $restaurant->delete();
         return view("admin.admin");
     }
 }

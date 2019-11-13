@@ -10,6 +10,14 @@
       <form method="post" action="{{ route('profile.update', ['profile' => $user->id]) }}">
         @csrf
         @method('PUT')
+        {{-- <div class="form-group">
+          <label for="file">
+            Upload your avatar
+            <span class="required">*</span>
+          </label>
+          <input type="file" name="file">
+        </div> --}}
+
         <div class="form-group">
           <label for="first_name">
             First name

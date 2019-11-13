@@ -48,7 +48,7 @@
             <td>
               <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$restaurant['id']}}').submit();">Delete</a>
 
-              <form id="remove-form-{{$restaurant['id']}}" action="{{route('restaurant.destroy', $restaurant->id)}}" method="POST" style="display: none;">
+              <form id="remove-form-{{$restaurant['id']}}" action="{{route('admin.destroy', $restaurant->id)}}" method="POST" style="display: none;">
                @csrf
                  @method('DELETE')
               </form>

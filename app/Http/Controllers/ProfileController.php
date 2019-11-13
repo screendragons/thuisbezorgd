@@ -21,13 +21,13 @@ class ProfileController extends Controller
             return view('profile')->with('user', $user);
 
         // tutorial
-        $order = Auth::user()->order;
-        $order->transform(function($order, $id)
-        {
-            $order->cart = unserialize($order->cart);
-            return $order;
-        });
-        return view('profile.index', ['order' => $order]);
+        // $order = Auth::user()->order;
+        // $order->transform(function($order, $id)
+        // {
+        //     $order->cart = unserialize($order->cart);
+        //     return $order;
+        // });
+        // return view('profile', ['order' => $order]);
     }
 
     /**
@@ -122,6 +122,23 @@ class ProfileController extends Controller
         // second try
         $user = User::find($id);
         $user->update([
+            // if($request->hasFile('avatar')){
+            //     $avatar = $request->file('avatar');
+            //     $destinationPath = public_path('/images/consumables/');
+            //     $filename = time() . '.' . $avatar->getClientOriginalExtension();
+
+            //     if ($consumable->avatar !== 'default.png') {
+            //         $file = 'images/avatar/' . $consumable->avatar;
+
+            //         if (File::exists($file)) {
+            //             unlink($file);
+            //         }
+            //     }
+
+            //     Image::make($avatar)->fit(300, 300)->save($destinationPath . $filename);
+            //     $consumable->avatar = $filename;
+            // }
+
             'first_name'=> $request->input('first_name'),
             'last_name'=> $request->input('last_name'),
             'address'=> $request->input('address'),
