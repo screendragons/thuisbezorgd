@@ -159,7 +159,7 @@ class RestaurantController extends Controller
 
         if($restaurant){
             return redirect()->route('restaurant.show', ['restaurant'=> $restaurant->id])
-            ->with('success' , 'consumable updated succesfully');
+            ->with('success' , 'restaurant updated succesfully');
         }
             //redirect
             // return back()->withInput();

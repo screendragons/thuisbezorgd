@@ -11,6 +11,7 @@
       </div>
     </div>
 
+    <h2 class="table">Restaurants</h2>
     <table class="table">
       <thead>
         <tr>
@@ -41,22 +42,26 @@
             <td>{{ $restaurant->email }}</td>
             <td>{{ $restaurant->is_open }}</td>
             <td>{{ $restaurant->is_closed }}</td>
-           {{--  <td>
+            <td>
               <a href="{{ route('admin.restaurant.edit', ['id' => $restaurant->id]) }}"class="btn btn-primary">Edit</a>
-            </td> --}}
-            <td><a href="{{URL::to('/restaurant')}}/{{$restaurant->id}}/edit" title="Aanpassen"><button class="btn btn-success">Aanpassen</button></a></td>
+            </td>
+            <td>
+              <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$restaurant['id']}}').submit();">Delete</a>
 
-            {{-- <td>
-             <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$restaurant['id']}}').submit();">Delete</a>
-
-              <form id="remove-form-{{$restaurant['id']}}" action="{{route('admin.restaurant.destroy', $restaurant->id)}}" method="POST" style="display: none;">
-              @csrf
-                @method('DELETE')
+              <form id="remove-form-{{$restaurant['id']}}" action="{{route('restaurant.destroy', $restaurant->id)}}" method="POST" style="display: none;">
+               @csrf
+                 @method('DELETE')
               </form>
-            </td> --}}
+            </td>
           </tr>
         @endforeach
       </tbody>
     </table>
+  </div>
+
+  <div class="sidenav padding">
+   <a href="{{ url('/admin') }}">Home</a>
+   <a href="{{ route('admin.user.index') }}">Users</a>
+   <a href="{{ route('admin.restaurant.index') }}">Restaurant</a>
   </div>
 @endsection

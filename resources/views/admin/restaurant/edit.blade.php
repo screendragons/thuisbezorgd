@@ -4,7 +4,8 @@
 
 @section('content')
 <div class="container padding profile">
-	<form method="post" action="{{ route('restaurant.update', ['restaurant' => $restaurant->id]) }}">
+	<form method="post" action="{{ route('admin.restaurant.update', ['restaurant' => $restaurant->id]) }}">
+	{{-- <form method="post" action="{{ route('admin.restaurant.update', [$restaurant => $restaurant->id]) }}"> --}}
 	  @csrf
 	  @method('PUT')
 	  <h3>Edit restaurant</h3>
@@ -90,7 +91,7 @@
 	  </div>
 
 	  <div class="form-group">
-	    <button type="submit" class="btn btn-primary">Edit</button>
+	    <input type="submit" class="btn btn-primary" value="Submit"/>
 	  </div>
 	</form>
 </div>

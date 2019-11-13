@@ -11,6 +11,7 @@
       </div>
     </div>
 
+    <h2 class="table">Users</h2>
     <table class="table">
       <thead>
         <tr>
@@ -51,10 +52,8 @@
   </div>
 
   <div class="sidenav padding">
-    <a href="{{ url('/admin/user/index') }}">Gebruiker</a>
-    <a href="{{ url('/admin/restaurant/index') }}">Restaurant</a>
-    <a href="#services">Services</a>
-    <a href="#clients">Clients</a>
-    <a href="#contact">Contact</a>
+    <a href="{{ url('/admin') }}">Home</a>
+    <a href="{{ route('admin.user.index') }}">Users</a>
+    <a href="{{ route('admin.restaurant.index') }}">Restaurant</a>
   </div>
 @endsection
