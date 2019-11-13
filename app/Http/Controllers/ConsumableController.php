@@ -175,7 +175,7 @@ class ConsumableController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($restaurant_id, $consumable_id)
     {
         // $consumable = Consumable::where('id',$id)->first();
 
@@ -184,13 +184,13 @@ class ConsumableController extends Controller
         //    return redirect()->back();
         // }
         // return redirect()->back()->with(['message'=> 'Wrong ID!!']);
-        // dd('hello');
-        $consumable = Consumable::findOrFail($id);
+        // dd($consumable_id);
+        $consumable = Consumable::findOrFail($consumable_id);
 
         $consumable->delete();
 
         // return redirect("/");
-        return view("/");
+        return view("home");
     }
 
     // tutorial

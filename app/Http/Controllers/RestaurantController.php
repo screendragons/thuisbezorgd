@@ -178,8 +178,13 @@ class RestaurantController extends Controller
         $restaurant = Restaurant::findOrFail($id);
 
         // $consumable->delete();
-        $restaurant->delete();
+        // $restaurant->delete();
 
+        // Find all restaurant consumables
+        $consumables = Consumable::where('restaurant_id', $id)->get();
+        foreach($consumables as $consumable) {
+            $consumable->delete();
+        }
         return redirect("/");
 
         // @foreach('consumable' as $consumable)

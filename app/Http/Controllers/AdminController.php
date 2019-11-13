@@ -27,20 +27,20 @@ class AdminController extends Controller
             ->with('users', $users);
     }
 
-    public function editRestaurant($id)
-        {
-            $restaurant = Restaurant::findOrFail($id);
+    // public function editRestaurant($id)
+    //     {
+    //         $restaurant = Restaurant::findOrFail($id);
 
-            return view('admin.restaurant.edit')
-                ->with('restaurant', $restaurant);
-        }
+    //         return view('admin.restaurant.edit')
+    //             ->with('restaurant', $restaurant);
+    //     }
 
-    public function getAllRestaurants()
-        {
-            $restaurants = Restaurant::get()->all();
-            return view('admin.restaurant.index')
-                ->with('restaurant', $restaurant);
-        }
+    // public function getAllRestaurants()
+    //     {
+    //         $restaurants = Restaurant::get()->all();
+    //         return view('admin.restaurant.index')
+    //             ->with('restaurant', $restaurant);
+    //     }
 
     /**
      * Show the form for creating a new resource.

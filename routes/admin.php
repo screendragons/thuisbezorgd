@@ -13,9 +13,9 @@ Route::get('admin', 'AdminController@index')->name('admin')->middleware('admin')
 Route::resource('admin', 'AdminController');
 
 // restaurants
-Route::get('restaurant', 'AdminController@getAllRestaurants')->middleware('admin');
+// Route::get('restaurant', 'AdminController@getAllRestaurants')->middleware('admin');
 
-Route::get('restaurant/{id}/edit', 'AdminController@editRestaurant')->middleware('admin');
+// Route::get('restaurant/{id}/edit', 'AdminController@editRestaurant')->middleware('admin');
 
 Route::get('restaurant/index', 'AdminController@index')->middleware('admin');
 
