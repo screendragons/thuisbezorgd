@@ -1,7 +1,7 @@
 @extends('partials.header')
 @extends('layouts.default')
 {{-- <input type="" name="" value="{{ $restaurant->id }}"> --}}
-@section('content')
+
 <div class="container padding">
   <h2>Consumables</h2>
   <p>Here will show the consumables</p>
@@ -37,10 +37,38 @@
           </label>
           {{ $consumable->category }}
         </div>
-        <a href="{{-- {{ route('order.order', $consumable->id) }} --}}" class="btn btn-primary">Order</a>
+        <a href="{{Route('cart.add', ['id' => $consumable->id])}}" class="add-to-cart btn btn-primary" type="button" class="btn btn-primary btn-sm">Order</a>
       </div>
+
     @endforeach
+    <div class="col-md-3">
+      <div class="cart" style="border: 1px solid black; width: 200px; float:right; background-color:#333;">
+        <ul id="inner-cart">
+
+        </ul>
+        {{-- <a href="{{Route('pay', ['restaurant_id' => $restaurant->id])}}" class="btn btn-primary">Afrekenen</a> --}}
+      </div>
+    </div>
   @endif
 
 </div>
-@endsection
+
+  <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous">
+  </script>
+
+<script type="text/javascript">
+$('.add-to-cart').click(function(event) {
+    event.preventDefault();
+    id = $(this).prop('id')
+    $.ajax({
+        url: $(this).prop('href'),
+        type: "GET",
+    }).done(function(data) {
+        console.log(data);
+        $('#inner-cart').append('<li class="list-group-item">'+data+'</li>')
+    });
+});
+</script>

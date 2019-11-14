@@ -18,17 +18,17 @@
           <th>id</th>
           <th>user_id</th>
           <th>restaurant_id</th>
-          <th>totaal prijs</th>
+          {{-- <th>totaal prijs</th> --}}
          {{--  <th>Address</th> --}}
         </tr>
       </thead>
       <tbody>
-        {{-- @foreach($orders as $order)
+        @foreach($orders as $order)
           <tr>
             <td>{{ $order->id }}</td>
             <td>{{ $order->user_id }}</td>
             <td>{{ $order->restaurant_id }}</td>
-            <td>{{ $order->totaal_prijs }}</td>
+           {{--  <td>{{ $order->totaal_prijs }}</td> --}}
             <td>
               <a href="{{ route('admin.order.edit', ['id' => $order->id]) }}"class="btn btn-primary">Edit</a>
             </td>
@@ -41,7 +41,7 @@
               </form>
             </td>
           </tr>
-        @endforeach --}}
+        @endforeach
       </tbody>
     </table>
   </div>
