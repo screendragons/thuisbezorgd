@@ -17,14 +17,22 @@ class ConsumableController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, $restaurantId)
+    // public function index(Request $request, $restaurantId)
+    public function index(Request $request)
     {
         //van Matthijs
         // return '<a href="'.route('consumables.show', ['consumable' => 1]).'">show</a>';
-        $restaurant = Consumable::get()->all();
 
-        return  view('restaurant')
-            ->with('restaurant', $restaurant);
+        // $restaurant = Consumable::get()->all();
+
+        // return view('restaurant')
+        //     ->with('restaurant', $restaurant);
+
+
+        $consumable = Consumable::get()->all();
+
+        return view('consumable')
+            ->with('consumable', $consumable);
     }
 
     /**
@@ -125,8 +133,9 @@ class ConsumableController extends Controller
      */
     public function edit($id)
     {
+
         $consumable = Consumable::find($id);
-        return view::make('consumable.edit')
+        return view('consumable.edit')
             ->with('consumable', $consumable);
     }
 
@@ -139,21 +148,6 @@ class ConsumableController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $consumable = Consumable::find($id);
-        // $consumable->update([
-        //     'title'=> $request->input('title'),
-        //     'category'=> $request->input('category'),
-        //     'price'=> $request->input('price'),
-        // ]);
-
-        // if($consumable){
-        //     return redirect()->route('restaurant.show', ['consumable'=> $consumable->id])
-        //     ->with('success' , 'consumable updated succesfully');
-        // }
-
-        // //redirect
-        // return back()->withInput();
-
         $consumable = Consumable::find($id);
         $consumable->update([
             'title'=> $request->input('title'),
@@ -190,7 +184,7 @@ class ConsumableController extends Controller
         $consumable->delete();
 
         // return redirect("/");
-        return view("home");
+        return view("restaurant");
     }
 
     // tutorial

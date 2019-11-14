@@ -132,7 +132,8 @@ class RestaurantController extends Controller
     public function edit($id)
     {
         $restaurant = Restaurant::findOrFail($id);
-        return view('restaurant.edit')->with('restaurant', $restaurant);
+        return view('restaurant.edit')
+            ->with('restaurant', $restaurant);
     }
 
     /**
@@ -178,7 +179,7 @@ class RestaurantController extends Controller
         $restaurant = Restaurant::findOrFail($id);
 
         // $consumable->delete();
-        // $restaurant->delete();
+        $restaurant->delete();
 
         // Find all restaurant consumables
         $consumables = Consumable::where('restaurant_id', $id)->get();

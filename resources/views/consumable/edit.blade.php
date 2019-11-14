@@ -7,8 +7,9 @@
 
 <div class="container padding createrestaurants">
   <h2>Edit a consumable</h2>
-  {!! Form::open(['route' => 'consumable.edit', 'method' => 'POST', 'files' => true]) !!}
-    <label for="title">Title</label>
+  {{-- {!! Form::open(['route' => 'consumable.update', 'method' => 'POST', 'files' => true]) !!} --}}
+  <form method="post" action="{{ route('consumable.update', ['consumable' => $consumable->id]) }}">
+    {{-- <label for="title">Title</label>
     <div class="input-group mb-3">
       {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' =>
       'Title','autocomplete' => 'off']); !!}
@@ -24,7 +25,35 @@
     <div class="input-group mb-3">
       {!! Form::text('category', null , ['class' => 'form-control', 'placeholder' =>
       'Hoofdgerechten, bijgerechten, dranken','autocomplete' => 'off']); !!}
+    </div> --}}
+    @csrf
+    <div class="form-group">
+      <label for="title">
+        Title
+        <span class="required">*</span>
+      </label>
+      <input placeholder="Enter title" id="title" required name="title" spellcheck="false" class="form-control" value="{{ $consumable->title }}"
+      />
     </div>
+
+    <div class="form-group">
+      <label for="price">
+        Price
+        <span class="required">*</span>
+      </label>
+      <input placeholder="Enter price" id="price" required name="price" spellcheck="false" class="form-control" value="{{ $consumable->price }}"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="category">
+        Category
+        <span class="required">*</span>
+      </label>
+      <input placeholder="Enter category" id="category" required name="category" spellcheck="false" class="form-control" value="{{ $consumable->category }}"
+      />
+    </div>
+
     <br>
     <button type="submit" class="btn btn-success">Update</button>
 
@@ -38,7 +67,8 @@
        @method('DELETE')
       </form>
     </div> --}}
-  {!! Form::close() !!}
+  </form>
+  {{-- {!! Form::close() !!} --}}
 </div>
 
 

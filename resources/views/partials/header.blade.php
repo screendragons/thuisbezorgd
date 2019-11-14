@@ -18,6 +18,9 @@
                     <a class="restaurants" href="{{ url('/restaurant') }}">Restaurants</a>
                 </li>
                 <li>
+                    <a class="consumable" href="{{ url('/consumable') }}">Consumables</a>
+                </li>
+                <li>
                     <a href="{{ route('login') }}">{{ __('Login') }}</a>
                 </li>
                 <li>
@@ -38,11 +41,16 @@
                         </li>
                     @endif
                     <li>
-                        <a class="profile" href="{{ url('/profile') }}">Profile</a>
+                        <a class="consumable" href="{{ url('/consumable') }}">Consumables</a>
                     </li>
                     <li>
-                        <a class="admin" href="{{ url('/admin') }}">Admin</a>
+                        <a class="profile" href="{{ url('/profile') }}">Profile</a>
                     </li>
+                    {{-- @if(Auth::user() == 'is_admin') --}}
+                        <li>
+                            <a class="admin" href="{{ url('/admin') }}">Admin</a>
+                        </li>
+                    {{-- @endif --}}
                     <li>
                         <a class="profile" href="{{ url('/order') }}">Order</a>
                     </li>

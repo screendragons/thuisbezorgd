@@ -27,10 +27,10 @@ Route::get('search', ['as' => 'search', 'uses' => 'RestaurantController@search']
 Route::resource('restaurant', 'RestaurantController');
 // Route::post('/restaurant/{id}', 'RestaurantController@store')->name('restaurant.store');
 
-Route::resource('restaurant/{restaurant_id}/consumable', 'ConsumableController');
+// Route::resource('restaurant/{restaurant_id}/consumable', 'ConsumableController');
 
 // Consumables
-// Route::resource('consumable', 'ConsumableController');
+Route::resource('consumable', 'ConsumableController');
 
 // Route::get('consumable', 'ConsumableController');
 

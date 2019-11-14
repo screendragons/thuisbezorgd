@@ -35,7 +35,9 @@
             <td>{{ $user->phone }}</td>
             <td>{{ $user->email }}</td>
             <td>
-              <a href="{{URL::to('admin/user')}}/{{$user->id}}/edit" title="edit"><button class="btn btn-primary">Edit</button></a>
+              <a href="{{URL::to('admin/user')}}/{{$user->id}}/edit" title="edit">
+                <button class="btn btn-primary">Edit</button>
+              </a>
             </td>
             <td>
              <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$user['id']}}').submit();">Delete</a>

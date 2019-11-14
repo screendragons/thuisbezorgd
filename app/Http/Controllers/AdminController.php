@@ -17,12 +17,10 @@ class AdminController extends Controller
     public function index()
     {
       $users = User::get()->all();
-
       return view('admin.admin')
         ->with('users', $users);
 
       $restaurants = Restaurant::get()->all();
-
       return view('admin.admin')
         ->with('restaurants', $restaurants);
     }
@@ -185,12 +183,14 @@ class AdminController extends Controller
         $user = User::findOrFail($id);
 
         $user->delete();
-        return view("admin.admin");
+        // return view("admin.admin");
+        return redirect()->back();
 
 
         $restaurant = Restaurant::findOrFail($id);
 
         $restaurant->delete();
-        return view("admin.admin");
+        // return view("admin.admin");
+        return redirect()->back();
     }
 }

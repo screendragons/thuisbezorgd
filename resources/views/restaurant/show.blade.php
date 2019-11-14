@@ -92,9 +92,9 @@
       @foreach($restaurant->consumable as $consumable)
         <div class="col-md-3 container edit-consumable">
           {{-- <form method="post" action="{{ url('consumable.update', ['restaurant_id' => $restaurant->id, 'consumable' => $consumable->id]) }}"> --}}
-          <form>
+      {{--     <form>
             @csrf
-            @method('PUT')
+            @method('PUT') --}}
             <h3>Consumable</h3>
             <img src="{{asset('storage/profileimages/default.jpg')}}" class="card-img-top show-restaurant" alt="...">
             <br>
@@ -102,7 +102,6 @@
           <form method="post" action="{{ route('consumable.update', ['restaurant_id' => $restaurant->id, 'consumable' => $consumable->id]) }}">
             @csrf
             @method('PUT')
-            <h3>Edit consumable</h3>
             <div class="form-group">
               <label for="title">
                 Name
@@ -124,7 +123,7 @@
               {{ $consumable->category }}
             </div>
               <button type="submit" class="btn btn-primary">
-                <a href="{{URL::to('consumable')}}/{{$restaurant->id}}/{{$consumable->id}}/edit">
+                <a href="{{URL::to('consumable')}}/{{$consumable->id}}/edit">
                   Edit
                 </a>
               </button>
