@@ -1,8 +1,6 @@
 @extends('layouts.default')
 @extends('partials.header')
 
-
-@section('content')
   <div class="container padding">
     <h2>
       Restaurants with menus
@@ -129,11 +127,8 @@
               </button>
           </form>
 
-          {{-- <div class="card-body"> --}}
-            {{-- <a href="{{ route('order.index', ['id' => $consumable->id])}}" class="btn btn-primary">
-              Add to cart
-            </a>
-     --}}      {{-- </div> --}}
+          <a href="{{Route('cart.add', ['id' => $consumable->id])}}" class="add-to-cart btn btn-primary" type="button" class="btn btn-primary btn-sm">Order</a>
+
           <div>
             <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$consumable['id']}}').submit();">
               Delete
@@ -146,6 +141,14 @@
           </div>
         </div>
       @endforeach
+      <div class="col-md-3">
+        <div class="cart" style="border: 1px solid black; width: 200px; float:right; background-color:#333;">
+          <ul id="inner-cart">
+
+          </ul>
+          <a href="{{Route('pay', ['restaurant_id' => $restaurant->id])}}" class="btn btn-primary">Afrekenen</a>
+        </div>
+      </div>
     @endif
   </div>
 
@@ -163,4 +166,23 @@
   </div>
   @endforeach --}}
 
-@endsection
+
+  <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous">
+  </script>
+
+<script type="text/javascript">
+$('.add-to-cart').click(function(event) {
+    event.preventDefault();
+    id = $(this).prop('id')
+    $.ajax({
+        url: $(this).prop('href'),
+        type: "GET",
+    }).done(function(data) {
+        console.log(data);
+        $('#inner-cart').append('<li class="list-group-item">'+data+'</li>')
+    });
+});
+</script>

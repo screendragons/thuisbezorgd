@@ -188,16 +188,30 @@ class ConsumableController extends Controller
         return view("restaurant");
     }
 
-    // tutorial
-    public function order(Request $request, $id)
+    public function addToCart($id)
     {
-        // $consumable = Consumable::find($id);
-        // $oldCart = Session::has('order') ? Session::get('cart') : null;
-        // $order = new Order($oldOrder);
-        // $order->add($consumable, $consumable->id);
+        // Store the ID of the consumable in the consumable array in the session cookie
+        session()->push('consumable', $id);
+        // Look up the name of the consumable so it can be added to the cart
+        $name = Consumable::where('id', $id)->get()[0]['title'];
+        return $name;
+    }
 
-        // $request->session()->put('cart', $cart);
-        // dd($request->session()->get('cart'));
-        // return redirect()->route('order.index');
+    public function pay($restaurant_id)
+    {
+        // Retrieve all the consumables and the total price
+        $items = session()->get('consumable');
+
+        $order = new Order();
+        $order->user_id = Auth::id();
+        $order->restaurant_id = $restaurant_id;
+        $order->save();
+
+        // Attach each consumable to the order
+        foreach ($items as $item) {
+            $order->consumable()->attach($item);
+        }
+
+        return redirect::back();
     }
 }

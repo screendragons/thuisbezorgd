@@ -61,7 +61,6 @@
     <button class="btn btn-primary">Save</button>
   {!! Form::close() !!} --}}
 
-    <div class="row  col-md-12 col-lg-12 col-sm-12" >
     <form method="post" action="{{ route('admin.user.update', [$user->id]) }}">
         {{ csrf_field() }}
         <input type="hidden" name="_method">
@@ -145,6 +144,6 @@
                   <br>
                   <button type="submit" class="btn btn-success">Change Profile Picture</button>
               </form> --}}
-        </div>
+
 
 @endsection

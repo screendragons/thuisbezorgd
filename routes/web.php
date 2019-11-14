@@ -45,6 +45,9 @@ Route::resource('order', 'OrderController');
 
 // Route::resource('/order/{id}', 'OrderController@order');
 
+Route::get('addToCart/{id}', 'ConsumableController@addToCart')->name('cart.add');
+Route::get('restaurant/{restaurant_id}/betalen', 'ConsumableController@pay')->name('pay');
+
 // Contact
 Route::get('/contact', 'ContactController@index')->name('contact');
 

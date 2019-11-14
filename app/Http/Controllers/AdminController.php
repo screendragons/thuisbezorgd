@@ -1,11 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\User;
 use App\Restaurant;
+use App\Consumable;
+use App\Order;
+use Redirect;
 use DB;
+use Hash;
 
 class AdminController extends Controller
 {
@@ -90,6 +94,20 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function update($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+
     public function editUser($id)
     {
       $user = User::findOrFail($id);
@@ -158,9 +176,6 @@ class AdminController extends Controller
 
     public function updateRestaurant(Request $request, $id)
     {
-      try {
-        DB::beginTransaction();
-
         $restaurant = Restaurant::findOrFail($id);
         $restaurant->name = $request->name;
         $restaurant->KVK = $request->KVK;
@@ -171,18 +186,9 @@ class AdminController extends Controller
         $restaurant->email = $request->email;
         $restaurant->is_open = $request->is_open;
         $restaurant->is_closed = $request->is_closed;
-        dd($restaurant);
         $restaurant->save();
 
-        DB::commit();
-
-        return redirect()->back()->with('message', 'Restaurant aangepast.');
-      }
-
-      catch(Exception $e) {
-        DB::rollback();
-        dd($e->getMessage());
-      }
+        return Redirect::back();
     }
 
     /**

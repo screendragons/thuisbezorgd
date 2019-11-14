@@ -28,7 +28,7 @@ input#message {
 	width:30%;
 }
 .edit-consumable{
-    width: 19%;
+  width: 19%;
 }
 
 .sidenav {
@@ -56,10 +56,15 @@ input#message {
 }
 
 .table {
-    margin-left: 100px;
+  margin-left: 100px;
 }
 
 .login
 {
-    padding-left: 30%;
+  padding-left: 30%;
+}
+
+.width
+{
+  width: 21%
 }

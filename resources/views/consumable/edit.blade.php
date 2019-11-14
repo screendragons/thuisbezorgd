@@ -5,7 +5,7 @@
     <title>Edit a consumable</title>
 </div>
 
-<div class="container padding createrestaurants">
+<div class="container padding createrestaurants width">
   <h2>Edit a consumable</h2>
   {{-- {!! Form::open(['route' => 'consumable.update', 'method' => 'POST', 'files' => true]) !!} --}}
   <form method="post" action="{{ route('consumable.update', ['consumable' => $consumable->id]) }}">

@@ -17,7 +17,6 @@ class CreateOrderTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('restaurant_id')->unsigned();
-            $table->bigInteger('bezorger_id')->unsigned();
             $table->timestamps();
         });
     }
