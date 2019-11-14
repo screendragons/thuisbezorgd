@@ -156,7 +156,8 @@ class ConsumableController extends Controller
         ]);
 
         if($consumable){
-            return redirect()->route('restaurant.show', ['consumable'=> $consumable->id])
+            // return redirect()->route('restaurant.show', ['consumable'=> $consumable->id])
+            return redirect::back()
             ->with('success' , 'consumable updated succesfully');
         }
             //redirect

@@ -14,10 +14,10 @@ class Order extends Model
 	    return $this->belongsTo('App\User');
 	}
 
-	public function order()
-	{
-	    return $this->hasMany('App\User');
-	}
+	// public function order()
+	// {
+	//     return $this->hasMany('App\User');
+	// }
 
 	public function restaurant()
 	{
@@ -29,8 +29,5 @@ class Order extends Model
 	    return $this->belongsTo('App\Consumable');
 	}
 
-
-
 	protected $table = 'order';
-
 }

@@ -38,12 +38,10 @@
               <a href="{{ route('admin.user.edit', ['id' => $user->id]) }}"class="btn btn-primary">Edit</a>
             </td>
             <td>
-             <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$user['id']}}').submit();">Delete</a>
-
-              <form id="remove-form-{{$user['id']}}" action="{{route('admin.destroy', $user->id)}}" method="POST" style="display: none;">
-              @csrf
-                @method('DELETE')
-              </form>
+             {!! Form::open(['route' => ['admin.destroyuser', $user->id]]) !!}
+             <button  style="margin-left:  5px;" type="submit" class="float-md-right btn btn-danger">
+             Delete</button>
+             {!! Form::close() !!}
             </td>
           </tr>
         @endforeach
@@ -55,5 +53,6 @@
     <a href="{{ url('/admin') }}">Home</a>
     <a href="{{ route('admin.user.index') }}">Users</a>
     <a href="{{ route('admin.restaurant.index') }}">Restaurant</a>
+    <a href="{{ route('admin.order.index') }}">Order</a>
   </div>
 @endsection

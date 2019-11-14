@@ -19,5 +19,9 @@ class Consumable extends Model
         return $this->belongsTo('App\Restaurant');
     }
 
+    protected $fillable = [
+        'title', 'price', 'category',
+    ];
+
     protected $table = 'consumable';
 }

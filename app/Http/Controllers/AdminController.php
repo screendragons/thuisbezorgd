@@ -20,9 +20,9 @@ class AdminController extends Controller
       return view('admin.admin')
         ->with('users', $users);
 
-      $restaurants = Restaurant::get()->all();
-      return view('admin.admin')
-        ->with('restaurants', $restaurants);
+      // $restaurants = Restaurant::get()->all();
+      // return view('admin.admin')
+      //   ->with('restaurants', $restaurants);
     }
 
     public function indexUser()
@@ -40,6 +40,15 @@ class AdminController extends Controller
       return view('admin.restaurant.index')
         ->with('restaurants', $restaurants);
     }
+
+    public function indexOrder()
+    {
+      $orders = Order::get()->all();
+
+      return view('admin.order.index')
+        ->with('orders', $orders);
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -105,6 +114,11 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    // public function update(Request $request, $id)
+    // {
+
+    // }
     public function updateUser(Request $request, $id)
     {
 
@@ -157,7 +171,7 @@ class AdminController extends Controller
         $restaurant->email = $request->email;
         $restaurant->is_open = $request->is_open;
         $restaurant->is_closed = $request->is_closed;
-
+        dd($restaurant);
         $restaurant->save();
 
         DB::commit();
@@ -177,7 +191,7 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyUser($id)
     {
         // dd($consumable_id);
         $user = User::findOrFail($id);
@@ -185,10 +199,10 @@ class AdminController extends Controller
         $user->delete();
         // return view("admin.admin");
         return redirect()->back();
-
-
+    }
+    public function destroyRestaurant($id)
+    {
         $restaurant = Restaurant::findOrFail($id);
-
         $restaurant->delete();
         // return view("admin.admin");
         return redirect()->back();

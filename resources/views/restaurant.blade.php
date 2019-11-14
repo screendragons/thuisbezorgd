@@ -11,16 +11,15 @@
         Create a restaurant
       </a>
   @else
-    <p>Here will show the restaurants</p>
     {!! Form::open(['route' => 'search', 'method' => 'get']) !!}
       <div class="input-group">
           {!! Form::text('query', null, ['class' => 'form-control', 'placeholder' =>
           'Naam Restaurant','autocomplete' => 'off']) !!}
           <span class="input-group-prepend">
               {!! Form::submit('Zoeken',  ['class' => 'btn btn-primary']) !!}
+              <br>
           </span>
       </div>
-      <br>
       {!! Form::close() !!}
     @foreach($restaurant as $restaurant)
       <div class="col-md-3">

@@ -9,6 +9,7 @@
   <h2>Edit a consumable</h2>
   {{-- {!! Form::open(['route' => 'consumable.update', 'method' => 'POST', 'files' => true]) !!} --}}
   <form method="post" action="{{ route('consumable.update', ['consumable' => $consumable->id]) }}">
+    @method('PUT')
     {{-- <label for="title">Title</label>
     <div class="input-group mb-3">
       {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' =>

@@ -19,11 +19,11 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $order = Order::get();
-        return view('order')->with('order', $order);
+        $orders = Order::get();
+        return view('order')->with('orders', $orders);
 
-        $consumable = Consumable::get();
-        return view('order')->with('consumable', $consumable);
+        // $consumable = Consumable::get();
+        // return view('order')->with('consumable', $consumable);
     }
 
     /**
