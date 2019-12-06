@@ -40,11 +40,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function restaurant()
+    public function restaurants()
     {
         return $this->hasMany('App\Restaurant');
     }
-    public function order()
+    public function orders()
     {
         return $this->hasMany('App\Order');
     }

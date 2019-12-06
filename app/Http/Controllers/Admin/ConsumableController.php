@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Consumable;
 use App\Order;
-use App\User;
 use DB;
 use Auth;
 use Redirect;
@@ -21,6 +21,14 @@ class ConsumableController extends Controller
     // public function index(Request $request, $restaurantId)
     public function index(Request $request)
     {
+        //van Matthijs
+        // return '<a href="'.route('consumables.show', ['consumable' => 1]).'">show</a>';
+
+        // $restaurant = Consumable::get()->all();
+
+        // return view('restaurant')
+        //     ->with('restaurant', $restaurant);
+
 
         $consumable = Consumable::get()->all();
         return view('consumable')
@@ -34,6 +42,30 @@ class ConsumableController extends Controller
      */
     public function create(Request $request)
     {
+        // try
+        // {
+        //     DB::beginTransaction();
+        //     $consumable = new Consumable;
+
+        //     $consumable->title = $request->title;
+        //     $consumable->price = $request->price;
+        //     $consumable->category = $request->category;
+        //     $consumable->restaurant_id = $request->restaurant_id;
+        //     // $consumable->id = Auth()->user()->id;
+
+        //     $consumable->save();
+        //     DB::commit();
+        //     return redirect()->back()->with('message', 'A new consumable has been maded.');
+
+        // }
+        // catch(Exception $e)
+        // {
+        //     DB::rollback();
+        //     dd($e->getMessage());
+        // }
+
+        // return redirect()->back();
+        // return view('consumable.create');
 
     }
 
@@ -140,6 +172,14 @@ class ConsumableController extends Controller
      */
     public function destroy( $consumable_id)
     {
+        // $consumable = Consumable::where('id',$id)->first();
+
+        // if ($consumable != null) {
+        //    $consumable->delete();
+        //    return redirect()->back();
+        // }
+        // return redirect()->back()->with(['message'=> 'Wrong ID!!']);
+        // dd($consumable_id);
         $consumable = Consumable::findOrFail($consumable_id);
 
         $consumable->delete();
@@ -151,7 +191,7 @@ class ConsumableController extends Controller
     public function addToCart($id)
     {
         // Store the ID of the consumable in the consumable array in the session cookie
-        session()->push('consumables', $id);
+        session()->push('consumable', $id);
         // Look up the name of the consumable so it can be added to the cart
         $name = Consumable::where('id', $id)->get()[0]['title'];
         return $name;
@@ -160,7 +200,7 @@ class ConsumableController extends Controller
     public function pay($restaurant_id)
     {
         // Retrieve all the consumables and the total price
-        $items = session()->get('consumables');
+        $items = session()->get('consumable');
 
         $order = new Order();
         $order->user_id = Auth::id();
@@ -169,28 +209,9 @@ class ConsumableController extends Controller
 
         // Attach each consumable to the order
         foreach ($items as $item) {
-            $order->consumables()->attach($item);
+            $order->consumable()->attach($item);
         }
 
-        return redirect()->route('showorder', ['user_id' => Auth::id()]);
+        return redirect::back();
     }
-
-    public function order($id)
-    {
-        // Get the current logged in user with his restaurants and orders
-        $user = User::where('id', $id)->with('restaurants', 'orders')->get()[0];
-        // Create an empty orders array
-        $orders = [];
-        if (count($user->orders)) {
-            foreach ($user->orders as $key => $order) {
-              // Push the consumables of each order to the orders array
-            array_push($orders, Order::where('id', $order->id)->with('consumables')->get()[0]);
-          }
-        }
-
-        return view('showorder',[
-           'user' => $user,
-           'orders' => $orders
-        ]);
-     }
 }

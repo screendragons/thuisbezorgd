@@ -1,7 +1,6 @@
 @extends('layouts.default')
 @extends('partials.header')
 
-
 @section('content')
 <div class="container padding profile">
 	<form method="post" action="{{ route('restaurant.update', ['restaurant' => $restaurant->id]) }}">

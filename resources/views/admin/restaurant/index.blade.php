@@ -46,7 +46,7 @@
               <a href="{{ route('admin.restaurant.edit', ['id' => $restaurant->id]) }}"class="btn btn-primary">Edit</a>
             </td>
             <td>
-              {!! Form::open(['route' => ['admin.destroyrestaurant', $restaurant->id]]) !!}
+              {!! Form::open(['route' => ['admin.restaurant.destroy', $restaurant->id]]) !!}
               <button  style="margin-left:  5px;" type="submit" class="float-md-right btn btn-danger">
               Delete</button>
               {!! Form::close() !!}
@@ -61,6 +61,7 @@
    <a href="{{ url('/admin') }}">Home</a>
    <a href="{{ route('admin.user.index') }}">Users</a>
    <a href="{{ route('admin.restaurant.index') }}">Restaurant</a>
+   <a href="{{ route('admin.consumable.index') }}">Consumable</a>
    <a href="{{ route('admin.order.index') }}">Order</a>
   </div>
 @endsection

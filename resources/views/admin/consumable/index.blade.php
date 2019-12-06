@@ -11,13 +11,15 @@
       </div>
     </div>
 
-    <h2 class="table">Orders</h2>
+    <h2 class="table">Consumables</h2>
     <table class="table">
       <thead>
         <tr>
           <th>id</th>
           <th>user_id</th>
           <th>restaurant_id</th>
+          <th>item</th>
+          <th>quantity</th>
           {{-- <th>totaal prijs</th> --}}
          {{--  <th>Address</th> --}}
         </tr>

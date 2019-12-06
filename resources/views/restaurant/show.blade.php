@@ -1,6 +1,8 @@
 @extends('layouts.default')
 @extends('partials.header')
 
+  {{session()->put('consumables', [])}}
+
   <div class="container padding">
     <h2>
       Restaurants with menus
@@ -24,30 +26,23 @@
             <br>
             {{ $restaurant->is_open}} - {{ $restaurant->is_closed}}
           </p>
-          <button type="submit" class="btn btn-primary">
-            <a href="{{URL::to('restaurant')}}/{{$restaurant->id}}/edit">
-              Edit
-            </a>
-          </button>
-          <br>
-          <br>
-          {{-- delete --}}
-          <div>
-           {{--  <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$restaurant['id']}}').submit();">
-              Delete
-            </a> --}}
-
-            {{-- <form id="remove-form-{{$restaurant['id']}}" action="{{route('restaurant.destroy', ['restaurant_id' => $restaurant->id])}}" method="POST">
-             @csrf --}}
-         {{--     @method('DELETE') --}}
-            {{-- <button type="submit" class="btn btn-primary hey">Hey</button>
-            </form> --}}
-            {!! Form::open(['route' => ['restaurant.destroy', $restaurant->id]]) !!}
-              <button  style="margin-left:  5px;" type="submit" class="float-md-right btn btn-danger">
-                Delete
-              </button>
-            @method('DELETE')
-            {!! Form::close() !!}
+          @if(Auth::user() == true)
+            <button type="submit" class="btn btn-primary">
+              <a href="{{URL::to('restaurant')}}/{{$restaurant->id}}/edit">
+                Edit
+              </a>
+            </button>
+            <br>
+            <br>
+            {{-- delete --}}
+            <div>
+              {!! Form::open(['route' => ['restaurant.destroy', $restaurant->id]]) !!}
+                <button style="margin-left: 5px;" type="submit" class="float-md-right btn btn-danger">
+                  Delete
+                </button>
+              @method('DELETE')
+              {!! Form::close() !!}
+            @endif
           </div>
         </div>
       </div>

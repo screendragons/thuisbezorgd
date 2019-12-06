@@ -43,10 +43,13 @@ Route::resource('profile', 'ProfileController');
 //Order
 Route::resource('order', 'OrderController');
 
+//Cart
+Route::get('addToCart/{id}', 'ConsumableController@addToCart')->name('cart.add');
+Route::get('restaurant/{restaurant_id}/pay', 'ConsumableController@pay')->name('pay');
+Route::get('restaurant/{user_id}/order', 'ConsumableController@order')->name('showorder');
+
 // Route::resource('/order/{id}', 'OrderController@order');
 
-Route::get('addToCart/{id}', 'ConsumableController@addToCart')->name('cart.add');
-Route::get('restaurant/{restaurant_id}/betalen', 'ConsumableController@pay')->name('pay');
 
 // Contact
 Route::get('/contact', 'ContactController@index')->name('contact');

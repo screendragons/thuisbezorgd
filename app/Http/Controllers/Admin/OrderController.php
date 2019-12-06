@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Cart;
 use App\Consumable;
@@ -20,14 +21,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::where('user_id', Auth::id())->with('consumables')->get();
+        $orders = Order::get()->all();
 
-        dd($orders);
-
-        return view('order')->with('orders', $orders);
-
-        // $consumable = Consumable::get();
-        // return view('order')->with('consumable', $consumable);
+        return view('admin.order.index')
+          ->with('orders', $orders);
     }
 
     /**
@@ -70,7 +67,10 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-        //
+        $order = Order::findOrFail($id);
+
+        return view('admin.order.edit')
+          ->with('order', $order);
     }
 
     /**
@@ -94,11 +94,5 @@ class OrderController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    // tutorial
-    public function order(Request $request, $id)
-    {
-        $consumable = Consumable::find($id);
     }
 }

@@ -18,9 +18,9 @@ class Order extends Model
             return $this->belongsTo('App\Restaurant');
         }
 
-    public function consumable()
+    public function consumables()
     {
-        return $this->belongsToMany('App\Consumable', 'consumable_order', 'order_id', 'consumable_id');
+        return $this->belongsToMany('App\Consumable');
     }
 
 	protected $table = 'order';
