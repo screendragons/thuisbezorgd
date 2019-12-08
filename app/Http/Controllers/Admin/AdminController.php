@@ -30,6 +30,13 @@ class AdminController extends Controller
       //   ->with('restaurants', $restaurants);
     }
 
+    // public function indexUser()
+    // {
+    //   $users = User::get()->all();
+    //   return view('admin.user.index')
+    //     ->with('users', $users);
+    // }
+
     public function indexRestaurant()
     {
       $restaurants = Restaurant::get()->all();
@@ -200,6 +207,17 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     public function destroy($id)
+    {
+        // dd($consumable_id);
+        $user = User::findOrFail($id);
+
+        $user->delete();
+        // return view("admin.admin");
+        return redirect()->back();
+    }
+
     public function destroyUser($id)
     {
         // dd($consumable_id);

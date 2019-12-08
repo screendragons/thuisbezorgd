@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\User;
@@ -8,7 +9,7 @@ use App\Order;
 use Auth;
 use Redirect;
 
-class ProfileController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -104,7 +105,7 @@ class ProfileController extends Controller
 
             DB::commit();
 
-            return redirect()->back()->with('message', 'Gebruiker aangepast.');
+            return redirect()->back()->with('message', 'User has been updated.');
         }
 
         catch(Exception $e) {

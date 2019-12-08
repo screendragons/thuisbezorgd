@@ -38,7 +38,7 @@
               <a href="{{ route('admin.user.edit', ['id' => $user->id]) }}"class="btn btn-primary">Edit</a>
             </td>
             <td>
-             {!! Form::open(['route' => ['admin.destroyuser', $user->id]]) !!}
+             {!! Form::open(['route' => ['admin.user.destroy', $user->id]]) !!}
              <button  style="margin-left:  5px;" type="submit" class="float-md-right btn btn-danger">
              Delete</button>
              {!! Form::close() !!}

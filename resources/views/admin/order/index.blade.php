@@ -29,15 +29,6 @@
             <td>{{ $order->user_id }}</td>
             <td>{{ $order->restaurant_id }}</td>
            {{--  <td>{{ $order->totaal_prijs }}</td> --}}
-            <td>
-              <a href="{{ route('admin.order.edit', ['id' => $order->id]) }}"class="btn btn-primary">Edit</a>
-            </td>
-            <td>
-              {!! Form::open(['route' => ['admin.order.destroy', $order->id]]) !!}
-                <button  style="margin-left:  5px;" type="submit" class="float-md-right btn btn-danger">
-              Delete</button>
-              {!! Form::close() !!}
-            </td>
           </tr>
         @endforeach
       </tbody>
