@@ -31,7 +31,7 @@ class ConsumableController extends Controller
 
 
         $consumable = Consumable::get()->all();
-        return view('consumable')
+        return view('admin.consumable.index')
             ->with('consumable', $consumable);
     }
 

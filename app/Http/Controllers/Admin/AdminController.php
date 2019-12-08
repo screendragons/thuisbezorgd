@@ -37,21 +37,21 @@ class AdminController extends Controller
     //     ->with('users', $users);
     // }
 
-    public function indexRestaurant()
-    {
-      $restaurants = Restaurant::get()->all();
+    // public function indexRestaurant()
+    // {
+    //   $restaurants = Restaurant::get()->all();
 
-      return view('admin.restaurant.index')
-        ->with('restaurants', $restaurants);
-    }
+    //   return view('admin.restaurant.index')
+    //     ->with('restaurants', $restaurants);
+    // }
 
-    public function indexOrder()
-    {
-      $orders = Order::get()->all();
+    // public function indexOrder()
+    // {
+    //   $orders = Order::get()->all();
 
-      return view('admin.order.index')
-        ->with('orders', $orders);
-    }
+    //   return view('admin.order.index')
+    //     ->with('orders', $orders);
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -138,22 +138,22 @@ class AdminController extends Controller
 
     }
 
-    public function updateRestaurant(Request $request, $id)
-    {
-        $restaurant = Restaurant::findOrFail($id);
-        $restaurant->name = $request->name;
-        $restaurant->KVK = $request->KVK;
-        $restaurant->address = $request->address;
-        $restaurant->zipcode = $request->zipcode;
-        $restaurant->city = $request->city;
-        $restaurant->phone = $request->phone;
-        $restaurant->email = $request->email;
-        $restaurant->is_open = $request->is_open;
-        $restaurant->is_closed = $request->is_closed;
-        $restaurant->save();
+    // public function updateRestaurant(Request $request, $id)
+    // {
+    //     $restaurant = Restaurant::findOrFail($id);
+    //     $restaurant->name = $request->name;
+    //     $restaurant->KVK = $request->KVK;
+    //     $restaurant->address = $request->address;
+    //     $restaurant->zipcode = $request->zipcode;
+    //     $restaurant->city = $request->city;
+    //     $restaurant->phone = $request->phone;
+    //     $restaurant->email = $request->email;
+    //     $restaurant->is_open = $request->is_open;
+    //     $restaurant->is_closed = $request->is_closed;
+    //     $restaurant->save();
 
-        return Redirect::back();
-    }
+    //     return Redirect::back();
+    // }
 
     public function editUser($id)
     {
@@ -163,21 +163,21 @@ class AdminController extends Controller
           ->with('user', $user);
     }
 
-    public function editRestaurant($id)
-    {
-      $restaurant = Restaurant::findOrFail($id);
+    // public function editRestaurant($id)
+    // {
+    //   $restaurant = Restaurant::findOrFail($id);
 
-      return view('admin.restaurant.edit')
-        ->with('restaurant', $restaurant);
-    }
+    //   return view('admin.restaurant.edit')
+    //     ->with('restaurant', $restaurant);
+    // }
 
-    public function editOrder($id)
-    {
-      $order = Order::findOrFail($id);
+    // public function editOrder($id)
+    // {
+    //   $order = Order::findOrFail($id);
 
-      return view('admin.order.edit')
-        ->with('order', $order);
-    }
+    //   return view('admin.order.edit')
+    //     ->with('order', $order);
+    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -210,28 +210,22 @@ class AdminController extends Controller
 
      public function destroy($id)
     {
-        // dd($consumable_id);
         $user = User::findOrFail($id);
-
         $user->delete();
-        // return view("admin.admin");
         return redirect()->back();
     }
 
-    public function destroyUser($id)
-    {
-        // dd($consumable_id);
-        $user = User::findOrFail($id);
+    // public function destroyUser($id)
+    // {
+    //     $user = User::findOrFail($id);
 
-        $user->delete();
-        // return view("admin.admin");
-        return redirect()->back();
-    }
-    public function destroyRestaurant($id)
-    {
-        $restaurant = Restaurant::findOrFail($id);
-        $restaurant->delete();
-        // return view("admin.admin");
-        return redirect()->back();
-    }
+    //     $user->delete();
+    //     return redirect()->back();
+    // }
+    // public function destroyRestaurant($id)
+    // {
+    //     $restaurant = Restaurant::findOrFail($id);
+    //     $restaurant->delete();
+    //     return redirect()->back();
+    // }
 }
