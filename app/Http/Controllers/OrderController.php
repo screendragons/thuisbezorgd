@@ -22,9 +22,9 @@ class OrderController extends Controller
     {
         $orders = Order::where('user_id', Auth::id())->with('consumables')->get();
 
-        dd($orders);
+        // dd($orders);
 
-        return view('order')->with('orders', $orders);
+        return view('showorder')->with('orders', $orders);
 
         // $consumable = Consumable::get();
         // return view('order')->with('consumable', $consumable);
