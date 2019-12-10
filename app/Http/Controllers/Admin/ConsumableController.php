@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-
 use Illuminate\Http\Request;
 use App\Consumable;
 use App\Order;
@@ -18,19 +17,12 @@ class ConsumableController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    // public function index(Request $request, $restaurantId)
-    public function index(Request $request)
+    public function index()
     {
-        //van Matthijs
-        // return '<a href="'.route('consumables.show', ['consumable' => 1]).'">show</a>';
 
-        // $restaurant = Consumable::get()->all();
-
-        // return view('restaurant')
-        //     ->with('restaurant', $restaurant);
-
-
+        // dd('test');
         $consumable = Consumable::get()->all();
+
         return view('admin.consumable.index')
             ->with('consumable', $consumable);
     }
@@ -42,34 +34,8 @@ class ConsumableController extends Controller
      */
     public function create(Request $request)
     {
-        // try
-        // {
-        //     DB::beginTransaction();
-        //     $consumable = new Consumable;
-
-        //     $consumable->title = $request->title;
-        //     $consumable->price = $request->price;
-        //     $consumable->category = $request->category;
-        //     $consumable->restaurant_id = $request->restaurant_id;
-        //     // $consumable->id = Auth()->user()->id;
-
-        //     $consumable->save();
-        //     DB::commit();
-        //     return redirect()->back()->with('message', 'A new consumable has been maded.');
-
-        // }
-        // catch(Exception $e)
-        // {
-        //     DB::rollback();
-        //     dd($e->getMessage());
-        // }
-
-        // return redirect()->back();
-        // return view('consumable.create');
 
     }
-
-
     /**
      * Store a newly created resource in storage.
      *
@@ -78,37 +44,7 @@ class ConsumableController extends Controller
      */
     public function store(Request $request)
     {
-        // $validatedData = $request->validate([
-        //     'title' => 'required|string|max:255',
-        //     'price' => 'string|max:25|unique:restaurant',
-        //     'category' => 'required|string|max:255',
-        //     'photo' => 'string|max:255'
-        // ]);
-        try {
-                DB::beginTransaction();
-                $consumable = new Consumable;
 
-                $consumable->title = $request->title;
-                $consumable->price = $request->price;
-                $consumable->category = $request->category;
-                $consumable->restaurant_id = $request->restaurant_id;
-                // $consumable->id = Auth()->user()->id;
-
-                $consumable->save();
-                // dd($consumable);
-                DB::commit();
-
-                return redirect()->back()->with('message ', 'A new consumable has been maded.');
-
-            }
-            catch(Exception $e)
-            {
-                DB::rollback();
-                dd($e->getMessage());
-            }
-
-        return view('restaurant.show')
-            ->with('consumable', $consumable);
     }
 
     /**
@@ -119,10 +55,7 @@ class ConsumableController extends Controller
      */
     public function show($id)
     {
-        $consumable = Consumable::find($id);
 
-        return view('restaurant.show')
-            ->with('consumable', $consumable);
     }
 
     /**
@@ -133,9 +66,8 @@ class ConsumableController extends Controller
      */
     public function edit($id)
     {
-
         $consumable = Consumable::find($id);
-        return view('consumable.edit')
+        return view('admin.consumable.edit')
             ->with('consumable', $consumable);
     }
 
@@ -149,6 +81,7 @@ class ConsumableController extends Controller
     public function update(Request $request, $id)
     {
         $consumable = Consumable::find($id);
+
         $consumable->update([
             'title'=> $request->input('title'),
             'price'=> $request->input('price'),
@@ -170,21 +103,12 @@ class ConsumableController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy( $consumable_id)
+    public function destroy($id)
     {
-        // $consumable = Consumable::where('id',$id)->first();
-
-        // if ($consumable != null) {
-        //    $consumable->delete();
-        //    return redirect()->back();
-        // }
-        // return redirect()->back()->with(['message'=> 'Wrong ID!!']);
-        // dd($consumable_id);
-        $consumable = Consumable::findOrFail($consumable_id);
+        $consumable = Consumable::findOrFail($id);
 
         $consumable->delete();
 
-        return redirect("/");
-        // return view("restaurant");
+        return redirect()->back();
     }
 }

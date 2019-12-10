@@ -8,6 +8,7 @@ use App\User;
 use App\Order;
 use Auth;
 use Redirect;
+use DB;
 
 class UserController extends Controller
 {
@@ -80,12 +81,15 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
-            'zipcode' => 'required|string|min:6|max:6',
+            'city' => 'required|string|max:255',
+            'zipcode' => 'required|string|min:6|max:7',
             'phone' => 'required|string|min:10|max:10',
             'email' => 'required|email|max:255',
         ]);
+        // dd($request);
 
         try {
             DB::beginTransaction();

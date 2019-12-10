@@ -35,7 +35,7 @@
             <td>{{ $user->phone }}</td>
             <td>{{ $user->email }}</td>
             <td>
-              <a href="{{ route('admin.user.edit', ['id' => $user->id]) }}"class="btn btn-primary">Edit</a>
+              <a href="{{ route('admin.user.edit', ['user' => $user->id]) }}"class="btn btn-primary">Edit</a>
             </td>
             <td>
              {!! Form::open(['route' => ['admin.user.destroy', $user->id]]) !!}

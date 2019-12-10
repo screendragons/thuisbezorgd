@@ -43,17 +43,19 @@
                     <li>
                         <a class="consumable" href="{{ url('/consumable') }}">Consumables</a>
                     </li>
+
                     <li>
                         <a class="profile" href="{{ url('/profile') }}">Profile</a>
+                    </li>
+                    <li>
+                        <a class="profile" href="{{ url('/order') }}">Order</a>
                     </li>
                     {{-- @if(Auth::user() == 'is_admin') --}}
                         <li>
                             <a class="admin" href="{{ url('/admin') }}">Admin</a>
                         </li>
                     {{-- @endif --}}
-                    <li>
-                        <a class="profile" href="{{ url('/order') }}">Order</a>
-                    </li>
+
                     <li>
                         <a class="contact" href="{{ url('/contact') }}">Contact</a>
                     </li>

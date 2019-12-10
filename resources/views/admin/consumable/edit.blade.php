@@ -7,7 +7,7 @@
 
 <div class="container padding createrestaurants width">
   <h2>Edit a order</h2>
-  <form method="post" action="{{ route('admin.order.update', ['consumable' => $consumable->id]) }}">
+  <form method="post" action="{{ route('admin.consumable.update', ['consumable' => $consumable->id]) }}">
     @method('PUT')
     @csrf
     <div class="form-group">

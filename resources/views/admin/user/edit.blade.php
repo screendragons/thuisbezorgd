@@ -2,10 +2,18 @@
 @extends('layouts.default')
 
 @section('content')
+
+@foreach ($errors->all() as $message)
+    <div class="alert alert-danger" role="alert">
+        {{$message}}
+    </div>
+@endforeach
+
   <div class="container padding profile">
     <h2>Edit user</h2>
 
       <form method="post" action="{{ route('admin.user.update', ['user' => $user->id ]) }}">
+       {{--  <form method="post" action="{{ route('admin.user.update',[$user->id]) }}"> --}}
         @csrf
         @method('PUT')
           <div class="form-group">

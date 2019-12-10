@@ -1,9 +1,10 @@
 <?php
 
 // homepagina
-Route::get('admin', 'AdminController@index')->name('admin');
+// Route::get('admin', 'AdminController@index')->name('admin');
 
 Route::resource('admin/user', 'UserController' , ['as' => 'admin']);
+
 Route::resource('admin/restaurant', 'RestaurantController' , ['as' => 'admin']);
 
 Route::resource('admin/order', 'OrderController' , ['as' => 'admin']);

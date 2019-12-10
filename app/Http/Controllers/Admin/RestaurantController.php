@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Restaurant;
 use App\Consumable;
+use Redirect;
 use DB;
 
 class RestaurantController extends Controller

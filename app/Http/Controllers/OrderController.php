@@ -20,14 +20,30 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::where('user_id', Auth::id())->with('consumables')->get();
+        // $orders = Order::where('user_id', Auth::id())->with('consumables')->get();
 
         // dd($orders);
 
-        return view('showorder')->with('orders', $orders);
+        // return view('showorder')->with('orders', $orders);
 
         // $consumable = Consumable::get();
         // return view('order')->with('consumable', $consumable);
+
+        // Get the current logged in user with his restaurants and orders
+        $user = User::where('id', Auth::id())->with('restaurants', 'orders')->get()[0];
+        // Create an empty orders array
+        $orders = [];
+        if (count($user->orders)) {
+            foreach ($user->orders as $key => $order) {
+              // Push the consumables of each order to the orders array
+            array_push($orders, Order::where('id', $order->id)->with('consumables')->get()[0]);
+          }
+        }
+        // dd($orders);
+        return view('showorder',[
+           'user' => $user,
+           'orders' => $orders
+        ]);
     }
 
     /**
