@@ -1,6 +1,6 @@
 @extends('partials.header')
 @extends('layouts.default')
-{{-- @section('content') --}}
+
 <div class="container padding contact">
   <h2>Contact</h2>
   <form action="/action_page.php">
@@ -12,4 +12,3 @@
       </button>
   </form>
 </div>
-{{-- @endsection --}}

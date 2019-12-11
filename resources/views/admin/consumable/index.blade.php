@@ -13,6 +13,7 @@
 
     <h2 class="table">Consumables</h2>
     <table class="table">
+
       <thead>
         <tr>
           <th>id</th>
@@ -22,6 +23,7 @@
           <th>category</th>
         </tr>
       </thead>
+
       <tbody>
         @foreach($consumables as $consumable)
           <tr>
@@ -44,9 +46,11 @@
           </tr>
         @endforeach
       </tbody>
+
     </table>
   </div>
 
+  {{-- sidebar --}}
   <div class="sidenav padding">
    <a href="{{ url('/admin') }}">Home</a>
    <a href="{{ route('admin.user.index') }}">Users</a>

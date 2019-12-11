@@ -17,24 +17,20 @@ class Admin
   public function handle($request, Closure $next)
   {
     if(Auth::check())
-      {
-        if(auth()->user()->is_admin == 1){
-          return $next($request);
-        } else {
-          return redirect('/login')->with('error','You have not admin access');
-        }
-
-      } else {
-        return redirect('/login');
+    {
+      if(auth()->user()->is_admin == 1){
+        return $next($request);
       }
+
+      else
+      {
+        return redirect('/login')->with('error','You have not admin access');
+      }
+
+      // else
+      // {
+      //   return redirect('/login');
+      // }
+    }
   }
-
-  // public function handle($request, Closure $next)
-  // {
-  //      if (Auth::user() &&  Auth::user()->admin == 1) {
-  //             return $next($request);
-  //      }
-
-  //     return redirect('/');
-  // }
 }

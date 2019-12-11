@@ -19,12 +19,12 @@ class ConsumableController extends Controller
      */
     public function index()
     {
-
         // dd('test');
-        $consumable = Consumable::get()->all();
 
+        //show consumables
+        $consumables = Consumable::get()->all();
         return view('admin.consumable.index')
-            ->with('consumable', $consumable);
+            ->with('consumables', $consumables);
     }
 
     /**
@@ -80,21 +80,13 @@ class ConsumableController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $consumable = Consumable::find($id);
+        $consumable = Consumable::findOrFail($id);
+        $consumable->title = $request->name;
+        $consumable->price = $request->price;
+        $consumable->category = $request->category;
+        $consumable->save();
 
-        $consumable->update([
-            'title'=> $request->input('title'),
-            'price'=> $request->input('price'),
-            'category'=> $request->input('category'),
-        ]);
-
-        if($consumable){
-            // return redirect()->route('restaurant.show', ['consumable'=> $consumable->id])
-            return redirect::back()
-            ->with('success' , 'consumable updated succesfully');
-        }
-            //redirect
-            // return back()->withInput();
+        return Redirect::back();
     }
 
     /**
@@ -106,9 +98,7 @@ class ConsumableController extends Controller
     public function destroy($id)
     {
         $consumable = Consumable::findOrFail($id);
-
         $consumable->delete();
-
         return redirect()->back();
     }
 }

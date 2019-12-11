@@ -19,15 +19,6 @@ class ProfileController extends Controller
     {
         $user = User::find(Auth::id());
             return view('profile')->with('user', $user);
-
-        // tutorial
-        // $order = Auth::user()->order;
-        // $order->transform(function($order, $id)
-        // {
-        //     $order->cart = unserialize($order->cart);
-        //     return $order;
-        // });
-        // return view('profile', ['order' => $order]);
     }
 
     /**
@@ -83,62 +74,9 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // first try
-        //  $this->validate(request(), [
-        //     'first_name' => 'required',
-        //     'last_name' => 'required',
-        //     'address' => 'required',
-        //     'zipcode' => 'required',
-        //     'city' => 'required',
-        //     'phone' => 'required',
-        //     'email' => 'required|email|unique:users',
-        //     'password' => 'required|min:6|confirmed'
-        // ]);
 
-        //  try {
-        //      DB::beginTransaction();
-
-        //      $user = Auth::user();
-        //      $user->first_name = $request->first_name;
-        //      $user->last_name = $request->last_name;
-        //      $user->address = $request->address;
-        //      $user->zipcode = $request->zipcode;
-        //      $user->city = $request->city;
-        //      $user->password = bcrypt($request->password);
-        //      $user->phone = $request->phone;
-        //      $user->email = $request->email;
-        //      $user->save();
-
-        //      DB::commit();
-        //      return Redirect()->route('profile', ['user' => $user->id])
-        //      ->with('Your profile have been updated');
-
-        //  }
-        //      catch(Exception $e) {
-        //          DB::rollback();
-
-        //      }
-        // dd($request->input('first_name'));
-        // second try
         $user = User::find($id);
         $user->update([
-            // if($request->hasFile('avatar')){
-            //     $avatar = $request->file('avatar');
-            //     $destinationPath = public_path('/images/consumables/');
-            //     $filename = time() . '.' . $avatar->getClientOriginalExtension();
-
-            //     if ($consumable->avatar !== 'default.png') {
-            //         $file = 'images/avatar/' . $consumable->avatar;
-
-            //         if (File::exists($file)) {
-            //             unlink($file);
-            //         }
-            //     }
-
-            //     Image::make($avatar)->fit(300, 300)->save($destinationPath . $filename);
-            //     $consumable->avatar = $filename;
-            // }
-
             'first_name'=> $request->input('first_name'),
             'last_name'=> $request->input('last_name'),
             'address'=> $request->input('address'),
@@ -151,27 +89,8 @@ class ProfileController extends Controller
             return redirect()->route('profile.index', ['user'=> $user->id])
             ->with('success' , 'user updated succesfully');
         }
-            //redirect
-            return back()->withInput();
-
-
-        // third try
-        // $user = User::where('id', $user->id);
-        // dd($user);
-        // $user = User::find($user->id);
-
-        // $user = User::find($user_id);
-        // dd($user);
-        // $user->first_name = request('first_name');
-        // $user->last_name = request('last_name');
-        // $user->address = request('address');
-        // $user->zipcode = request('zipcode');
-        // $user->city = request('city');
-        // $user->phone = request('phone');
-        // $user->email = request('email');
-        // $user->save();
-
-        // return redirect()->route('profile.index');
+        //redirect
+        return back()->withInput();
 
     }
 
@@ -184,10 +103,7 @@ class ProfileController extends Controller
     public function destroy($id)
     {
         $user = User::findOrFail($id);
-
-        // $consumable->delete();
         $user->delete();
-
         return redirect("/");
     }
 }

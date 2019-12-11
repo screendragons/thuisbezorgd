@@ -17,6 +17,7 @@
 <div class="container padding profile createrestaurants">
   <h2>Create restaurant</h2>
   {!! Form::open(['route' => 'restaurant.store', 'method' => 'POST', 'files' => true]) !!}
+
     <label for="name">Name</label>
     <div class="input-group mb-3">
       {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' =>

@@ -13,6 +13,7 @@
 
     <h2 class="table">Restaurants</h2>
     <table class="table">
+
       <thead>
         <tr>
           <th>id</th>
@@ -28,6 +29,7 @@
           <th>Is closed</th>
         </tr>
       </thead>
+
       <tbody>
         @foreach($restaurants as $restaurant)
           <tr>
@@ -42,9 +44,13 @@
             <td>{{ $restaurant->email }}</td>
             <td>{{ $restaurant->is_open }}</td>
             <td>{{ $restaurant->is_closed }}</td>
+
+           {{--  Edit button --}}
             <td>
               <a href="{{ route('admin.restaurant.edit', ['restaurant' => $restaurant->id]) }}"class="btn btn-primary">Edit</a>
             </td>
+
+            {{-- Delete button --}}
             <td>
               {!! Form::open(['route' => ['admin.restaurant.destroy', $restaurant->id]]) !!}
               <button  style="margin-left:  5px;" type="submit" class="float-md-right btn btn-danger">
@@ -55,9 +61,11 @@
           </tr>
         @endforeach
       </tbody>
+
     </table>
   </div>
 
+  {{-- Sidebar --}}
   <div class="sidenav padding">
    <a href="{{ url('/admin') }}">Home</a>
    <a href="{{ route('admin.user.index') }}">Users</a>

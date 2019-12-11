@@ -18,7 +18,6 @@ class RestaurantController extends Controller
     public function index()
     {
         $restaurants = Restaurant::get()->all();
-
         return view('admin.restaurant.index')
         ->with('restaurants', $restaurants);
     }
@@ -53,33 +52,35 @@ class RestaurantController extends Controller
             'is_closed' => 'required|string|max:255',
             'photo' => 'string|max:255'
         ]);
-        try {
-                DB::beginTransaction();
-                $restaurant = new Restaurant;
+        try
+        {
+            DB::beginTransaction();
+            $restaurant = new Restaurant;
 
-                $restaurant->name = $request->name;
-                $restaurant->KVK = $request->KVK;
-                $restaurant->address = $request->address;
-                $restaurant->zipcode = $request->zipcode;
-                $restaurant->city = $request->city;
-                $restaurant->phone = $request->phone;
-                $restaurant->email = $request->email;
-                $restaurant->is_open = $request->is_open;
-                $restaurant->is_closed = $request->is_closed;
-                $restaurant->user_id = Auth()->user()->id;
+            $restaurant->name = $request->name;
+            $restaurant->KVK = $request->KVK;
+            $restaurant->address = $request->address;
+            $restaurant->zipcode = $request->zipcode;
+            $restaurant->city = $request->city;
+            $restaurant->phone = $request->phone;
+            $restaurant->email = $request->email;
+            $restaurant->is_open = $request->is_open;
+            $restaurant->is_closed = $request->is_closed;
+            $restaurant->user_id = Auth()->user()->id;
 
-                $restaurant->save();
-                DB::commit();
-                return redirect()->back()->with('message', 'Create restaurant has been maded.');
+            $restaurant->save();
+            DB::commit();
+            return redirect()->back()->with('message', 'Create restaurant has been maded.');
 
-            }
-            catch(Exception $e)
-            {
-                DB::rollback();
-                dd($e->getMessage());
-            }
+        }
 
-        return view('restaurant');
+        catch(Exception $e)
+        {
+            DB::rollback();
+            dd($e->getMessage());
+        }
+
+        return Redirect::back();
     }
 
     /**

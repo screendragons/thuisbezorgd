@@ -13,6 +13,7 @@
 
     <h2 class="table">All users</h2>
     <table class="table">
+
       <thead>
         <tr>
           <th>id</th>
@@ -24,6 +25,7 @@
           <th>E-mail</th>
         </tr>
       </thead>
+
       <tbody>
         @foreach($users as $user)
           <tr>
@@ -50,9 +52,11 @@
           </tr>
         @endforeach
       </tbody>
+
     </table>
   </div>
 
+  {{-- Sidebar --}}
   <div class="sidenav padding">
     <a href="{{ url('/admin') }}">Home</a>
     <a href="{{ route('admin.user.index') }}">Users</a>

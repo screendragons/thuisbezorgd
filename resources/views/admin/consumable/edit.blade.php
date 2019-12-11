@@ -10,6 +10,7 @@
   <form method="post" action="{{ route('admin.consumable.update', ['consumable' => $consumable->id]) }}">
     @method('PUT')
     @csrf
+
     <div class="form-group">
       <label for="title">
         Title
@@ -36,8 +37,8 @@
       <input placeholder="Enter category" id="category" required name="category" spellcheck="false" class="form-control" value="{{ $consumable->category }}"
       />
     </div>
-
     <br>
+
     <button type="submit" class="btn btn-success">Update</button>
 
   </form>

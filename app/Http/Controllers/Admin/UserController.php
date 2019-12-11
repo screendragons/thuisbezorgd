@@ -20,7 +20,6 @@ class UserController extends Controller
     public function index()
     {
         $users = User::get()->all();
-
         return view('admin.user.index')
           ->with('users', $users);
     }
@@ -66,7 +65,6 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-
         return view('admin.user.edit')
             ->with('user', $user);
     }
@@ -91,7 +89,8 @@ class UserController extends Controller
         ]);
         // dd($request);
 
-        try {
+        try
+        {
             DB::beginTransaction();
 
             $user = User::findOrFail($id);

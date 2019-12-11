@@ -29,7 +29,7 @@ class OrderController extends Controller
         // $consumable = Consumable::get();
         // return view('order')->with('consumable', $consumable);
 
-        // Get the current logged in user with his restaurants and orders
+        //Current logged in user with restaurants and orders
         $user = User::where('id', Auth::id())->with('restaurants', 'orders')->get()[0];
         // Create an empty orders array
         $orders = [];
@@ -40,7 +40,9 @@ class OrderController extends Controller
           }
         }
         // dd($orders);
-        return view('showorder',[
+
+        //show order
+        return view('order.show',[
            'user' => $user,
            'orders' => $orders,
         ]);
@@ -110,11 +112,5 @@ class OrderController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    // tutorial
-    public function order(Request $request, $id)
-    {
-        $consumable = Consumable::find($id);
     }
 }

@@ -1,4 +1,4 @@
- @extends('layouts.default')
+@extends('layouts.default')
 @include('partials.header')
 
 <div class="container padding-search">
@@ -30,8 +30,6 @@
                             Visit
                         </a>
                     </div>
-                        {{-- <p class="card-text">{{Str::limit($resaurant->description, 90, '...')}}.</p> --}}
-
                 </div>
             </div>
         </div>

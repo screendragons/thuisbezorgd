@@ -27,12 +27,10 @@ class RestaurantController extends Controller
 
         //   ->get();
 
-        // Openiningstijden
+        // Openininghours
         $restaurant = Restaurant::where('is_open', '<', date('H:i:s'))
         ->where('is_closed', '>', date('H:i:s'))->get();
         return view('restaurant')->with('restaurant', $restaurant);
-
-        // return view('restaurant', compact('restaurant'));
         return view('restaurant', compact('restaurant'));
     }
 
@@ -51,8 +49,6 @@ class RestaurantController extends Controller
     public function search(Request $request)
     {
         $query = $request->get('query');
-        // $restaurant = DB::table('restaurant')->where('name', '%'.$search.'%');
-        // return view('restaurant', ['restaurant' => $restaurant ]);
         $restaurant = Restaurant::where('name', 'LIKE', "%".$query."%")->get();
            return view('search')->with('restaurant', $restaurant);
     }
@@ -75,33 +71,35 @@ class RestaurantController extends Controller
             'email' => 'required|string|unique:restaurant,email|max:255',
             'is_open' => 'required|string|max:255',
             'is_closed' => 'required|string|max:255',
-            'photo' => 'string|max:255'
         ]);
-        try {
-                DB::beginTransaction();
-                $restaurant = new Restaurant;
 
-                $restaurant->name = $request->name;
-                $restaurant->KVK = $request->KVK;
-                $restaurant->address = $request->address;
-                $restaurant->zipcode = $request->zipcode;
-                $restaurant->city = $request->city;
-                $restaurant->phone = $request->phone;
-                $restaurant->email = $request->email;
-                $restaurant->is_open = $request->is_open;
-                $restaurant->is_closed = $request->is_closed;
-                $restaurant->user_id = Auth()->user()->id;
+        try
+        {
+            DB::beginTransaction();
+            $restaurant = new Restaurant;
 
-                $restaurant->save();
-                DB::commit();
-                return redirect()->back()->with('message', 'Create restaurant has been maded.');
+            $restaurant->name = $request->name;
+            $restaurant->KVK = $request->KVK;
+            $restaurant->address = $request->address;
+            $restaurant->zipcode = $request->zipcode;
+            $restaurant->city = $request->city;
+            $restaurant->phone = $request->phone;
+            $restaurant->email = $request->email;
+            $restaurant->is_open = $request->is_open;
+            $restaurant->is_closed = $request->is_closed;
+            $restaurant->user_id = Auth()->user()->id;
 
-            }
-            catch(Exception $e)
-            {
-                DB::rollback();
-                dd($e->getMessage());
-            }
+            $restaurant->save();
+            DB::commit();
+            return redirect()->back()->with('message', 'Create restaurant has been maded.');
+
+        }
+
+        catch(Exception $e)
+        {
+            DB::rollback();
+            dd($e->getMessage());
+        }
 
         return view('restaurant');
     }
@@ -116,11 +114,8 @@ class RestaurantController extends Controller
     {
         $restaurant = Restaurant::with('consumable')->findOrFail($user_id);
         // $restaurant = Restaurant::all();
-
         return view('restaurant.show')
             ->with('restaurant', $restaurant);
-
-         // return 'hallo <a href="'.route('consumable.index').'">Ga naar consumables</a>';
     }
 
     /**
@@ -175,10 +170,7 @@ class RestaurantController extends Controller
     public function destroy($id)
     {
         // delete restaurant
-        // $consumable = Consumable::findOrFail($id);
         $restaurant = Restaurant::findOrFail($id);
-
-        // $consumable->delete();
         $restaurant->delete();
 
         // Find all restaurant consumables
@@ -187,11 +179,5 @@ class RestaurantController extends Controller
             $consumable->delete();
         }
         return redirect("/");
-
-        // @foreach('consumable' as $consumable)
-        //     $consumable = Consumable::where('restaurant_id', 'id')->get();
-
-        //     $consumable->delete();
-        // @endforeach
     }
 }

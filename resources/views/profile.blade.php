@@ -9,13 +9,6 @@
         <form method="post" action="{{ route('profile.update', ['profile' => $user->id]) }}">
           @csrf
           @method('PUT')
-          {{-- <div class="form-group">
-            <label for="file">
-              Upload your avatar
-              <span class="required">*</span>
-            </label>
-            <input type="file" name="file">
-          </div> --}}
 
           <div class="form-group">
             <label for="first_name">
@@ -57,18 +50,6 @@
             <input placeholder="Enter city" id="city" required name="city" spellcheck="false" class="form-control" value="{{ $user->city }}"/>
           </div>
 
-          {{-- <div class="form-group">
-            <label for="user-password">Password<span class="required">*</span></label>
-            <input type="password"  placeholder="Enter password"
-            id="user-password"
-            required
-            name="password"
-            spellcheck="false"
-            class="form-control"
-            value=""
-            />
-          </div> --}}
-
           <div class="form-group">
             <label for="phone">
               Phone
@@ -85,18 +66,19 @@
             <input placeholder="Enter email" id="email" required name="email" spellcheck="false" class="form-control" value="{{ $user->email }}"/>
           </div>
 
+          {{-- Update button --}}
           <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Submit"/>
           </div>
-          {{-- <div class="form-group">
-            <a href="{{ route('profile.edit', ['id' => $user->id]) }}" class="btn btn-primary">
-              Edit
-            </a>
-          </div> --}}
+
         </form>
+
+        {{-- Delete button --}}
         {!! Form::open(['route' => ['profile.destroy', $user->id]]) !!}
-        <button  style="margin-left:  5px;" type="submit" class="float-md-right btn btn-danger">Verwijderen</button>
-            @method('DELETE')
+          <button  style="margin-left:  5px;" type="submit" class="float-md-right btn btn-danger">
+            Delete
+          </button>
+          @method('DELETE')
         {!! Form::close() !!}
       </div>
     </div>

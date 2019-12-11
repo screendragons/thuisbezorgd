@@ -7,6 +7,7 @@
 	  @csrf
 	  @method('PUT')
 	  <h3>Edit restaurant</h3>
+
 	  <div class="form-group">
 	    <label for="name">
 	      Name

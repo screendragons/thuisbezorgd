@@ -52,28 +52,30 @@ class ConsumableController extends Controller
         //     'category' => 'required|string|max:255',
         //     'photo' => 'string|max:255'
         // ]);
-        try {
-                DB::beginTransaction();
-                $consumable = new Consumable;
+        try
+        {
+            DB::beginTransaction();
+            $consumable = new Consumable;
 
-                $consumable->title = $request->title;
-                $consumable->price = $request->price;
-                $consumable->category = $request->category;
-                $consumable->restaurant_id = $request->restaurant_id;
-                // $consumable->id = Auth()->user()->id;
+            $consumable->title = $request->title;
+            $consumable->price = $request->price;
+            $consumable->category = $request->category;
+            $consumable->restaurant_id = $request->restaurant_id;
+            // $consumable->id = Auth()->user()->id;
 
-                $consumable->save();
-                // dd($consumable);
-                DB::commit();
+            $consumable->save();
+            // dd($consumable);
+            DB::commit();
 
-                return redirect()->back()->with('message ', 'A new consumable has been maded.');
+            return redirect()->back()->with('message ', 'A new consumable has been maded.');
 
-            }
-            catch(Exception $e)
-            {
-                DB::rollback();
-                dd($e->getMessage());
-            }
+        }
+
+        catch(Exception $e)
+        {
+            DB::rollback();
+            dd($e->getMessage());
+        }
 
         return view('restaurant.show')
             ->with('consumable', $consumable);
@@ -124,12 +126,9 @@ class ConsumableController extends Controller
         ]);
 
         if($consumable){
-            // return redirect()->route('restaurant.show', ['consumable'=> $consumable->id])
             return redirect::back()
             ->with('success' , 'consumable updated succesfully');
         }
-            //redirect
-            // return back()->withInput();
     }
 
     /**
@@ -141,11 +140,8 @@ class ConsumableController extends Controller
     public function destroy( $consumable_id)
     {
         $consumable = Consumable::findOrFail($consumable_id);
-
         $consumable->delete();
-
         return redirect("/");
-        // return view("restaurant");
     }
 
     public function addToCart($id)
@@ -172,7 +168,7 @@ class ConsumableController extends Controller
             $order->consumables()->attach($item);
         }
 
-        return redirect()->route('showorder', ['user_id' => Auth::id()]);
+        return redirect()->route('order.show', ['user_id' => Auth::id()]);
     }
 
     public function order($id)
@@ -188,7 +184,7 @@ class ConsumableController extends Controller
           }
         }
         // dd($orders);
-        return view('showorder',[
+        return view('order.show',[
            'user' => $user,
            'orders' => $orders
         ]);
