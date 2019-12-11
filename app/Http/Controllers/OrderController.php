@@ -42,7 +42,7 @@ class OrderController extends Controller
         // dd($orders);
         return view('showorder',[
            'user' => $user,
-           'orders' => $orders
+           'orders' => $orders,
         ]);
     }
 

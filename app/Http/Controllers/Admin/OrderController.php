@@ -56,7 +56,21 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+         // Get the current logged in user with his restaurants and orders
+          $restaurant = Restaurant::where('id', $id)->with('restaurants', 'orders')->get()[0];
+          // Create an empty orders array
+          $orders = [];
+          if (count($restaurant->orders)) {
+              foreach ($restaurant->orders as $key => $order) {
+                  // Push the consumables of each order to the orders array
+                  array_push($orders, Order::where('id', $order->id)->with('consumables')->get()[0]);
+              }
+          }
+
+          return view('admin.order.index',[
+               'restaurant' => $restaurant,
+               'orders' => $orders
+           ]);
     }
 
     /**

@@ -187,7 +187,7 @@ class ConsumableController extends Controller
             array_push($orders, Order::where('id', $order->id)->with('consumables')->get()[0]);
           }
         }
-        dd($orders);
+        // dd($orders);
         return view('showorder',[
            'user' => $user,
            'orders' => $orders

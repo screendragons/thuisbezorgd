@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+use App\Consumable;
 use App\Restaurant;
 use App\Order;
 
@@ -47,5 +48,10 @@ class User extends Authenticatable
     public function orders()
     {
         return $this->hasMany('App\Order');
+    }
+
+    public function consumables()
+    {
+        return $this->hasMany('App\Consumable');
     }
 }
