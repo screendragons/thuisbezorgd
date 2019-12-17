@@ -4,12 +4,6 @@
 @section('content')
 
   <div class="container padding">
-    <ul class="navbar-nav bg-gradient-primary sidebar" id="accordionSidebar">
-    </ul>
-    <div class="container-fluid">
-      <div class="row">
-      </div>
-    </div>
 
     <h2 class="table">Users</h2>
     <table class="table">

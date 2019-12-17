@@ -34,7 +34,7 @@
             {{ $restaurant->is_open}} - {{ $restaurant->is_closed}}
           </p>
 
-          @if(Auth::user() == true)
+          @if (Auth::user()->is_admin == 1)
           {{-- edit restaurant--}}
             <button type="submit" class="btn btn-primary">
               <a href="{{URL::to('restaurant')}}/{{$restaurant->id}}/edit">
@@ -52,14 +52,14 @@
                 </button>
               @method('DELETE')
               {!! Form::close() !!}
-            @endif
-          </div>
+            </div>
+          @endif
         </div>
       </div>
     </div>
 
     {{-- create a consumable --}}
-    @if(Auth::user() == true)
+    @if (Auth::user()->is_admin == 1)
       <div class="col-md-3 container">
         <h3>Create a consumable</h3>
 
@@ -90,7 +90,7 @@
       </div>
     @endif
 
-    @if(Auth::user() == true)
+    @if (Auth::user()->is_admin == 1)
       {{-- Consumables --}}
       @foreach($restaurant->consumable as $consumable)
         <div class="col-md-3 container edit-consumable">

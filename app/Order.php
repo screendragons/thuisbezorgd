@@ -9,7 +9,6 @@ use App\Consumable;
 
 class Order extends Model
 {
-    protected $table = 'order';
 
 	public function user(){
         return $this->belongsTo('App\User');
@@ -25,5 +24,9 @@ class Order extends Model
         return $this->belongsToMany('App\Consumable');
     }
 
+    protected $table = 'order';
 
+    // protected $fillable = [
+    //     'name',
+    // ];
 }

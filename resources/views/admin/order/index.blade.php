@@ -1,62 +1,55 @@
 @extends('partials.header')
 @extends('layouts.default')
 
-<div class="container padding">
-
-  <h3>Orders</h3>
+@section('content')
+  <div class="container">
+    <h2 class="h2">Orders</h2>
     {{-- count orders --}}
     @if(count($orders))
     <div class="orders">
       @foreach($orders as $key => $order)
         @foreach($order->consumables as $consumable)
-          <div class="col-md-3 container edit-consumable">
+          <div class="col-md-3 container ">
             <div class="form-group">
               <label for="title">
-                Order {{$key + 1}}
+                <h4> Order {{$key + 1}} </h4>
               </label>
-            </div>
-         {{--    <div class="form-group">
-                <label for="title">
-                  {{ $restaurant->name }}
-                </label>
-            </div> --}}
-            <h6 class="card-subtitle mb-2">{{$order->restaurant->name}}</h6>
+              <br>
+              {{-- <h6 class="card-subtitle mb-2">{{$order->restaurant->name}}</h6> --}}
 
-            <div class="form-group">
               <label for="title">
                 {{ $consumable->title }}
               </label>
-            </div>
+              <br>
 
-            <div class="form-group">
               <label for="price">
-                  Price
+                Price
               </label>
               {{ $consumable->price }}
-            </div>
+              <br>
 
-            <div class="form-group">
               <label for="category">
-                  Created at
+                Created at
               </label>
               {{$order->created_at}}
-            </div>
 
+            </div>
           </div>
         @endforeach
       @endforeach
     </div>
 
-    @else
-    <h5>{{$user->first_name}} has no orders</h5>
-  @endif
-    {{-- sidebar --}}
-    <div class="sidenav padding">
-     <a href="{{ url('/admin') }}">Home</a>
-     <a href="{{ route('admin.user.index') }}">Users</a>
-     <a href="{{ route('admin.restaurant.index') }}">Restaurant</a>
-     <a href="{{ route('admin.consumable.index') }}">Consumable</a>
-     <a href="{{ route('admin.order.index') }}">Order</a>
-    </div>
-  {{-- @endsection --}}
-</div>
+      @else
+      <h5>{{$user->first_name}} has no orders</h5>
+    @endif
+      {{-- sidebar --}}
+      <div class="sidenav padding">
+       <a href="{{ url('/admin') }}">Home</a>
+       <a href="{{ route('admin.user.index') }}">Users</a>
+       <a href="{{ route('admin.restaurant.index') }}">Restaurant</a>
+       <a href="{{ route('admin.consumable.index') }}">Consumable</a>
+       <a href="{{ route('admin.order.index') }}">Order</a>
+      </div>
+
+  </div>
+@endsection

@@ -65,7 +65,7 @@ class OrderController extends Controller
                 array_push($orders, Order::where('id', $order->id)->with('consumables')->get()[0]);
             }
         }
-
+        dd($orders);
         // return order
         return view('admin.order.index',[
            'restaurant' => $restaurant,

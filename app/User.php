@@ -12,6 +12,21 @@ use App\Order;
 
 class User extends Authenticatable
 {
+
+    public function restaurants()
+    {
+        return $this->hasMany('App\Restaurant');
+    }
+    public function orders()
+    {
+        return $this->hasMany('App\Order');
+    }
+
+    public function consumables()
+    {
+        return $this->hasMany('App\Consumable');
+    }
+
     use Notifiable;
 
     /**
@@ -41,17 +56,4 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function restaurants()
-    {
-        return $this->hasMany('App\Restaurant');
-    }
-    public function orders()
-    {
-        return $this->hasMany('App\Order');
-    }
-
-    public function consumables()
-    {
-        return $this->hasMany('App\Consumable');
-    }
 }

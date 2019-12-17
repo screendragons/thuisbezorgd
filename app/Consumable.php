@@ -9,10 +9,6 @@ use DB;
 
 class Consumable extends Model
 {
-    protected $fillable =
-    [
-        'title', 'price', 'category',
-    ];
 
     protected $table = 'consumable';
 
@@ -25,6 +21,11 @@ class Consumable extends Model
     {
         return $this->belongsTo('App\Restaurant');
     }
+
+    protected $fillable =
+    [
+        'title', 'price', 'category',
+    ];
 
 
 }
