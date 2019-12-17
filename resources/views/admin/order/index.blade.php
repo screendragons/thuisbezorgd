@@ -49,13 +49,7 @@
       <h5>{{$user->first_name}} has no orders</h5>
     @endif
       {{-- sidebar --}}
-      <div class="sidenav padding">
-       <a href="{{ url('/admin') }}">Home</a>
-       <a href="{{ route('admin.user.index') }}">Users</a>
-       <a href="{{ route('admin.restaurant.index') }}">Restaurant</a>
-       <a href="{{ route('admin.consumable.index') }}">Consumable</a>
-       <a href="{{ route('admin.order.index') }}">Order</a>
-      </div>
+      @extends('partials.sidebar')
 
   </div>
 @endsection

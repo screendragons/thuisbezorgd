@@ -4,12 +4,6 @@
 @section('content')
 
   <div class="container padding">
-    <ul class="navbar-nav bg-gradient-primary sidebar" id="accordionSidebar">
-    </ul>
-    <div class="container-fluid">
-      <div class="row">
-      </div>
-    </div>
 
     <h2 class="table">Restaurants</h2>
     <table class="table">
@@ -66,11 +60,6 @@
   </div>
 
   {{-- Sidebar --}}
-  <div class="sidenav padding">
-   <a href="{{ url('/admin') }}">Home</a>
-   <a href="{{ route('admin.user.index') }}">Users</a>
-   <a href="{{ route('admin.restaurant.index') }}">Restaurant</a>
-   <a href="{{ route('admin.consumable.index') }}">Consumable</a>
-   <a href="{{ route('admin.order.index') }}">Order</a>
-  </div>
+  @extends('partials.sidebar')
+
 @endsection

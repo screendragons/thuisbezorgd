@@ -19,12 +19,12 @@ class ConsumableController extends Controller
      */
     public function index()
     {
-        // dd('test');
+        // dd($consumable);
 
         //show consumables
-        $consumables = Consumable::get()->all();
+        $consumable = Consumable::get()->all();
         return view('admin.consumable.index')
-            ->with('consumables', $consumables);
+            ->with('consumable', $consumable);
     }
 
     /**
@@ -81,7 +81,7 @@ class ConsumableController extends Controller
     public function update(Request $request, $id)
     {
         $consumable = Consumable::findOrFail($id);
-        $consumable->title = $request->name;
+        $consumable->title = $request->title;
         $consumable->price = $request->price;
         $consumable->category = $request->category;
         $consumable->save();

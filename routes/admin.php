@@ -13,8 +13,7 @@ Route::resource('admin/order', 'OrderController' , ['as' => 'admin']);
 // adminController
 Route::resource('admin', 'AdminController');
 
-
-Route::resource('admin/consumable', 'ConsumableController', ['as' => 'admin']);
+Route::resource('admin/consumable/index', 'ConsumableController', ['as' => 'admin']);
 
 // restaurants
 // Route::get('admin/restaurant/index', 'AdminController@indexRestaurant')->name('admin.restaurant.index');

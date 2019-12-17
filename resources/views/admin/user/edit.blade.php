@@ -83,4 +83,8 @@
 
     </form>
   </div>
+
+  {{-- sidebar --}}
+  @extends('partials.sidebar')
+
 @endsection
