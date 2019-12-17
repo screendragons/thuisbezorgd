@@ -57,6 +57,7 @@ class OrderController extends Controller
     {
         // Get the current logged in user with his restaurants and orders
         $restaurant = Restaurant::where('id', $id)->with('restaurants', 'orders')->get()[0];
+
         // Create an empty orders array
         $orders = [];
         if (count($restaurant->orders)) {
@@ -65,12 +66,13 @@ class OrderController extends Controller
                 array_push($orders, Order::where('id', $order->id)->with('consumables')->get()[0]);
             }
         }
-        dd($orders);
+
         // return order
         return view('admin.order.index',[
            'restaurant' => $restaurant,
            'orders' => $orders
        ]);
+
     }
 
     /**

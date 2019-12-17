@@ -9,17 +9,23 @@
     <div class="orders">
       @foreach($orders as $key => $order)
         @foreach($order->consumables as $consumable)
+          {{-- {{dd($order->restaurant->name)}} --}}
           <div class="col-md-3 container ">
             <div class="form-group">
               <label for="title">
                 <h4> Order {{$key + 1}} </h4>
               </label>
               <br>
-              {{-- <h6 class="card-subtitle mb-2">{{$order->restaurant->name}}</h6> --}}
+              <label for="title">
+                Restaurant
+              </label>
+              {{$order->restaurant->name}}
+              <br>
 
               <label for="title">
-                {{ $consumable->title }}
+                Title
               </label>
+              {{ $consumable->title }}
               <br>
 
               <label for="price">
