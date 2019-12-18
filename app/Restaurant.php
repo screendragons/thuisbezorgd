@@ -36,7 +36,7 @@ class Restaurant extends Model
      */
     protected $fillable =
     [
-        'name', 'KVK', 'address', 'zipcode', 'city',  'phone', 'email', 'is_open', 'is_closed'
+        'name', 'KVK', 'address', 'zipcode', 'city',  'phone', 'email', 'is_open', 'is_closed',
     ];
 
 

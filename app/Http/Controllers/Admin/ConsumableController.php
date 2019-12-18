@@ -19,12 +19,10 @@ class ConsumableController extends Controller
      */
     public function index()
     {
-        // dd($consumable);
-
         //show consumables
-        $consumable = Consumable::get()->all();
+        $consumables = Consumable::get()->all();
         return view('admin.consumable.index')
-            ->with('consumable', $consumable);
+            ->with('consumables', $consumables);
     }
 
     /**

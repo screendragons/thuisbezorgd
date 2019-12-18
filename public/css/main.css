@@ -84,3 +84,7 @@ input#message {
 {
   padding-left: 100px;
 }
+
+.font {
+  font-size: 14px !important;
+}

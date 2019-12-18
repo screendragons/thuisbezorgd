@@ -1,9 +1,9 @@
-@extends('partials.header')
-@extends('layouts.default')
+@include('partials.header')
+@include('layouts.default')
+{{--
+@section('content') --}}
 
-@section('content')
-
-  <div class="container padding">
+  <div class="container padding font">
 
     <h2 class="table">Consumables</h2>
     <table class="table">
@@ -19,7 +19,7 @@
       </thead>
 
       <tbody>
-        @foreach($consumable as $consumable)
+        @foreach($consumables as $consumable)
           <tr>
             <td>{{ $consumable->id }}</td>
             <td>{{ $consumable->restaurant_id }}</td>
@@ -27,13 +27,16 @@
             <td>{{ $consumable->price }}</td>
             <td>{{ $consumable->category }}</td>
 
-            {{ dd()}}
+            {{-- {{ dd($consumables)}} --}}
             <td>
-              <a href="{{ route('admin.consumable.edit', ['consumable' => $consumable->id]) }}"class="btn btn-primary">Edit</a>
+              <a href="{{ route('admin.consumable.edit', ['consumable' => $consumable->id]) }}"class="btn btn-primary">
+                Edit
+              </a>
             </td>
+
             <td>
               {!! Form::open(['route' => ['admin.consumable.destroy', $consumable->id]]) !!}
-                <button  style="margin-left:  5px;" type="submit" class="float-md-right btn btn-danger">
+                <button type="submit" class="float-md-right btn btn-danger">
                   Delete
                 </button>
                 @method('delete')
@@ -47,6 +50,7 @@
   </div>
 
   {{-- sidebar --}}
-  @extends('partials.sidebar')
+  @include('partials.sidebar')
+{{--
+@endsection --}}
 
-@endsection

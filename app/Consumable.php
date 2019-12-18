@@ -10,8 +10,6 @@ use DB;
 class Consumable extends Model
 {
 
-    protected $table = 'consumable';
-
 	public function user()
     {
         return $this->belongsTo('App\User');
@@ -21,6 +19,8 @@ class Consumable extends Model
     {
         return $this->belongsTo('App\Restaurant');
     }
+
+    protected $table = 'consumable';
 
     protected $fillable =
     [

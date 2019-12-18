@@ -90,7 +90,7 @@
       </div>
     @endif
 
-    @if (Auth::user()->is_admin == 1)
+    @if (Auth::user() == true && Auth::user()->is_admin == true)
       {{-- Consumables --}}
       @foreach($restaurant->consumable as $consumable)
         <div class="col-md-3 container edit-consumable">
@@ -122,32 +122,37 @@
               {{ $consumable->category }}
             </div>
 
-            <div>
-              <button type="submit" class="btn btn-primary">
-                <a href="{{URL::to('consumable')}}/{{$consumable->id}}/edit">
-                  Edit
-                </a>
-              </button>
-            </div>
-            <br>
+            @if (Auth::user()->is_admin == 1)
+              <div>
+                <button type="submit" class="btn btn-primary">
+                  <a href="{{URL::to('consumable')}}/{{$consumable->id}}/edit">
+                    Edit
+                  </a>
+                </button>
+              </div>
+              <br>
+            @endif
             {{--  Order button --}}
             <div>
               <a href="{{Route('cart.add', ['id' => $consumable->id])}}" class="add-to-cart btn btn-primary" type="button" class="btn btn-primary btn-sm">Order</a>
             </div>
             <br>
-            {{-- delete button --}}
-            <div>
-              <div>
-                <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$consumable['id']}}').submit();">
-                  Delete
-                </a>
 
-               <form id="remove-form-{{$consumable['id']}}" action="{{route('consumable.destroy', ['restaurant_id' => $restaurant->id, 'consumable' => $consumable->id])}}" method="POST" style="display: none;">
-                 @csrf
-                 @method('DELETE')
-                </form>
+            {{-- delete button --}}
+            @if (Auth::user()->is_admin == 1)
+              <div>
+                <div>
+                  <a class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('remove-form-{{$consumable['id']}}').submit();">
+                    Delete
+                  </a>
+
+                 <form id="remove-form-{{$consumable['id']}}" action="{{route('consumable.destroy', ['restaurant_id' => $restaurant->id, 'consumable' => $consumable->id])}}" method="POST" style="display: none;">
+                   @csrf
+                   @method('DELETE')
+                  </form>
+                </div>
               </div>
-            </div>
+            @endif
 
           </form>
         </div>
