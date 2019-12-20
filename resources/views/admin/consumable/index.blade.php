@@ -28,12 +28,15 @@
             <td>{{ $consumable->category }}</td>
 
             {{-- {{ dd($consumables)}} --}}
+
+            {{--  Edit button --}}
             <td>
               <a href="{{ route('admin.consumable.edit', ['consumable' => $consumable->id]) }}"class="btn btn-primary">
                 Edit
               </a>
             </td>
 
+            {{-- Delete button --}}
             <td>
               {!! Form::open(['route' => ['admin.consumable.destroy', $consumable->id]]) !!}
                 <button type="submit" class="float-md-right btn btn-danger">

@@ -23,6 +23,7 @@ class OrderController extends Controller
         $orders = Order::get()->all();
         return view('admin.order.index')
           ->with('orders', $orders);
+        // dd($orders);
     }
 
     /**

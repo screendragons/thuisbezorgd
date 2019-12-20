@@ -41,15 +41,18 @@
 
            {{--  Edit button --}}
             <td>
-              <a href="{{ route('admin.restaurant.edit', ['restaurant' => $restaurant->id]) }}"class="btn btn-primary">Edit</a>
+              <a href="{{ route('admin.restaurant.edit', ['restaurant' => $restaurant->id]) }}"class="btn btn-primary">
+                Edit
+              </a>
             </td>
 
             {{-- Delete button --}}
             <td>
               {!! Form::open(['route' => ['admin.restaurant.destroy', $restaurant->id]]) !!}
-              <button  style="margin-left:  5px;" type="submit" class="float-md-right btn btn-danger">
-              Delete</button>
-               @method('delete')
+                <button type="submit" class="float-md-right btn btn-danger">
+                  Delete
+                </button>
+                @method('delete')
               {!! Form::close() !!}
             </td>
           </tr>

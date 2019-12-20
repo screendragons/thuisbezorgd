@@ -9,7 +9,6 @@
     <div class="orders">
       @foreach($orders as $key => $order)
         @foreach($order->consumables as $consumable)
-          {{-- {{dd($order->restaurant->name)}} --}}
           <div class="col-md-3 container ">
             <div class="form-group">
               <label for="title">
@@ -19,7 +18,7 @@
               <label for="title">
                 Restaurant
               </label>
-              {{$order->restaurant->name}}
+              {{@$order->restaurant->name}}
               <br>
 
               <label for="title">
@@ -48,6 +47,7 @@
       @else
       <h5>{{$user->first_name}} has no orders</h5>
     @endif
+
       {{-- sidebar --}}
       @extends('partials.sidebar')
 
